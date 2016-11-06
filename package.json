@@ -1,0 +1,20 @@
+{
+  "scripts": {
+    "build": "jspm bundle lib/main dist/main.js",
+    "start": "http-server",
+    "test": "tsc -p . && mocha"
+  },
+  "jspm": {
+    "format": "es6",
+    "devDependencies": {
+      "tsc": "npm:tsc@^1.20150623.0",
+      "typescript": "npm:typescript@^1.6.2"
+    }
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.1.2",
+    "mocha-typescript": "^1.0.11",
+    "typescript": "^2.0.7"
+  }
+}
