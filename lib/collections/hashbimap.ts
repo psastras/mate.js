@@ -29,10 +29,10 @@ class BiEntry<K, V> extends ImmutableEntry<K, V> {
 export default class HashBiMap<K, V> implements BiMap<K, V> {
 
   size: number;
-  private hashTableKToV: Array<BiEntry<K, V>>
-  private hashTableVToK: Array<BiEntry<K, V>>
-  private firstInKeyInsertionOrder: BiEntry<K, V>
-  private lastInKeyInsertionOrder: BiEntry<K, V>
+  private hashTableKToV: Array<BiEntry<K, V>>;
+  private hashTableVToK: Array<BiEntry<K, V>>;
+  private firstInKeyInsertionOrder: BiEntry<K, V>;
+  private lastInKeyInsertionOrder: BiEntry<K, V>;
   private mask: number;
   private modCount: number;
 
