@@ -7,6 +7,9 @@
   },
   "jspm": {
     "format": "es6",
+    "dependencies": {
+      "lodash": "npm:lodash@^4.16.6"
+    },
     "devDependencies": {
       "tsc": "npm:tsc@^1.20150623.0",
       "typescript": "npm:typescript@^1.6.2"

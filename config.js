@@ -14,6 +14,7 @@ System.config({
   },
 
   map: {
+    "lodash": "npm:lodash@4.16.6",
     "mocha-typescript": "npm:mocha-typescript@1.0.11",
     "tsc": "npm:tsc@1.20150623.0",
     "typescript": "npm:typescript@1.8.10",
