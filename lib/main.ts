@@ -1,5 +1,5 @@
-export class Hello {
-  world(): string {
-    return "world";
-  }
-}
+import Numbers from "./primitives/numbers"
+
+export {
+  Numbers
+};

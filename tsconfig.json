@@ -1,11 +1,15 @@
 {
   "compilerOptions": {
-      "module": "commonjs",
-      "removeComments": false,
-      "preserveConstEnums": true,
-      "sourceMap": true,
-      "experimentalDecorators": true,
-      "declaration": true,
-      "outDir": ".build/"
+    "module": "commonjs",
+    "target": "es6",
+    "removeComments": false,
+    "preserveConstEnums": true,
+    "sourceMap": true,
+    "experimentalDecorators": true,
+    "declaration": true,
+    "outDir": ".build/",
+    "baseUrl": "lib",
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "node"
   }
 }
