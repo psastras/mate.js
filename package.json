@@ -1,8 +1,9 @@
 {
   "scripts": {
     "build": "jspm bundle lib/main dist/main.js",
+    "doc": "typedoc --out .build/doc ./lib",
     "start": "http-server",
-    "test": "tsc -p . && mocha"
+    "test": "rimraf .build && tsc -p . && mocha"
   },
   "jspm": {
     "format": "es6",
@@ -15,6 +16,8 @@
     "chai": "^3.5.0",
     "mocha": "^3.1.2",
     "mocha-typescript": "^1.0.11",
+    "rimraf": "^2.5.4",
+    "typedoc": "^0.5.1",
     "typescript": "^2.0.7"
   }
 }
