@@ -1,3 +1,4 @@
+import * as _ from 'lodash';
 import BiMap from './bimap';
 import ImmutableEntry from './immutableentry';
 import Hashing from './hashing';
@@ -28,7 +29,7 @@ class BiEntry<K, V> extends ImmutableEntry<K, V> {
  */
 export default class HashBiMap<K, V> implements BiMap<K, V> {
 
-  size: number;
+  private _size: number;
   private hashTableKToV: Array<BiEntry<K, V>>;
   private hashTableVToK: Array<BiEntry<K, V>>;
   private firstInKeyInsertionOrder: BiEntry<K, V>;
@@ -47,7 +48,7 @@ export default class HashBiMap<K, V> implements BiMap<K, V> {
     this.hashTableVToK = this.createTable(tableSize);
     this.firstInKeyInsertionOrder = null;
     this.lastInKeyInsertionOrder = null;
-    this.size = 0;
+    this._size = 0;
     this.mask = tableSize - 1;
     this.modCount = 0;
   }
@@ -56,7 +57,7 @@ export default class HashBiMap<K, V> implements BiMap<K, V> {
     const entry = this.seekByKey(key, Hashing.smearedHash(key));
     return entry ? entry.value : null;
   }
-  
+
   set(key: K, value: V, force: boolean = false): this {
     this.putInverse(value, key, force)
     return this;
@@ -77,7 +78,7 @@ export default class HashBiMap<K, V> implements BiMap<K, V> {
   has(key: K): boolean {
     return !!this.seekByKey(key, Hashing.smearedHash(key));
   }
-  
+
   entries(): IterableIterator<[K, V]> {
     return new Array<[K, V]>().values();
   }
@@ -88,6 +89,10 @@ export default class HashBiMap<K, V> implements BiMap<K, V> {
 
   values(): IterableIterator<V> {
     return new Array<V>().values();
+  }
+
+  get size(): number {
+    return this._size;
   }
 
   forEach(callbackfn: (value: V, index: K, map: Map<K, V>) => void, thisArg?: any): void {
@@ -105,7 +110,12 @@ export default class HashBiMap<K, V> implements BiMap<K, V> {
   }
 
   clear(): void {
-    
+    this._size = 0;
+    _.fill(this.hashTableKToV, null);
+    _.fill(this.hashTableVToK, null);
+    this.firstInKeyInsertionOrder = null;
+    this.lastInKeyInsertionOrder = null;
+    this.modCount++;
   }
 
   /**
@@ -115,7 +125,7 @@ export default class HashBiMap<K, V> implements BiMap<K, V> {
    */
   private remove(entry: BiEntry<K, V>): void {
     const keyBucket = entry.keyHash & this.mask;
-    let prevBucketEntry = null; 
+    let prevBucketEntry = null;
     for (let bucketEntry = this.hashTableKToV[keyBucket];
          true;
          bucketEntry = bucketEntry.nextInKToVBucket) {
@@ -158,7 +168,7 @@ export default class HashBiMap<K, V> implements BiMap<K, V> {
       entry.nextInKeyInsertionOrder.prevInKeyInsertionOrder = entry.prevInKeyInsertionOrder;
     }
 
-    this.size--;
+    this._size--;
     this.modCount++;
   }
 
@@ -195,13 +205,13 @@ export default class HashBiMap<K, V> implements BiMap<K, V> {
       }
     }
 
-    this.size++;
+    this._size++;
     this.modCount++;
   }
 
   private seekByKey(key: K, keyHash: number): BiEntry<K, V> {
-    for (let entry = this.hashTableKToV[keyHash & this.mask]; 
-             !!entry; 
+    for (let entry = this.hashTableKToV[keyHash & this.mask];
+             !!entry;
              entry = entry.nextInKToVBucket) {
       if (keyHash === entry.keyHash && Objects.isEqual(key, entry.key)) {
         return entry;
@@ -211,8 +221,8 @@ export default class HashBiMap<K, V> implements BiMap<K, V> {
   }
 
   private seekByValue(value: V, valueHash: number): BiEntry<K, V> {
-    for (let entry = this.hashTableVToK[valueHash & this.mask]; 
-             !!entry; 
+    for (let entry = this.hashTableVToK[valueHash & this.mask];
+             !!entry;
              entry = entry.nextInVToKBucket) {
       if (valueHash === entry.valueHash && Objects.isEqual(value, entry.value)) {
         return entry;
@@ -226,7 +236,7 @@ export default class HashBiMap<K, V> implements BiMap<K, V> {
     const keyHash = Hashing.smearedHash(key);
 
     const oldEntryForValue = this.seekByValue(value, valueHash);
-    if (oldEntryForValue && keyHash === oldEntryForValue.keyHash 
+    if (oldEntryForValue && keyHash === oldEntryForValue.keyHash
         && Objects.isEqual(key, oldEntryForValue.key)) {
       return key;
     }
@@ -261,7 +271,7 @@ export default class HashBiMap<K, V> implements BiMap<K, V> {
       this.hashTableKToV = this.createTable(newTableSize);
       this.hashTableVToK = this.createTable(newTableSize);
       this.mask = newTableSize - 1;
-      this.size = 0;
+      this._size = 0;
 
       for (let entry = this.firstInKeyInsertionOrder;
            !!entry;
