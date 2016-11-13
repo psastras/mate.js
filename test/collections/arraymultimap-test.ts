@@ -90,6 +90,10 @@ import ArrayMultimap from '../../lib/collections/arraymultimap';
     expect(itr.next()).to.deep.eq({ value: ['bar', [2]], done: false });
     expect(itr.next()).to.deep.eq({ value: ['too', [4]], done: false });
     expect(itr.next()).to.deep.eq({ value: undefined, done: true });
+
+    let i = 0;
+    for (let entry of map.entries()) i++;
+    expect(i).to.eq(3);
   }
 
   @test 'should be able to iterate through the keys'() {
@@ -102,6 +106,10 @@ import ArrayMultimap from '../../lib/collections/arraymultimap';
     expect(itr.next()).to.deep.eq({ value: 'bar', done: false });
     expect(itr.next()).to.deep.eq({ value: 'too', done: false });
     expect(itr.next()).to.deep.eq({ value: undefined, done: true });
+
+    let i = 0;
+    for (let key of map.keys()) i++;
+    expect(i).to.eq(3);
   }
 
   @test 'should be able to iterate through the values'() {
@@ -114,5 +122,20 @@ import ArrayMultimap from '../../lib/collections/arraymultimap';
     expect(itr.next()).to.deep.eq({ value: [2], done: false });
     expect(itr.next()).to.deep.eq({ value: [4], done: false });
     expect(itr.next()).to.deep.eq({ value: undefined, done: true });
+
+    let i = 0;
+    for (let value of map.values()) i++;
+    expect(i).to.eq(3);
+  }
+
+  @test 'should be able to apply a function to a map'() {
+    const map = new ArrayMultimap<string, number>()
+      .set('foo', 3)
+      .set('bar', 2)
+      .set('too', 4);
+    
+    const values = [];
+    map.forEach((val, idx, map) => { values.push(val) });
+    expect(values).to.deep.eq([[3], [2], [4]]);
   }
 }
