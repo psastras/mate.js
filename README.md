@@ -12,11 +12,10 @@ Not yet, sorry.
 
 ## Development
 
-Install dependencies and type definitions
+Install dependencies
 
 ```shell
 yarn install
-typings install
 ```
 
 Running tests

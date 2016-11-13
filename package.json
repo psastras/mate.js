@@ -6,7 +6,10 @@
     "doc": "typedoc --out .build/doc --readme README.md ./lib",
     "start": "http-server",
     "watch": "gulp",
-    "test": "rimraf .build && tsc -p . && mocha --reporter mocha-junit-reporter"
+    "pretest": "rimraf .build && tsc -p .",
+    "test": "nyc mocha --reporter mocha-junit-reporter",
+    "posttest": "nyc report --reporter=json && codecov -f coverage/*.json",
+    "postinstall": "typings install"
   },
   "jspm": {
     "format": "es6",
@@ -20,6 +23,7 @@
   },
   "devDependencies": {
     "chai": "^3.5.0",
+    "codecov": "^1.0.1",
     "gulp": "^3.9.1",
     "gulp-batch": "^1.0.5",
     "gulp-mocha": "^3.0.1",
@@ -29,8 +33,10 @@
     "mocha": "^3.1.2",
     "mocha-junit-reporter": "^1.12.1",
     "mocha-typescript": "^1.0.11",
+    "nyc": "^8.4.0",
     "rimraf": "^2.5.4",
     "typedoc": "^0.5.1",
-    "typescript": "^2.0.7"
+    "typescript": "^2.0.7",
+    "typings": "^2.0.0"
   }
 }
