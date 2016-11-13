@@ -21,9 +21,9 @@ dependencies:
     - yarn install
 test:
   override:
-    - yarn test
-      environment:
-        MOCHA_FILE: $CIRCLE_TEST_REPORTS/junit/test-results.xml
+    - yarn test:
+        environment:
+          MOCHA_FILE: $CIRCLE_TEST_REPORTS/junit/test-results.xml
 deployment:
   pages:
     branch: master
