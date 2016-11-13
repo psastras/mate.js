@@ -1,3 +1,0 @@
-instrumentation:
-  default-excludes: true
-  excludes: ['**/test/**']

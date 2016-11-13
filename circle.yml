@@ -22,11 +22,9 @@ dependencies:
     - yarn install
 test:
   override:
-    - yarn test:
+    - npm run citest:
         environment:
           MOCHA_FILE: $CIRCLE_TEST_REPORTS/junit/test-results.xml
-  post:
-    - bash <(curl -s https://codecov.io/bash)
 deployment:
   pages:
     branch: master

@@ -7,9 +7,18 @@
     "start": "http-server",
     "watch": "gulp",
     "pretest": "rimraf .build && tsc -p .",
-    "test": "nyc mocha --reporter mocha-junit-reporter",
-    "posttest": "nyc report --reporter=json && codecov -f coverage/*.json",
+    "test": "nyc mocha --reporter dot",
+    "precitest": "rimraf .build && tsc -p .",
+    "citest": "nyc mocha --reporter mocha-junit-reporter",
+    "postcitest": "nyc report --reporter=json && codecov -f coverage/*.json",
     "postinstall": "typings install"
+  },
+  "nyc": {
+    "exclude": [
+      "test",
+      ".build/test",
+      "node_modules"
+    ]
   },
   "jspm": {
     "format": "es6",
