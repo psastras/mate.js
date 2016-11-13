@@ -1,10 +1,19 @@
+/**
+ * A Collection describes a group of items.  This is primarily used by other, collection
+ * base primitives to allow changing the underlying implementation of backing stores.
+ * 
+ * @param T The type being stored
+ */
 interface Collection<T> {
 
+  /**
+   * The number of elements in the collection.
+   */
   readonly length: number;
 
   /**
   * Appends new elements to a collection, and returns the new length of the collection.
-  * @param items New elements of the Collection.
+  * @param items New elements of the collection.
   */
   push(...items: T[]): number;
 

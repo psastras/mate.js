@@ -1,7 +1,14 @@
 import Collection from './collection';
 import Multimap from './multimap';
 
-/** @inheritdoc */
+/**
+ * A {@link Multimap} which implements several methods using {@link Multimap.asMap}.
+ * Subclasses only need to implment {@link AbstractMultimap.asMap} and 
+ * {@link AbstractMultimap._createCollection}.
+ * 
+ * @param K The key type
+ * @param V The value type
+ */
 abstract class AbstractMultimap<K, V> implements Multimap<K, V> {
 
   /**

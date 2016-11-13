@@ -1,5 +1,8 @@
 /**
  * Represents an immutable key value pair.
+ * 
+ * @param K The key type
+ * @param V The value type
  */
 export default class ImmutableEntry<K, V> {
   readonly key: K;
