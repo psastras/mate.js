@@ -1,10 +1,16 @@
-# mate.js [![CircleCI](https://circleci.com/gh/psastras/mate.js/tree/master.svg?style=svg)](https://circleci.com/gh/psastras/mate.js/tree/master)
+# mate.js
 
+[![CircleCI](https://circleci.com/gh/psastras/mate.js.svg?style=shield&circle-token=:circle-ci-badge-token)](https://circleci.com/gh/psastras/mate.js/tree/master)
 [![codecov](https://codecov.io/gh/psastras/mate.js/branch/master/graph/badge.svg)](https://codecov.io/gh/psastras/mate.js)
 
-_Core utilities and primitives for javascript, based off of Google's [Guava](https://github.com/google/guava) library._
+![Alt text](./icon.png?raw=true "mate.js")
 
-[https://psastras.github.io/mate.js/](https://psastras.github.io/mate.js/)
+_Core primitives and utilities for javascript and typescript, based off of Google's [Guava](https://github.com/google/guava) library._
+
+## Links
+
+- [GitHub](https://github.com/psastras/mate.js)
+- [Documentation](https://psastras.github.io/mate.js/)
 
 ## Installation
 
