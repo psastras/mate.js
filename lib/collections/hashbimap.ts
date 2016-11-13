@@ -4,16 +4,39 @@ import ImmutableEntry from './immutableentry';
 import Hashing from './hashing';
 import Objects from '../primitives/objects';
 
+/**
+ * The expected load of the map.  {@link HashBiMap} do not support changing load factors, so 
+ * this is a constant.
+ */
 const LOAD_FACTOR = 1.0;
 
+/**
+ * An internal class used to hold a map entry and the next and previous entries as well as the
+ * hash values.
+ * 
+ * @param K The key type
+ * @param V The value type
+ */
 export class BiEntry<K, V> extends ImmutableEntry<K, V> {
   readonly keyHash: number;
   readonly valueHash: number;
 
+  /**
+   * Link to the next entry in the KtoV list
+   */
   nextInKToVBucket: BiEntry<K, V>;
+  /**
+   * Link to the next entry in the VtoK list
+   */
   nextInVToKBucket: BiEntry<K, V>;
 
+  /**
+   * Link to the next entry which was inserted
+   */
   nextInKeyInsertionOrder: BiEntry<K, V>;
+  /**
+   * Link to the previous entry which was inserted
+   */
   prevInKeyInsertionOrder: BiEntry<K, V>;
 
   constructor(key: K, keyHash: number, value: V, valueHash: number) {
@@ -26,6 +49,28 @@ export class BiEntry<K, V> extends ImmutableEntry<K, V> {
 /**
  * A {@link BiMap} backed by two hash tables. This implementation guarantees insertion-based
  * iteration order of its keys.
+ * 
+ * Example usage
+ * ```
+ * const map = new HashBiMap<string, number>()
+ *  .set('foo', 3)
+ *  .set('bar', 2);
+ * 
+ * map.get('foo'); // 3
+ * map.hasValue(2); // true
+ * 
+ * // get a reference to the inverted map (number to string)
+ * const inverse = map.inverse();
+ * inverse.get(3); // "foo"
+ * inverse.delete(2); // true
+ * 
+ * map.get('bar'); // null
+ * inverse.get(2); // null
+ * 
+ * ```
+ * 
+ * @param K The key type
+ * @param V The value type
  */
 export default class HashBiMap<K, V> implements BiMap<K, V> {
 
@@ -243,12 +288,14 @@ export default class HashBiMap<K, V> implements BiMap<K, V> {
    * @param entry The entry to delete from the lists.
    */
   _remove(entry: BiEntry<K, V>): void {
+    // check if the entry exists in the KtoV list
     const keyBucket = entry.keyHash & this.mask;
     let prevBucketEntry = null;
     for (let bucketEntry = this.hashTableKToV[keyBucket];
          true;
-         bucketEntry = bucketEntry.nextInKToVBucket) {
+         bucketEntry = bucketEntry.nextInKToVBucket) { // start at the hash location and scan
       if (bucketEntry === entry) {
+        // remove the entry from the list 
         if (!prevBucketEntry) {
           this.hashTableKToV[keyBucket] = entry.nextInKToVBucket;
         } else {
@@ -259,12 +306,14 @@ export default class HashBiMap<K, V> implements BiMap<K, V> {
       prevBucketEntry = bucketEntry;
     }
 
+    // check if the entry exists in the VtoK list
     const valueBucket = entry.valueHash & this.mask;
     prevBucketEntry = null;
     for (let bucketEntry = this.hashTableVToK[keyBucket];
          true;
-         bucketEntry = bucketEntry.nextInVToKBucket) {
+         bucketEntry = bucketEntry.nextInVToKBucket) { // start at the hash location and scan
       if (bucketEntry === entry) {
+        // remove the entry from the list
         if (!prevBucketEntry) {
           this.hashTableVToK[valueBucket] = entry.nextInVToKBucket;
         } else {
@@ -275,12 +324,14 @@ export default class HashBiMap<K, V> implements BiMap<K, V> {
       prevBucketEntry = bucketEntry;
     }
 
+    // if the last entry inserted was removed, update the head pointer
     if (!entry.prevInKeyInsertionOrder) {
       this.firstInKeyInsertionOrder = entry.nextInKeyInsertionOrder;
     } else {
       entry.prevInKeyInsertionOrder.nextInKeyInsertionOrder = entry.nextInKeyInsertionOrder;
     }
 
+    // if the last entry inserted was removed, update the tail pointer
     if (!entry.nextInKeyInsertionOrder) {
       this.lastInKeyInsertionOrder = entry.prevInKeyInsertionOrder;
     } else {
@@ -290,36 +341,53 @@ export default class HashBiMap<K, V> implements BiMap<K, V> {
     this._size--;
     this.modCount++;
   }
-
+  
+  /**
+   * Inserts an entry into the map.  If an old entry for the key is provided, the new entries'
+   * pointers are updated to match the old entries' pointers.
+   * @param entry The entry to insert
+   * @param oldEntryForKey The old entry being replaced
+   */
   private insert(entry: BiEntry<K, V>, oldEntryForKey: BiEntry<K, V>): void {
+    // insert entry into the KtoV list
     const keyBucket = entry.keyHash & this.mask;
     entry.nextInKToVBucket = this.hashTableKToV[keyBucket];
     this.hashTableKToV[keyBucket] = entry;
 
+    // insert entry into the VtoK list
     const valueBucket = entry.valueHash & this.mask;
     entry.nextInVToKBucket = this.hashTableVToK[valueBucket];
     this.hashTableVToK[valueBucket] = entry;
 
+    // if there is no pre-existing key / entry
     if (!oldEntryForKey) {
+      // add entry to the tail
       entry.prevInKeyInsertionOrder = this.lastInKeyInsertionOrder;
       entry.nextInKeyInsertionOrder = null;
       if (!this.lastInKeyInsertionOrder) {
+        // if the map was empty, add entry to the head as well
         this.firstInKeyInsertionOrder = entry;
       } else {
+        // else update the previous tail's next pointer
         this.lastInKeyInsertionOrder.nextInKeyInsertionOrder = entry;
       }
       this.lastInKeyInsertionOrder = entry;
     } else {
+      // insert the new entry where the old entry was
       entry.prevInKeyInsertionOrder = oldEntryForKey.prevInKeyInsertionOrder;
       if (!entry.prevInKeyInsertionOrder) {
+        // if the old entry was the head, update the head pointer
         this.firstInKeyInsertionOrder = entry;
       } else {
+        // else update the entries' pointer
         entry.prevInKeyInsertionOrder.nextInKeyInsertionOrder = entry;
       }
       entry.nextInKeyInsertionOrder = oldEntryForKey.nextInKeyInsertionOrder;
       if (!entry.nextInKeyInsertionOrder) {
+        // if the old entry was the tail, udpate the tail pointer
         this.lastInKeyInsertionOrder = entry;
       } else {
+        // else update the entries' pointer
         entry.nextInKeyInsertionOrder.prevInKeyInsertionOrder = entry;
       }
     }
@@ -328,6 +396,12 @@ export default class HashBiMap<K, V> implements BiMap<K, V> {
     this.modCount++;
   }
 
+  /**
+   * Seeks for an entry with the given key, starting at the key's hash value in the list.
+   * @param K The key to look for
+   * @param keyHash The key's hash value
+   * @returns The corresponding entry if it exists, null otherwise
+   */
   private seekByKey(key: K, keyHash: number): BiEntry<K, V> {
     for (let entry = this.hashTableKToV[keyHash & this.mask];
              !!entry;
@@ -339,6 +413,12 @@ export default class HashBiMap<K, V> implements BiMap<K, V> {
     return null;
   }
 
+  /**
+   * Seeks for an entry with the given value, starting at the value's hash value in the list.
+   * @param V The value to look for
+   * @param valueHash The value's hash value
+   * @returns The corresponding entry if it exists, null otherwise
+   */
   _seekByValue(value: V, valueHash: number): BiEntry<K, V> {
     for (let entry = this.hashTableVToK[valueHash & this.mask]; 
              !!entry;
@@ -350,15 +430,26 @@ export default class HashBiMap<K, V> implements BiMap<K, V> {
     return null;
   }
 
+  /**
+   * Puts the key and value into the map and returns the old entry's key if an entry was replaced.
+   * @param V The value to insert
+   * @param K The key to insert
+   * @param force If true, will replace a pre-existing key.  If false, will throw an {@link Error} 
+   * on conflict
+   * @returns The old key if there was one, null otherwise
+   */
   _putInverse(value: V, key: K, force: boolean): K {
     const valueHash = Hashing.smearedHash(value);
     const keyHash = Hashing.smearedHash(key);
     const oldEntryForValue = this._seekByValue(value, valueHash);
+
+    // check if the value exists and is equal
     if (oldEntryForValue && keyHash === oldEntryForValue.keyHash 
         && Objects.isEqual(key, oldEntryForValue.key)) {
       return key;
     }
 
+    // if the key already exists, remove it if force is true
     const oldEntryForKey = this.seekByKey(key, keyHash);
     if (oldEntryForKey) {
       if (force) {
@@ -368,6 +459,7 @@ export default class HashBiMap<K, V> implements BiMap<K, V> {
       }
     }
 
+    // if the value already exists, remove it if force is true
     if (oldEntryForValue) {
       if (force) {
         this._remove(oldEntryForValue);
@@ -375,8 +467,11 @@ export default class HashBiMap<K, V> implements BiMap<K, V> {
         throw new Error(`value already present: ${value}`);
       }
     }
+
+    // add the new entry into the map
     const newEntry = new BiEntry<K, V>(key, keyHash, value, valueHash);
     this.insert(newEntry, oldEntryForKey);
+    // clean the old entry's pointers up
     if (oldEntryForKey) {
       oldEntryForKey.prevInKeyInsertionOrder = null;
       oldEntryForKey.nextInKeyInsertionOrder = null;
@@ -385,6 +480,10 @@ export default class HashBiMap<K, V> implements BiMap<K, V> {
     return oldEntryForValue ? oldEntryForValue.key : null;
   }
 
+  /**
+   * Resizes the internal list structures if necessary (if the number of elements is close to
+   * the number of buckets {@link Hashing.needsResizing}).
+   */
   private rehashIfNecessary(): void {
     const oldKToV = this.hashTableKToV;
     if (Hashing.needsResizing(this.size, oldKToV.length, LOAD_FACTOR)) {
@@ -404,6 +503,10 @@ export default class HashBiMap<K, V> implements BiMap<K, V> {
     }
   }
 
+  /**
+   * Allocates an array of {@link BiEntry}.
+   * @returns The created array
+   */
   private createTable(length: number): Array<BiEntry<K, V>> {
     return new Array<BiEntry<K, V>>(length);
   }

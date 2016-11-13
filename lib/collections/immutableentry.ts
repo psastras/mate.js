@@ -8,7 +8,7 @@ export default class ImmutableEntry<K, V> {
   /**
    * Constructs a new readonly key value pair.
    * @param key The key.
-   * @pram value The value.
+   * @param value The value.
    */
   constructor(key: K, value: V) {
     this.key = key;
