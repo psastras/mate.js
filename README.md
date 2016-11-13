@@ -1,6 +1,6 @@
-# mate.js
+# mate.js [![CircleCI](https://circleci.com/gh/psastras/mate.js/tree/master.svg?style=svg)](https://circleci.com/gh/psastras/mate.js/tree/master)
 
-[![CircleCI](https://circleci.com/gh/psastras/mate.js/tree/master.svg?style=svg)](https://circleci.com/gh/psastras/mate.js/tree/master)
+[![codecov](https://codecov.io/gh/psastras/mate.js/branch/master/graph/badge.svg)](https://codecov.io/gh/psastras/mate.js)
 
 _Core utilities and primitives for javascript, based off of Google's [Guava](https://github.com/google/guava) library._
 
