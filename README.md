@@ -1,4 +1,4 @@
-# mate.js
+# maté.js
 
 [![CircleCI](https://circleci.com/gh/psastras/mate.js.svg?style=shield&circle-token=:circle-ci-badge-token)](https://circleci.com/gh/psastras/mate.js/tree/master)
 [![codecov](https://codecov.io/gh/psastras/mate.js/branch/master/graph/badge.svg)](https://codecov.io/gh/psastras/mate.js)
@@ -17,6 +17,15 @@ _Core primitives and utilities for javascript and typescript, based off of Googl
 ## Installation
 
 Not yet, sorry.
+
+## Exported Classes
+
+### Collections
+
+- [ArrayMultimap](https://psastras.github.io/mate.js/classes/_collections_hashbimap_.arraymultimap.html) -
+a multimap backed by arrays for its values
+- [HashBiMap](https://psastras.github.io/mate.js/classes/_collections_hashbimap_.hashbimap.html) -
+a bidirectional map backed by two hash tables
 
 ## Development
 

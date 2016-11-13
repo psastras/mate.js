@@ -110,9 +110,9 @@ import HashBiMap from '../../lib/collections/hashbimap';
     expect(map.delete('foo')).to.be.false;
   }
 
-  @test 'should return null on retrieving non-existent keys'() {
+  @test 'should return undefined on retrieving non-existent keys'() {
     const map = new HashBiMap<string, number>();
-    expect(map.get('foo')).to.be.null;
+    expect(map.get('foo')).to.be.undefined;
   }
 
   @test 'should be able to invert the hash map'() {
@@ -148,7 +148,7 @@ import HashBiMap from '../../lib/collections/hashbimap';
     expect(itr.next()).to.deep.eq({ value: ['foo', 3], done: false });
     expect(itr.next()).to.deep.eq({ value: ['bar', 2], done: false });
     expect(itr.next()).to.deep.eq({ value: ['too', 4], done: false });
-    expect(itr.next()).to.deep.eq({ value: null, done: true });
+    expect(itr.next()).to.deep.eq({ value: undefined, done: true });
   }
 
   @test 'should be able to iterate through the keys'() {
@@ -160,7 +160,7 @@ import HashBiMap from '../../lib/collections/hashbimap';
     expect(itr.next()).to.deep.eq({ value: 'foo', done: false });
     expect(itr.next()).to.deep.eq({ value: 'bar', done: false });
     expect(itr.next()).to.deep.eq({ value: 'too', done: false });
-    expect(itr.next()).to.deep.eq({ value: null, done: true });
+    expect(itr.next()).to.deep.eq({ value: undefined, done: true });
   }
 
   @test 'should be able to iterate through the values'() {
@@ -172,7 +172,7 @@ import HashBiMap from '../../lib/collections/hashbimap';
     expect(itr.next()).to.deep.eq({ value: 3, done: false });
     expect(itr.next()).to.deep.eq({ value: 2, done: false });
     expect(itr.next()).to.deep.eq({ value: 4, done: false });
-    expect(itr.next()).to.deep.eq({ value: null, done: true });
+    expect(itr.next()).to.deep.eq({ value: undefined, done: true });
   }
 
   @test 'should be able to iterate through the inverse entries'() {
@@ -184,7 +184,7 @@ import HashBiMap from '../../lib/collections/hashbimap';
     expect(itr.next()).to.deep.eq({ value: [3, 'foo'], done: false });
     expect(itr.next()).to.deep.eq({ value: [2, 'bar'], done: false });
     expect(itr.next()).to.deep.eq({ value: [4, 'too'], done: false });
-    expect(itr.next()).to.deep.eq({ value: null, done: true });
+    expect(itr.next()).to.deep.eq({ value: undefined, done: true });
   }
 
   @test 'should be able to iterate through the inverse keys'() {
@@ -196,7 +196,7 @@ import HashBiMap from '../../lib/collections/hashbimap';
     expect(itr.next()).to.deep.eq({ value: 3, done: false });
     expect(itr.next()).to.deep.eq({ value: 2, done: false });
     expect(itr.next()).to.deep.eq({ value: 4, done: false });
-    expect(itr.next()).to.deep.eq({ value: null, done: true });
+    expect(itr.next()).to.deep.eq({ value: undefined, done: true });
   }
 
   @test 'should be able to iterate through the inverse values'() {
@@ -208,15 +208,15 @@ import HashBiMap from '../../lib/collections/hashbimap';
     expect(itr.next()).to.deep.eq({ value: 'foo', done: false });
     expect(itr.next()).to.deep.eq({ value: 'bar', done: false });
     expect(itr.next()).to.deep.eq({ value: 'too', done: false });
-    expect(itr.next()).to.deep.eq({ value: null, done: true });
+    expect(itr.next()).to.deep.eq({ value: undefined, done: true });
   }
 
   @test 'should be able to iterate through an empty map and its inverse'() {
     const map = new HashBiMap<string, number>();
     const itr = map.entries();
-    expect(itr.next()).to.deep.eq({ value: null, done: true });
+    expect(itr.next()).to.deep.eq({ value: undefined, done: true });
     const iitr = map.inverse().entries();
-    expect(iitr.next()).to.deep.eq({ value: null, done: true });
+    expect(iitr.next()).to.deep.eq({ value: undefined, done: true });
   }
 
   @test 'should be able to apply a function to a map'() {

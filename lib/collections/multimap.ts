@@ -1,7 +1,11 @@
+import Collection from './collection';
 
 /**
  * A collection that maps keys to values, similar to {@link Map}, but in which
  * each key may be associated with _multiple_ values.
+ * 
+ * @param K The key type
+ * @param V The value type
  */
 interface Multimap<K, V> {
 
@@ -20,7 +24,9 @@ interface Multimap<K, V> {
    * Changes to the returned map or the collections that serve as its values
    * will update the underlying multimap, and vice versa.
    */
-  asMap(): Map<K, Iterable<V>>;
+  asMap(): Map<K, Collection<V>>;
+
+  _createCollection(): Collection<V>;
 
   /**
    * Inserts an entry into the map.
@@ -36,7 +42,7 @@ interface Multimap<K, V> {
    * unspecified.
    * @returns True if an entry was deleted, false otherwise
    */
-  delete(key: K): boolean;
+  delete(key: K, value: V): boolean;
 
   /**
    * Checks if the key exists in the map.
@@ -53,13 +59,13 @@ interface Multimap<K, V> {
    * Changes to the returned collection will update the underlying multimap,
    * and vice versa.
    */
-  get(key: K): Iterable<V>;
+  get(key: K): Collection<V>;
 
   /**
    * Returns an iterator over the entries of the map.
    * @returns An iterator over the entries
    */
-  entries(): IterableIterator<[K, IterableIterator<V>]>;
+  entries(): IterableIterator<[K, Collection<V>]>;
 
   /**
    * Returns an iterator over the keys of the map.
@@ -71,14 +77,15 @@ interface Multimap<K, V> {
    * Returns an iterator over the values of the map.
    * @returns An iterator over the values
    */
-  values(): IterableIterator<V>;
+  values(): IterableIterator<Collection<V>>;
 
   /**
    * Executes the given function once for each entry in the map.
    * @param callbackfn The function to execute
    * @param thisArg Value to use as `this` when executing the call
    */
-  forEach(callbackfn: (value: V, index: K, map: Multimap<K, V>) => void, thisArg?: any): void;
+  forEach(callbackfn: (value: Collection<V>, index: K, 
+          map: Map<K, Collection<V>>) => void, thisArg?: any): void;
 
   /**
    * Clears all entries in the map.
@@ -89,7 +96,7 @@ interface Multimap<K, V> {
    * Returns an iterator over the entries.
    * @returns An iterator
    */
-  [Symbol.iterator](): IterableIterator<[K, IterableIterator<V>]>;
+  [Symbol.iterator](): IterableIterator<[K, Collection<V>]>;
 
   readonly [Symbol.toStringTag]: "MultiMap"
 }

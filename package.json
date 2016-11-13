@@ -8,7 +8,7 @@
     "start": "http-server",
     "watch": "gulp",
     "pretest": "rimraf .build && tsc -p .",
-    "test": "nyc mocha --reporter dot",
+    "test": "nyc mocha --reporter list",
     "precitest": "rimraf .build && tsc -p .",
     "citest": "nyc mocha --reporter mocha-junit-reporter",
     "postcitest": "nyc report --reporter=json && codecov -f coverage/*.json",

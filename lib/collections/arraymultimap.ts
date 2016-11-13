@@ -1,64 +1,37 @@
+import Collection from './collection';
+import ArrayCollection from'./arraycollection';
 import Multimap from './multimap';
+import AbstractMultimap from './abstractmultimap';
 
-class ArrayMultimap<K, V> implements Multimap<K, V> {
+/** @inheritdoc */
+class ArrayMultimap<K, V> extends AbstractMultimap<K, V> implements Multimap<K, V> {
 
-  /** @inheritdoc */
-  size: number;
+  private map: Map<K, ArrayCollection<V>>;
 
-  /** @inheritdoc */
-  asMap(): Map<K, Iterable<V>> {
-    return null;
+  /**
+   * Constructs a new, empty multimap.
+   */
+  constructor() {
+    super();
+    this.map = new Map<K, ArrayCollection<V>>();
   }
 
   /** @inheritdoc */
-  set(key: K, value: V): this {
-    return this;
+  _createCollection(): Collection<V> {
+    return new ArrayCollection<V>();
   }
 
   /** @inheritdoc */
-  delete(key: K): boolean {
-    return null;
+  asMap(): Map<K, Collection<V>> {
+    return this.map;
   }
 
   /** @inheritdoc */
-  has(key: K): boolean {
-    return null;
-  }
-
-  /** @inheritdoc */
-  get(key: K): Iterable<V> {
-    return null;
-  }
-
-  /** @inheritdoc */
-  entries(): IterableIterator<[K, IterableIterator<V>]> {
-    return null;
-  }
-
-  /** @inheritdoc */
-  keys(): IterableIterator<K> {
-    return null;
-  }
-
-  /** @inheritdoc */
-  values(): IterableIterator<V> {
-    return null;
-  }
-
-  /** @inheritdoc */
-  forEach(callbackfn: (value: V, index: K, map: Multimap<K, V>) => void, thisArg?: any): void {
-
-  }
-
-  /** @inheritdoc */
-  clear(): void {
-
-  }
-
-  /** @inheritdoc */
-  [Symbol.iterator](): IterableIterator<[K, IterableIterator<V>]> {
-    return this.entries();
+  get(key: K): Collection<V> {
+    return this.map.get(key);
   }
 
   readonly [Symbol.toStringTag]: "MultiMap"
 }
+
+export default ArrayMultimap;

@@ -64,8 +64,8 @@ export class BiEntry<K, V> extends ImmutableEntry<K, V> {
  * inverse.get(3); // "foo"
  * inverse.delete(2); // true
  * 
- * map.get('bar'); // null
- * inverse.get(2); // null
+ * map.get('bar'); // undefined
+ * inverse.get(2); // undefined
  * 
  * ```
  * 
@@ -101,11 +101,11 @@ export default class HashBiMap<K, V> implements BiMap<K, V> {
   /**
    * Gets the value associated with a given key.
    * @param The key to retrieve
-   * @returns The value associated with the key if it exists, null otherwise
+   * @returns The value associated with the key if it exists, undefined otherwise
    */
   get(key: K): V {
     const entry = this.seekByKey(key, Hashing.smearedHash(key));
-    return entry ? entry.value : null;
+    return entry ? entry.value : undefined;
   }
 
   /**
@@ -163,7 +163,7 @@ export default class HashBiMap<K, V> implements BiMap<K, V> {
     let pointer = this.firstInKeyInsertionOrder;
     return {
       next(): IteratorResult<[K, V]> {
-        if (!pointer) return { value: null, done: true };
+        if (!pointer) return { value: undefined, done: true };
         const value: [K, V] = [ pointer.key, pointer.value ];
         pointer = pointer.nextInKeyInsertionOrder;
         return {
@@ -186,7 +186,7 @@ export default class HashBiMap<K, V> implements BiMap<K, V> {
     let pointer = this.firstInKeyInsertionOrder;
     return {
       next(): IteratorResult<K> {
-        if (!pointer) return { value: null, done: true };
+        if (!pointer) return { value: undefined, done: true };
         const value = pointer.key;
         pointer = pointer.nextInKeyInsertionOrder;
         return {
@@ -209,7 +209,7 @@ export default class HashBiMap<K, V> implements BiMap<K, V> {
     let pointer = this.firstInKeyInsertionOrder;
     return {
       next(): IteratorResult<V> {
-        if (!pointer) return { value: null, done: true };
+        if (!pointer) return { value: undefined, done: true };
         const value = pointer.value;
         pointer = pointer.nextInKeyInsertionOrder;
         return {
@@ -576,11 +576,11 @@ class Inverse<V, K> implements BiMap<V, K> {
   /**
    * Retrieves the key associated with a value.
    * @param The value to look up
-   * @returns The key, if it exists (null otherwise)
+   * @returns The key, if it exists (undefined otherwise)
    */
   get(value: V): K {
     const entry = this.delegate._seekByValue(value, Hashing.smearedHash(value));
-    return entry ? entry.key : null; 
+    return entry ? entry.key : undefined; 
   }
 
   /**
@@ -627,7 +627,7 @@ class Inverse<V, K> implements BiMap<V, K> {
     let pointer = this.delegate._first;
     return {
       next(): IteratorResult<[V, K]> {
-        if (!pointer) return { value: null, done: true };
+        if (!pointer) return { value: undefined, done: true };
         const value: [V, K] = [ pointer.value, pointer.key ];
         pointer = pointer.nextInKeyInsertionOrder;
         return {
@@ -650,7 +650,7 @@ class Inverse<V, K> implements BiMap<V, K> {
     let pointer = this.delegate._first;
     return {
       next(): IteratorResult<V> {
-        if (!pointer) return { value: null, done: true };
+        if (!pointer) return { value: undefined, done: true };
         const value = pointer.value;
         pointer = pointer.nextInKeyInsertionOrder;
         return {
@@ -673,7 +673,7 @@ class Inverse<V, K> implements BiMap<V, K> {
     let pointer = this.delegate._first;
     return {
       next(): IteratorResult<K> {
-        if (!pointer) return { value: null, done: true };
+        if (!pointer) return { value: undefined, done: true };
         const value = pointer.key;
         pointer = pointer.nextInKeyInsertionOrder;
         return {
