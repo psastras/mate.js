@@ -6,7 +6,7 @@
     "doc": "typedoc --out .build/doc ./lib",
     "start": "http-server",
     "watch": "gulp",
-    "test": "rimraf .build && tsc -p . && mocha"
+    "test": "rimraf .build && tsc -p . && mocha --reporter mocha-junit-reporter"
   },
   "jspm": {
     "format": "es6",
