@@ -4,6 +4,7 @@
   "scripts": {
     "build": "jspm bundle lib/main dist/main.js",
     "doc": "typedoc --out .build/doc --readme README.md ./lib",
+    "postdoc": "cpx icon.png .build/doc",
     "start": "http-server",
     "watch": "gulp",
     "pretest": "rimraf .build && tsc -p .",
@@ -33,6 +34,7 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "codecov": "^1.0.1",
+    "cpx": "^1.5.0",
     "gulp": "^3.9.1",
     "gulp-batch": "^1.0.5",
     "gulp-mocha": "^3.0.1",
