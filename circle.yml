@@ -6,6 +6,22 @@ general:
 machine:
   node:
     version: 6.1.0
+dependencies:
+  pre:
+    # Install Yarn
+    - sudo apt-key adv --fetch-keys http://dl.yarnpkg.com/debian/pubkey.gpg
+    - echo "deb http://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+    - sudo apt-get update -qq
+    - sudo apt-get install -y -qq yarn
+    - npm install -g typings
+    - typings install
+  cache_directories:
+    - "~/.yarn-cache"
+  override:
+    - yarn install
+test:
+  override:
+    - yarn test
 deployment:
   pages:
     branch: master
