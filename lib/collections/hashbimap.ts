@@ -53,16 +53,33 @@ export default class HashBiMap<K, V> implements BiMap<K, V> {
     this.modCount = 0;
   }
 
+  /**
+   * Gets the value associated with a given key.
+   * @param The key to retrieve
+   * @returns The value associated with the key if it exists, null otherwise
+   */
   get(key: K): V {
     const entry = this.seekByKey(key, Hashing.smearedHash(key));
     return entry ? entry.value : null;
   }
 
+  /**
+   * Inserts an entry into the map.
+   * @param key The key of the entry
+   * @param value The value of the entry
+   * @param force If true, will overwrite existing entries with the same key or value.  If false,
+   * will throw an error.
+   */
   set(key: K, value: V, force: boolean = false): this {
     this._putInverse(value, key, force);
     return this;
   }
 
+  /**
+   * Deletes the entry associated with a given key from the map.
+   * @param The key to delete
+   * @returns True if an entry was deleted, false otherwise
+   */
   delete(key: K): boolean {
     const entry = this.seekByKey(key, Hashing.smearedHash(key));
     if (!entry) {
@@ -75,44 +92,142 @@ export default class HashBiMap<K, V> implements BiMap<K, V> {
     }
   }
 
+  /**
+   * Checks if the key exists in the map.
+   * @param The key to look up
+   * @returns True if it exists, false otherwise
+   */
   has(key: K): boolean {
     return !!this.seekByKey(key, Hashing.smearedHash(key));
   }
 
+  /**
+   * Checks if the value exists in the map.
+   * @param The value to look up
+   * @returns True if it exists, false otherwise
+   */
   hasValue(value: V): boolean {
     return !!this._seekByValue(value, Hashing.smearedHash(value));
   }
   
+  /**
+   * Returns an iterator over the entries of the map.
+   * @returns An iterator over the entries
+   */
   entries(): IterableIterator<[K, V]> {
-    return new Array<[K, V]>().values();
+    let pointer = this.firstInKeyInsertionOrder;
+    return {
+      next(): IteratorResult<[K, V]> {
+        if (!pointer) return { value: null, done: true };
+        const value: [K, V] = [ pointer.key, pointer.value ];
+        pointer = pointer.nextInKeyInsertionOrder;
+        return {
+          value: value,
+          done: false,
+        }
+      },
+
+      [Symbol.iterator](): IterableIterator<[K, V]> {
+        return this;
+      }
+    }
   }
 
+  /**
+   * Returns an iterator over the keys of the map.
+   * @returns An iterator over the keys
+   */
   keys(): IterableIterator<K> {
-    return new Array<K>().values();
+    let pointer = this.firstInKeyInsertionOrder;
+    return {
+      next(): IteratorResult<K> {
+        if (!pointer) return { value: null, done: true };
+        const value = pointer.key;
+        pointer = pointer.nextInKeyInsertionOrder;
+        return {
+          value: value,
+          done: false,
+        }
+      },
+
+      [Symbol.iterator](): IterableIterator<K> {
+        return this;
+      }
+    }
   }
 
+  /**
+   * Returns an iterator over the values of the map.
+   * @returns An iterator over the values
+   */
   values(): IterableIterator<V> {
-    return new Array<V>().values();
+    let pointer = this.firstInKeyInsertionOrder;
+    return {
+      next(): IteratorResult<V> {
+        if (!pointer) return { value: null, done: true };
+        const value = pointer.value;
+        pointer = pointer.nextInKeyInsertionOrder;
+        return {
+          value: value,
+          done: false,
+        }
+      },
+
+      [Symbol.iterator](): IterableIterator<V> {
+        return this;
+      }
+    }
   }
 
+  /**
+   * The size (number of entries) in the map.
+   */
   get size(): number {
     return this._size;
   }
 
-  forEach(callbackfn: (value: V, index: K, map: Map<K, V>) => void, thisArg?: any): void {
-
+  /**
+   * Returns the first entry added to the map.
+   * @returns The entry
+   */
+  get _first(): BiEntry<K, V> {
+    return this.firstInKeyInsertionOrder;
   }
 
+  /**
+   * Executes the given function once for each entry in the map.
+   * @param callbackfn The function to execute
+   * @param thisArg Value to use as `this` when executing the call
+   */
+  forEach(callbackfn: (value: V, index: K, map: Map<K, V>) => void, thisArg?: any): void {
+    const _this = thisArg || this;
+    for (let entry of (thisArg || _this)) {
+      callbackfn(entry[1], entry[0], _this);
+    }
+  }
+
+  /**
+   * Returns an iterator over the entries.
+   * @returns An iterator
+   */
   [Symbol.iterator](): IterableIterator<[K, V]> {
-    return new Array<[K, V]>().values();
+    return this.entries();
   }
 
   readonly [Symbol.toStringTag]: "Map"
 
+  /**
+   * Returns the inverted map.  Note that this is a reference - changes made to the inverse
+   * will affect the original map, and vice versa.
+   * @returns The inverted view of this map.
+   */
   inverse(): BiMap<V, K> {
     return new Inverse<V, K>(this);
   }
 
+  /**
+   * Clears all entries in the map.
+   */
   clear(): void {
     this._size = 0;
     _.fill(this.hashTableKToV, null);
@@ -294,36 +409,82 @@ export default class HashBiMap<K, V> implements BiMap<K, V> {
   }
 }
 
+/**
+ * Represents an inverse view of a {@link BiMap}.  Operations on the inverse view will
+ * affect the underlying map.
+ */
 class Inverse<V, K> implements BiMap<V, K> {
 
   private readonly delegate: HashBiMap<K, V>;
 
+  /**
+   * Constructs an inverse view of a given map.
+   */
   constructor(delegate: HashBiMap<K, V>) {
     this.delegate = delegate;
   }
   
+  /**
+   * Returns the inverted map.  Note that this is a reference - changes made to the inverse
+   * will affect the original map, and vice versa.
+   * @returns The inverted view of this map.
+   */
   inverse(): BiMap<K, V> {
     return this.delegate;
   }
 
+  /**
+   * The size (number of entries) in the map.
+   */
   get size(): number {
     return this.delegate.size;
   }
 
+  /**
+   * Inserts an entry into the map.
+   * @param value The value of the entry
+   * @param key The key of the entry
+   * @param force If true, will overwrite existing entries with the same key or value.  If false,
+   * will throw an error.
+   */
   set(value: V, key: K): this {
     this.delegate._putInverse(value, key, false);
     return this;
   }
 
+  /**
+   * Checks if the value exists in the map.
+   * @param The value to look up
+   * @returns True if it exists, false otherwise
+   */
   has(value: V): boolean {
     return this.delegate.hasValue(value);
   }
+
+  /**
+   * Checks if the key exists in the map.
+   * @param The key to look up
+   * @returns True if it exists, false otherwise
+   */
+  hasKey(key: K): boolean {
+    return this.delegate.has(key);
+  }
   
+  /**
+   * Retrieves the key associated with a value.
+   * @param The value to look up
+   * @returns The key, if it exists (null otherwise)
+   */
   get(value: V): K {
     const entry = this.delegate._seekByValue(value, Hashing.smearedHash(value));
     return entry ? entry.key : null; 
   }
 
+  /**
+   * Deletes the entry associated with a given value from the map.
+   * @param The value to delete
+   * @returns True if an entry was deleted, false otherwise
+   */
   delete(value: V): boolean {
     const entry = this.delegate._seekByValue(value, Hashing.smearedHash(value));
     if (!entry) {
@@ -336,28 +497,100 @@ class Inverse<V, K> implements BiMap<V, K> {
     }
   }
 
+  /**
+   * Executes the given function once for each entry in the map.
+   * @param callbackfn The function to execute
+   * @param thisArg Value to use as `this` when executing the call
+   */
   forEach(callbackfn: (value: K, index: V, map: Map<V, K>) => void, thisArg?: any): void {
-
+    const _this = thisArg || this;
+    for (let entry of (thisArg || _this)) {
+      callbackfn(entry[1], entry[0], _this);
+    }
   }
 
+  /**
+   * Clears all entries in the map.
+   */
   clear(): void {
     this.delegate.clear();
   }
 
+  /**
+   * Returns an iterator over the entries of the map.
+   * @returns An iterator over the entries
+   */
   entries(): IterableIterator<[V, K]> {
-    return new Array<[V, K]>().values();
+    let pointer = this.delegate._first;
+    return {
+      next(): IteratorResult<[V, K]> {
+        if (!pointer) return { value: null, done: true };
+        const value: [V, K] = [ pointer.value, pointer.key ];
+        pointer = pointer.nextInKeyInsertionOrder;
+        return {
+          value: value,
+          done: false,
+        }
+      },
+
+      [Symbol.iterator](): IterableIterator<[V, K]> {
+        return this;
+      }
+    }
   }
 
+  /**
+   * Returns an iterator over the keys of the map.
+   * @returns An iterator over the keys
+   */
   keys(): IterableIterator<V> {
-    return new Array<V>().values();
+    let pointer = this.delegate._first;
+    return {
+      next(): IteratorResult<V> {
+        if (!pointer) return { value: null, done: true };
+        const value = pointer.value;
+        pointer = pointer.nextInKeyInsertionOrder;
+        return {
+          value: value,
+          done: false,
+        }
+      },
+
+      [Symbol.iterator](): IterableIterator<V> {
+        return this;
+      }
+    }
   }
 
+  /**
+   * Returns an iterator over the values of the map.
+   * @returns An iterator over the values
+   */
   values(): IterableIterator<K> {
-    return new Array<K>().values();
+    let pointer = this.delegate._first;
+    return {
+      next(): IteratorResult<K> {
+        if (!pointer) return { value: null, done: true };
+        const value = pointer.key;
+        pointer = pointer.nextInKeyInsertionOrder;
+        return {
+          value: value,
+          done: false,
+        }
+      },
+
+      [Symbol.iterator](): IterableIterator<K> {
+        return this;
+      }
+    }
   }
 
+  /**
+   * Returns an iterator over the entries.
+   * @returns An iterator
+   */
   [Symbol.iterator](): IterableIterator<[V, K]> {
-    return new Array<[V, K]>().values();
+    return this.entries();
   }
 
   readonly [Symbol.toStringTag]: "Map"

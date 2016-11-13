@@ -139,4 +139,105 @@ import HashBiMap from '../../lib/collections/hashbimap';
     expect(map.has('bar')).to.be.true;
   }
 
+  @test 'should be able to iterate through the entries'() {
+    const map = new HashBiMap<string, number>()
+      .set('foo', 3)
+      .set('bar', 2)
+      .set('too', 4);
+    const itr = map.entries();
+    expect(itr.next()).to.deep.eq({ value: ['foo', 3], done: false });
+    expect(itr.next()).to.deep.eq({ value: ['bar', 2], done: false });
+    expect(itr.next()).to.deep.eq({ value: ['too', 4], done: false });
+    expect(itr.next()).to.deep.eq({ value: null, done: true });
+  }
+
+  @test 'should be able to iterate through the keys'() {
+    const map = new HashBiMap<string, number>()
+      .set('foo', 3)
+      .set('bar', 2)
+      .set('too', 4);
+    const itr = map.keys();
+    expect(itr.next()).to.deep.eq({ value: 'foo', done: false });
+    expect(itr.next()).to.deep.eq({ value: 'bar', done: false });
+    expect(itr.next()).to.deep.eq({ value: 'too', done: false });
+    expect(itr.next()).to.deep.eq({ value: null, done: true });
+  }
+
+  @test 'should be able to iterate through the values'() {
+    const map = new HashBiMap<string, number>()
+      .set('foo', 3)
+      .set('bar', 2)
+      .set('too', 4);
+    const itr = map.values();
+    expect(itr.next()).to.deep.eq({ value: 3, done: false });
+    expect(itr.next()).to.deep.eq({ value: 2, done: false });
+    expect(itr.next()).to.deep.eq({ value: 4, done: false });
+    expect(itr.next()).to.deep.eq({ value: null, done: true });
+  }
+
+  @test 'should be able to iterate through the inverse entries'() {
+    const map = new HashBiMap<string, number>()
+      .set('foo', 3)
+      .set('bar', 2)
+      .set('too', 4);
+    const itr = map.inverse().entries();
+    expect(itr.next()).to.deep.eq({ value: [3, 'foo'], done: false });
+    expect(itr.next()).to.deep.eq({ value: [2, 'bar'], done: false });
+    expect(itr.next()).to.deep.eq({ value: [4, 'too'], done: false });
+    expect(itr.next()).to.deep.eq({ value: null, done: true });
+  }
+
+  @test 'should be able to iterate through the inverse keys'() {
+    const map = new HashBiMap<string, number>()
+      .set('foo', 3)
+      .set('bar', 2)
+      .set('too', 4);
+    const itr = map.inverse().keys();
+    expect(itr.next()).to.deep.eq({ value: 3, done: false });
+    expect(itr.next()).to.deep.eq({ value: 2, done: false });
+    expect(itr.next()).to.deep.eq({ value: 4, done: false });
+    expect(itr.next()).to.deep.eq({ value: null, done: true });
+  }
+
+  @test 'should be able to iterate through the inverse values'() {
+    const map = new HashBiMap<string, number>()
+      .set('foo', 3)
+      .set('bar', 2)
+      .set('too', 4);
+    const itr = map.inverse().values();
+    expect(itr.next()).to.deep.eq({ value: 'foo', done: false });
+    expect(itr.next()).to.deep.eq({ value: 'bar', done: false });
+    expect(itr.next()).to.deep.eq({ value: 'too', done: false });
+    expect(itr.next()).to.deep.eq({ value: null, done: true });
+  }
+
+  @test 'should be able to iterate through an empty map and its inverse'() {
+    const map = new HashBiMap<string, number>();
+    const itr = map.entries();
+    expect(itr.next()).to.deep.eq({ value: null, done: true });
+    const iitr = map.inverse().entries();
+    expect(iitr.next()).to.deep.eq({ value: null, done: true });
+  }
+
+  @test 'should be able to apply a function to a map'() {
+    const map = new HashBiMap<string, number>()
+      .set('foo', 3)
+      .set('bar', 2)
+      .set('too', 4);
+    
+    const values = [];
+    map.forEach((val, idx, map) => { values.push(val) });
+    expect(values).to.deep.eq([3, 2, 4]);
+  }
+
+  @test 'should be able to apply a function to an inverse map'() {
+    const map = new HashBiMap<string, number>()
+      .set('foo', 3)
+      .set('bar', 2)
+      .set('too', 4);
+    
+    const keys = [];
+    map.inverse().forEach((val, idx, map) => { keys.push(val) });
+    expect(keys).to.deep.eq(['foo', 'bar', 'too']);
+  }
 }
