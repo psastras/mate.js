@@ -24,7 +24,8 @@
   "jspm": {
     "format": "es6",
     "dependencies": {
-      "lodash": "npm:lodash@^4.16.6"
+      "lodash": "npm:lodash@^4.16.6",
+      "object-hash": "npm:object-hash@^1.1.5"
     },
     "devDependencies": {
       "tsc": "npm:tsc@^1.20150623.0",
@@ -49,5 +50,8 @@
     "typedoc": "^0.5.1",
     "typescript": "^2.0.7",
     "typings": "^2.0.0"
+  },
+  "dependencies": {
+    "object-hash": "^1.1.5"
   }
 }

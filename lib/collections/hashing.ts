@@ -2,6 +2,7 @@
  * Helper functions to hash objects needed for hash based collections.
  */
 
+import * as ObjectHash from 'object-hash';
 import Numbers from '../primitives/numbers';
 
 /**
@@ -57,7 +58,7 @@ export function _hash(s: String): number {
  * @returns A hash number
  */
 function hash(o: Object): number {
-  return o ? _hash(`${JSON.stringify(o)}`) : 0;
+  return o ? _hash(`${ObjectHash.MD5(o)}`) : 0;
 }
 
 /**

@@ -1,5 +1,8 @@
 {
   "dependencies": {
     "chai": "registry:npm/chai#3.5.0+20160723033700"
+  },
+  "globalDependencies": {
+    "object-hash": "registry:dt/object-hash#0.5.0+20160317120654"
   }
 }
