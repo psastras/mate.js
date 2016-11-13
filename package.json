@@ -1,4 +1,6 @@
 {
+  "name": "mate.js",
+  "version": "0.0.0",
   "scripts": {
     "build": "jspm bundle lib/main dist/main.js",
     "doc": "typedoc --out .build/doc ./lib",
