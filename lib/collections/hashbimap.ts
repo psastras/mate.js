@@ -6,7 +6,7 @@ import Objects from '../primitives/objects';
 
 const LOAD_FACTOR = 1.0;
 
-class BiEntry<K, V> extends ImmutableEntry<K, V> {
+export class BiEntry<K, V> extends ImmutableEntry<K, V> {
   readonly keyHash: number;
   readonly valueHash: number;
 
@@ -59,7 +59,7 @@ export default class HashBiMap<K, V> implements BiMap<K, V> {
   }
 
   set(key: K, value: V, force: boolean = false): this {
-    this.putInverse(value, key, force)
+    this._putInverse(value, key, force);
     return this;
   }
 
@@ -68,7 +68,7 @@ export default class HashBiMap<K, V> implements BiMap<K, V> {
     if (!entry) {
       return false;
     } else {
-      this.remove(entry);
+      this._remove(entry);
       entry.prevInKeyInsertionOrder = null;
       entry.nextInKeyInsertionOrder = null;
       return true;
@@ -79,6 +79,10 @@ export default class HashBiMap<K, V> implements BiMap<K, V> {
     return !!this.seekByKey(key, Hashing.smearedHash(key));
   }
 
+  hasValue(value: V): boolean {
+    return !!this._seekByValue(value, Hashing.smearedHash(value));
+  }
+  
   entries(): IterableIterator<[K, V]> {
     return new Array<[K, V]>().values();
   }
@@ -106,7 +110,7 @@ export default class HashBiMap<K, V> implements BiMap<K, V> {
   readonly [Symbol.toStringTag]: "Map"
 
   inverse(): BiMap<V, K> {
-    return new HashBiMap<V, K>(0);
+    return new Inverse<V, K>(this);
   }
 
   clear(): void {
@@ -123,7 +127,7 @@ export default class HashBiMap<K, V> implements BiMap<K, V> {
    * key-to-value direction and the value-to-key direction.
    * @param entry The entry to delete from the lists.
    */
-  private remove(entry: BiEntry<K, V>): void {
+  _remove(entry: BiEntry<K, V>): void {
     const keyBucket = entry.keyHash & this.mask;
     let prevBucketEntry = null;
     for (let bucketEntry = this.hashTableKToV[keyBucket];
@@ -220,8 +224,8 @@ export default class HashBiMap<K, V> implements BiMap<K, V> {
     return null;
   }
 
-  private seekByValue(value: V, valueHash: number): BiEntry<K, V> {
-    for (let entry = this.hashTableVToK[valueHash & this.mask];
+  _seekByValue(value: V, valueHash: number): BiEntry<K, V> {
+    for (let entry = this.hashTableVToK[valueHash & this.mask]; 
              !!entry;
              entry = entry.nextInVToKBucket) {
       if (valueHash === entry.valueHash && Objects.isEqual(value, entry.value)) {
@@ -231,12 +235,11 @@ export default class HashBiMap<K, V> implements BiMap<K, V> {
     return null;
   }
 
-  private putInverse(value: V, key: K, force: boolean): K {
+  _putInverse(value: V, key: K, force: boolean): K {
     const valueHash = Hashing.smearedHash(value);
     const keyHash = Hashing.smearedHash(key);
-
-    const oldEntryForValue = this.seekByValue(value, valueHash);
-    if (oldEntryForValue && keyHash === oldEntryForValue.keyHash
+    const oldEntryForValue = this._seekByValue(value, valueHash);
+    if (oldEntryForValue && keyHash === oldEntryForValue.keyHash 
         && Objects.isEqual(key, oldEntryForValue.key)) {
       return key;
     }
@@ -244,14 +247,18 @@ export default class HashBiMap<K, V> implements BiMap<K, V> {
     const oldEntryForKey = this.seekByKey(key, keyHash);
     if (oldEntryForKey) {
       if (force) {
-        this.remove(oldEntryForKey);
+        this._remove(oldEntryForKey);
       } else {
-        throw `value already present: ${key}`;
+        throw new Error(`key already present: ${key}`);
       }
     }
 
     if (oldEntryForValue) {
-      this.remove(oldEntryForValue);
+      if (force) {
+        this._remove(oldEntryForValue);
+      } else {
+        throw new Error(`value already present: ${value}`);
+      }
     }
     const newEntry = new BiEntry<K, V>(key, keyHash, value, valueHash);
     this.insert(newEntry, oldEntryForKey);
@@ -285,4 +292,74 @@ export default class HashBiMap<K, V> implements BiMap<K, V> {
   private createTable(length: number): Array<BiEntry<K, V>> {
     return new Array<BiEntry<K, V>>(length);
   }
+}
+
+class Inverse<V, K> implements BiMap<V, K> {
+
+  private readonly delegate: HashBiMap<K, V>;
+
+  constructor(delegate: HashBiMap<K, V>) {
+    this.delegate = delegate;
+  }
+  
+  inverse(): BiMap<K, V> {
+    return this.delegate;
+  }
+
+  get size(): number {
+    return this.delegate.size;
+  }
+
+  set(value: V, key: K): this {
+    this.delegate._putInverse(value, key, false);
+    return this;
+  }
+
+  has(value: V): boolean {
+    return this.delegate.hasValue(value);
+  }
+  
+  get(value: V): K {
+    const entry = this.delegate._seekByValue(value, Hashing.smearedHash(value));
+    return entry ? entry.key : null; 
+  }
+
+  delete(value: V): boolean {
+    const entry = this.delegate._seekByValue(value, Hashing.smearedHash(value));
+    if (!entry) {
+      return false;
+    } else {
+      this.delegate._remove(entry);
+      entry.prevInKeyInsertionOrder = null;
+      entry.nextInKeyInsertionOrder = null;
+      return true;
+    }
+  }
+
+  forEach(callbackfn: (value: K, index: V, map: Map<V, K>) => void, thisArg?: any): void {
+
+  }
+
+  clear(): void {
+    this.delegate.clear();
+  }
+
+  entries(): IterableIterator<[V, K]> {
+    return new Array<[V, K]>().values();
+  }
+
+  keys(): IterableIterator<V> {
+    return new Array<V>().values();
+  }
+
+  values(): IterableIterator<K> {
+    return new Array<K>().values();
+  }
+
+  [Symbol.iterator](): IterableIterator<[V, K]> {
+    return new Array<[V, K]>().values();
+  }
+
+  readonly [Symbol.toStringTag]: "Map"
+
 }
