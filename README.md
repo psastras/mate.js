@@ -22,7 +22,7 @@ Not yet, sorry.
 
 ### Collections
 
-- [ArrayMultimap](https://psastras.github.io/mate.js/classes/https://psastras.github.io/mate.js/classes/_collections_arraymultimap_.arraymultimap.html) -
+- [ArrayMultimap](https://psastras.github.io/mate.js/classes/_collections_arraymultimap_.arraymultimap.html) -
 a multimap backed by arrays for its values
 - [HashBiMap](https://psastras.github.io/mate.js/classes/_collections_hashbimap_.hashbimap.html) -
 a bidirectional map backed by two hash tables

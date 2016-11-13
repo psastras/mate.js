@@ -15,11 +15,11 @@ interface Multimap<K, V> {
   size: number;
 
   /**
-   * Returns a view of this multimap as a {@code Map} from each distinct key
+   * Returns a view of this multimap as a {@link Map} from each distinct key
    * to the nonempty collection of that key's associated values. Note that
-   * {@code this.asMap().get(k)} is equivalent to {@code this.get(k)} only when
-   * {@code k} is a key contained in the multimap; otherwise it returns {@code
-   * null} as opposed to an empty collection.
+   * `this.asMap().get(k)` is equivalent to `this.get(k)` only when
+   * `k` is a key contained in the multimap; otherwise it returns `null` 
+   * as opposed to an empty collection.
    *
    * Changes to the returned map or the collections that serve as its values
    * will update the underlying multimap, and vice versa.
@@ -36,8 +36,8 @@ interface Multimap<K, V> {
   set(key: K, value: V): this;
 
   /**
-   * Removes a single key-value pair with the key {@code key} and the value
-   * {@code value} from this multimap, if such exists. If multiple key-value
+   * Removes a single key-value pair with the key `key` and the value
+   * `value` from this multimap, if such exists. If multiple key-value
    * pairs in the multimap fit this description, which one is removed is
    * unspecified.
    * @returns True if an entry was deleted, false otherwise
@@ -52,9 +52,9 @@ interface Multimap<K, V> {
   has(key: K): boolean;
 
   /**
-   * Returns a view collection of the values associated with {@code key} in this
-   * multimap, if any. Note that when {@code has(key)} is false, this
-   * returns an empty collection, not {@code null}.
+   * Returns a view collection of the values associated with `key` in this
+   * multimap, if any. Note that when `has(key)` is false, this
+   * returns an empty collection, not `null`.
    *
    * Changes to the returned collection will update the underlying multimap,
    * and vice versa.
