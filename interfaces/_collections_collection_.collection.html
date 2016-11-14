@@ -95,6 +95,11 @@
 				<ul class="tsd-hierarchy">
 					<li>
 						<span class="target">Collection</span>
+						<ul class="tsd-hierarchy">
+							<li>
+								<a href="_collections_multiset_.multiset.html" class="tsd-signature-type">Multiset</a>
+							</li>
+						</ul>
 					</li>
 				</ul>
 			</section>
@@ -117,8 +122,8 @@
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_collections_collection_.collection.html#___iterator" class="tsd-kind-icon">__@iterator</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_collections_collection_.collection.html#delete" class="tsd-kind-icon">delete</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_collections_collection_.collection.html#pop" class="tsd-kind-icon">pop</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_collections_collection_.collection.html#push" class="tsd-kind-icon">push</a></li>
 							</ul>
 						</section>
@@ -133,7 +138,7 @@
 					<div class="tsd-signature tsd-kind-icon">length<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/psastras/mate.js/blob/a7bbf8e/lib/collections/collection.ts#L12">collections/collection.ts:12</a></li>
+							<li>Defined in <a href="https://github.com/psastras/mate.js/blob/60a36c7/lib/collections/collection.ts#L12">collections/collection.ts:12</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -146,16 +151,38 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
-					<a name="delete" class="tsd-anchor"></a>
-					<h3>delete</h3>
+					<a name="___iterator" class="tsd-anchor"></a>
+					<h3>__@iterator</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">delete<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>items<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+						<li class="tsd-signature tsd-kind-icon">__@iterator<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IterableIterator</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/a7bbf8e/lib/collections/collection.ts#L28">collections/collection.ts:28</a></li>
+									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/60a36c7/lib/collections/collection.ts#L28">collections/collection.ts:28</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Iterator over the collection&#39;s elements</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IterableIterator</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+					<a name="delete" class="tsd-anchor"></a>
+					<h3>delete</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">delete<span class="tsd-signature-symbol">(</span>item<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/60a36c7/lib/collections/collection.ts#L23">collections/collection.ts:23</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -166,35 +193,10 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>items: <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span></h5>
+									<h5>item: <span class="tsd-signature-type">T</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
-					<a name="pop" class="tsd-anchor"></a>
-					<h3>pop</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">pop<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/a7bbf8e/lib/collections/collection.ts#L23">collections/collection.ts:23</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Removes the last element from an collection and returns it.</p>
-								</div>
-							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span>
-								<span class="tsd-signature-symbol"> | </span>
-								<span class="tsd-signature-type">undefined</span>
-							</h4>
 						</li>
 					</ul>
 				</section>
@@ -208,12 +210,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/a7bbf8e/lib/collections/collection.ts#L18">collections/collection.ts:18</a></li>
+									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/60a36c7/lib/collections/collection.ts#L18">collections/collection.ts:18</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Appends new elements to a collection, and returns the new length of the collection.</p>
+									<p>Appends new elements to a collection, and returns the new size of the collection.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -241,6 +243,9 @@
 						<a href="../modules/_collections_abstractmultimap_.html">"collections/abstractmultimap"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
+						<a href="../modules/_collections_abstractmultiset_.html">"collections/abstractmultiset"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
 						<a href="../modules/_collections_arraycollection_.html">"collections/arraycollection"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
@@ -262,7 +267,13 @@
 						<a href="../modules/_collections_immutableentry_.html">"collections/immutableentry"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
+						<a href="../modules/_collections_mapmultiset_.html">"collections/mapmultiset"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
 						<a href="../modules/_collections_multimap_.html">"collections/multimap"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_collections_multiset_.html">"collections/multiset"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
 						<a href="../modules/_main_.html">"main"</a>
@@ -286,10 +297,10 @@
 								<a href="_collections_collection_.collection.html#length" class="tsd-kind-icon">length</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
-								<a href="_collections_collection_.collection.html#delete" class="tsd-kind-icon">delete</a>
+								<a href="_collections_collection_.collection.html#___iterator" class="tsd-kind-icon">__@iterator</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
-								<a href="_collections_collection_.collection.html#pop" class="tsd-kind-icon">pop</a>
+								<a href="_collections_collection_.collection.html#delete" class="tsd-kind-icon">delete</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
 								<a href="_collections_collection_.collection.html#push" class="tsd-kind-icon">push</a>
