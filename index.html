@@ -78,6 +78,29 @@
 				</ul>
 				<h2 id="installation">Installation</h2>
 				<p>Not yet, sorry.</p>
+				<h2 id="sample-usage">Sample Usage</h2>
+				<p>See the <a href="https://psastras.github.io/mate.js/">documentation</a> for more comprehensive usage
+				examples.</p>
+				<h3 id="bidirectional-maps">Bidirectional Maps</h3>
+				<pre><code class="lang-typescript"><span class="hljs-keyword">const</span> map = <span class="hljs-keyword">new</span> HashBiMap&lt;<span class="hljs-built_in">string</span>, <span class="hljs-built_in">number</span>&gt;()
+ .set(<span class="hljs-string">'foo'</span>, <span class="hljs-number">3</span>)
+ .set(<span class="hljs-string">'bar'</span>, <span class="hljs-number">2</span>);
+
+map.get(<span class="hljs-string">'foo'</span>); <span class="hljs-comment">// 3</span>
+map.hasValue(<span class="hljs-number">2</span>); <span class="hljs-comment">// true</span>
+
+<span class="hljs-comment">// get a reference to the inverted map (number to string)</span>
+<span class="hljs-keyword">const</span> inverse = map.inverse();
+inverse.get(<span class="hljs-number">3</span>); <span class="hljs-comment">// "foo"</span>
+inverse.delete(<span class="hljs-number">2</span>); <span class="hljs-comment">// true</span>
+</code></pre>
+				<h3 id="multisets">Multisets</h3>
+				<pre><code class="lang-typescript"><span class="hljs-keyword">const</span> <span class="hljs-keyword">set</span> = <span class="hljs-keyword">new</span> MapMultiset&lt;<span class="hljs-built_in">string</span>&gt;()
+ .add(<span class="hljs-string">'foo'</span>)
+ .add(<span class="hljs-string">'foo'</span>);
+
+<span class="hljs-keyword">set</span>.count(<span class="hljs-string">'foo'</span>); <span class="hljs-comment">// 2</span>
+</code></pre>
 				<h2 id="exported-classes">Exported Classes</h2>
 				<h3 id="collections">Collections</h3>
 				<ul>
