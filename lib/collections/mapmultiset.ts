@@ -48,23 +48,23 @@ class MapMultiset<T> extends AbstractMultiset<T> {
   }
 
   /** @inheritdoc */
-  public addMulti(item: T, occurrences: number = 1): this {
-    if (occurrences < 1) {
-      throw new Error(`attempted to insert ${occurrences} items which is < 1`);
+  public add(item: [T, number]): this {
+    if (item[1] < 1) {
+      throw new Error(`attempted to insert ${item[1]} items which is < 1`);
     }
-    this.map.set(item, this.count(item) + occurrences);
-    this._size += occurrences;
+    this.map.set(item[0], this.count(item[0]) + item[1]);
+    this._size += item[1];
     return this;
   }
 
   /** @inheritdoc */
-  public deleteMulti(item: T, occurrences: number = 1): boolean {
-    const oldCount = this.count(item);
-    const newCount = oldCount - occurrences;
+  public delete(item: [T, number]): boolean {
+    const oldCount = this.count(item[0]);
+    const newCount = oldCount - item[1];
     if (newCount > 0) {
-      this.map.set(item, newCount);
+      this.map.set(item[0], newCount);
     } else {
-      this.map.delete(item);
+      this.map.delete(item[0]);
     }
     const numDeleted = oldCount - Math.max(newCount, 0);
     this._size -= numDeleted;

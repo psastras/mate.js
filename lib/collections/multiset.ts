@@ -18,27 +18,6 @@ interface Multiset<T> extends Collection<[T, number]> {
   count(item: T): number;
 
   /**
-   * Adds a number of occurrences of an element to this multiset. Note that if
-   * `occurrences == 1`, this method has the identical effect to {@link
-   * Multiset.add(Object)}.
-   * 
-   * @param item The item to insert
-   * @param occurrences The number of items to insert
-   * @returns The multiset
-   */
-  addMulti(item: T, occurrences: number): this;
-
-  /**
-   * Deletes a number of occurrences of an element to this multiset. Note that if
-   * `occurrences == 1`, this method has the identical effect to {@link
-   * Multiset.delete(Object)}.
-   * @param item The item to delete
-   * @param occurrences The number of items to delete
-   * @returns True if at least one lement was deleted, false otherwise
-   */
-  deleteMulti(item: T, occurrences: number): boolean;
-
-  /**
    * Adds or removes the necessary occurrences of an element such that the
    * element attains the desired count.
    * @param item The item to add or remove

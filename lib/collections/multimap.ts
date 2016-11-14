@@ -26,9 +26,9 @@ interface Multimap<K, V> {
    * Changes to the returned map or the collections that serve as its values
    * will update the underlying multimap, and vice versa.
    */
-  asMap(): Map<K, Collection<V>>;
+  asMap(): Map<K, Array<V> | Collection<V>>;
 
-  _createCollection(): Collection<V>;
+  _createCollection(): Array<V> | Collection<V>;
 
   /**
    * Inserts an entry into the map.
@@ -61,13 +61,13 @@ interface Multimap<K, V> {
    * Changes to the returned collection will update the underlying multimap,
    * and vice versa.
    */
-  get(key: K): Collection<V>;
+  get(key: K): Array<V> | Collection<V>;
 
   /**
    * Returns an iterator over the entries of the map.
    * @returns An iterator over the entries
    */
-  entries(): IterableIterator<[K, Collection<V>]>;
+  entries(): IterableIterator<[K, Array<V> | Collection<V>]>;
 
   /**
    * Returns an iterator over the keys of the map.
@@ -79,15 +79,15 @@ interface Multimap<K, V> {
    * Returns an iterator over the values of the map.
    * @returns An iterator over the values
    */
-  values(): IterableIterator<Collection<V>>;
+  values(): IterableIterator<Array<V> |Collection<V>>;
 
   /**
    * Executes the given function once for each entry in the map.
    * @param callbackfn The function to execute
    * @param thisArg Value to use as `this` when executing the call
    */
-  forEach(callbackfn: (value: Collection<V>, index: K,
-          map: Map<K, Collection<V>>) => void, thisArg?: any): void;
+  forEach(callbackfn: (value: Array<V> |Collection<V>, index: K,
+          map: Map<K, Array<V> | Collection<V>>) => void, thisArg?: any): void;
 
   /**
    * Clears all entries in the map.
@@ -98,7 +98,7 @@ interface Multimap<K, V> {
    * Returns an iterator over the entries.
    * @returns An iterator
    */
-  [Symbol.iterator](): IterableIterator<[K, Collection<V>]>;
+  [Symbol.iterator](): IterableIterator<[K, Array<V> |Collection<V>]>;
 
 }
 

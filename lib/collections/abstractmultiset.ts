@@ -19,21 +19,21 @@ abstract class AbstractMultiset<T> implements Multiset<T> {
   /** @inheritdoc */
   public abstract count(item: T): number;
 
-  /** @inheritdoc */
-  public abstract addMulti(item: T, occurrences: number): this;
+  /**
+   * Adds a number of occurrences of an element to this multiset.
+   * 
+   * @param value The item to insert and the number of times to insert it
+   * @returns The multiset
+   */
+  public abstract add(value: [T, number]): this;
 
-  /** @inheritdoc */
-  public add(value: T): this {
-    return this.addMulti(value, 1);
-  }
-
-  /** @inheritdoc */
-  public abstract deleteMulti(item: T, occurrences: number): boolean;
-
-  /** @inheritdoc */
-  public delete(value: [T, number]): boolean {
-    return this.deleteMulti(value[0], value[1]);
-  }
+  /**
+   * Removes a number of occurrences of an element from this multiset.
+   * 
+   * @param value The item to insert and the number of times to remove it
+   * @returns The multiset
+   */
+  public abstract delete(value: [T, number]): boolean;
 
   /**
    * Checks if the {@link Multiset} contains the given item.
@@ -51,13 +51,13 @@ abstract class AbstractMultiset<T> implements Multiset<T> {
       throw new Error(`attempted to insert ${occurrences} items which is < 1`);
     }
     if (!this.has(item)) {
-      this.addMulti(item, occurrences);
+      this.add([item, occurrences]);
     } else {
       const count = this.count(item);
       if (occurrences > count) {
-        this.addMulti(item, occurrences - count);
+        this.add([item, occurrences - count]);
       } else {
-        this.deleteMulti(item, count - occurrences);
+        this.delete([item, count - occurrences]);
       }
     }
   }
@@ -77,12 +77,6 @@ abstract class AbstractMultiset<T> implements Multiset<T> {
     for (let entry of set.entries()) {
       callbackfn(entry, entry[0], set);
     }
-  }
-
-  /** @inheritdoc */
-  public push(value: [T, number]): number {
-    this.add(value[0]);
-    return this.size;
   }
 
   /** @inheritdoc */

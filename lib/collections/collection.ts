@@ -12,10 +12,11 @@ interface Collection<T> {
   readonly length: number;
 
   /**
-   * Appends new elements to a collection, and returns the new size of the collection.
-   * @param items New elements of the collection.
+   * Ensures that this collection contains the specified element 
+   * @param item Element to add
+   * @returns The collection
    */
-  push(...items: T[]): number;
+  add(item: T): this;
 
   /**
    * Removes a single instance of the specified element from this collection, if it is present.
@@ -26,6 +27,11 @@ interface Collection<T> {
    * Iterator over the collection's elements
    */
   [Symbol.iterator](): IterableIterator<T>;
+
+  /**
+   * Iterator over the collection's elements
+   */
+  entries(): IterableIterator<T>;
 }
 
 export default Collection;
