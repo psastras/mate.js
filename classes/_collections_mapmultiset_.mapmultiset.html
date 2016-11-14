@@ -75,6 +75,19 @@
 						<p>Basic implementation of <a href="../interfaces/_collections_multiset_.multiset.html">Multiset</a> backed by an instance of
 						<code>Map&lt;T, number&gt;</code>.</p>
 					</div>
+					<p>Example usage</p>
+					<pre><code>const <span class="hljs-keyword">set</span> = new <span class="hljs-comment">MapMultiset&lt;string&gt;()</span>
+ .add(<span class="hljs-string">'foo'</span>)
+ .add(<span class="hljs-string">'foo'</span>);
+
+<span class="hljs-keyword">set</span>.count(<span class="hljs-string">'foo'</span>); <span class="hljs-comment">// 2</span>
+
+<span class="hljs-keyword">set</span>.addMulti(<span class="hljs-string">'bar'</span>, 3);
+<span class="hljs-keyword">set</span>.count(<span class="hljs-string">'bar'</span>); <span class="hljs-comment">// 3</span>
+
+<span class="hljs-keyword">set</span>.length; <span class="hljs-comment">// 2</span>
+<span class="hljs-keyword">set</span>.size; <span class="hljs-comment">// 5</span>
+</code></pre>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-type-parameters">
@@ -82,6 +95,11 @@
 				<ul class="tsd-type-parameters">
 					<li>
 						<h4>T</h4>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>The element type</p>
+							</div>
+						</div>
 					</li>
 				</ul>
 			</section>
@@ -161,7 +179,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/60a36c7/lib/collections/mapmultiset.ts#L10">collections/mapmultiset.ts:10</a></li>
+									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/aceae43/lib/collections/mapmultiset.ts#L27">collections/mapmultiset.ts:27</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="_collections_mapmultiset_.mapmultiset.html" class="tsd-signature-type">MapMultiset</a></h4>
@@ -177,7 +195,7 @@
 					<div class="tsd-signature tsd-kind-icon">_size<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/psastras/mate.js/blob/60a36c7/lib/collections/mapmultiset.ts#L10">collections/mapmultiset.ts:10</a></li>
+							<li>Defined in <a href="https://github.com/psastras/mate.js/blob/aceae43/lib/collections/mapmultiset.ts#L27">collections/mapmultiset.ts:27</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -187,7 +205,7 @@
 					<div class="tsd-signature tsd-kind-icon">map<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/psastras/mate.js/blob/60a36c7/lib/collections/mapmultiset.ts#L9">collections/mapmultiset.ts:9</a></li>
+							<li>Defined in <a href="https://github.com/psastras/mate.js/blob/aceae43/lib/collections/mapmultiset.ts#L26">collections/mapmultiset.ts:26</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -205,7 +223,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_collections_abstractmultiset_.abstractmultiset.html">AbstractMultiset</a>.<a href="_collections_abstractmultiset_.abstractmultiset.html#length">length</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/60a36c7/lib/collections/mapmultiset.ts#L24">collections/mapmultiset.ts:24</a></li>
+									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/aceae43/lib/collections/mapmultiset.ts#L41">collections/mapmultiset.ts:41</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -232,7 +250,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_collections_abstractmultiset_.abstractmultiset.html">AbstractMultiset</a>.<a href="_collections_abstractmultiset_.abstractmultiset.html#size">size</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/60a36c7/lib/collections/mapmultiset.ts#L19">collections/mapmultiset.ts:19</a></li>
+									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/aceae43/lib/collections/mapmultiset.ts#L36">collections/mapmultiset.ts:36</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -260,7 +278,7 @@
 								<p>Implementation of <a href="../interfaces/_collections_multiset_.multiset.html">Multiset</a>.<a href="../interfaces/_collections_multiset_.multiset.html#___iterator">__@iterator</a></p>
 								<p>Inherited from <a href="_collections_abstractmultiset_.abstractmultiset.html">AbstractMultiset</a>.<a href="_collections_abstractmultiset_.abstractmultiset.html#___iterator">__@iterator</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/60a36c7/lib/collections/abstractmultiset.ts#L80">collections/abstractmultiset.ts:80</a></li>
+									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/aceae43/lib/collections/abstractmultiset.ts#L94">collections/abstractmultiset.ts:94</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -283,7 +301,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_collections_abstractmultiset_.abstractmultiset.html">AbstractMultiset</a>.<a href="_collections_abstractmultiset_.abstractmultiset.html#add">add</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/60a36c7/lib/collections/abstractmultiset.ts#L22">collections/abstractmultiset.ts:22</a></li>
+									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/aceae43/lib/collections/abstractmultiset.ts#L26">collections/abstractmultiset.ts:26</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -313,7 +331,7 @@
 								<p>Implementation of <a href="../interfaces/_collections_multiset_.multiset.html">Multiset</a>.<a href="../interfaces/_collections_multiset_.multiset.html#addmulti">addMulti</a></p>
 								<p>Overrides <a href="_collections_abstractmultiset_.abstractmultiset.html">AbstractMultiset</a>.<a href="_collections_abstractmultiset_.abstractmultiset.html#addmulti">addMulti</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/60a36c7/lib/collections/mapmultiset.ts#L34">collections/mapmultiset.ts:34</a></li>
+									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/aceae43/lib/collections/mapmultiset.ts#L51">collections/mapmultiset.ts:51</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -346,7 +364,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_collections_abstractmultiset_.abstractmultiset.html">AbstractMultiset</a>.<a href="_collections_abstractmultiset_.abstractmultiset.html#clear">clear</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/60a36c7/lib/collections/mapmultiset.ts#L61">collections/mapmultiset.ts:61</a></li>
+									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/aceae43/lib/collections/mapmultiset.ts#L80">collections/mapmultiset.ts:80</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -371,7 +389,7 @@
 								<p>Implementation of <a href="../interfaces/_collections_multiset_.multiset.html">Multiset</a>.<a href="../interfaces/_collections_multiset_.multiset.html#count">count</a></p>
 								<p>Overrides <a href="_collections_abstractmultiset_.abstractmultiset.html">AbstractMultiset</a>.<a href="_collections_abstractmultiset_.abstractmultiset.html#count">count</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/60a36c7/lib/collections/mapmultiset.ts#L29">collections/mapmultiset.ts:29</a></li>
+									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/aceae43/lib/collections/mapmultiset.ts#L46">collections/mapmultiset.ts:46</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -403,7 +421,7 @@
 								<p>Implementation of <a href="../interfaces/_collections_multiset_.multiset.html">Multiset</a>.<a href="../interfaces/_collections_multiset_.multiset.html#delete">delete</a></p>
 								<p>Inherited from <a href="_collections_abstractmultiset_.abstractmultiset.html">AbstractMultiset</a>.<a href="_collections_abstractmultiset_.abstractmultiset.html#delete">delete</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/60a36c7/lib/collections/abstractmultiset.ts#L30">collections/abstractmultiset.ts:30</a></li>
+									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/aceae43/lib/collections/abstractmultiset.ts#L34">collections/abstractmultiset.ts:34</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -433,7 +451,7 @@
 								<p>Implementation of <a href="../interfaces/_collections_multiset_.multiset.html">Multiset</a>.<a href="../interfaces/_collections_multiset_.multiset.html#deletemulti">deleteMulti</a></p>
 								<p>Overrides <a href="_collections_abstractmultiset_.abstractmultiset.html">AbstractMultiset</a>.<a href="_collections_abstractmultiset_.abstractmultiset.html#deletemulti">deleteMulti</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/60a36c7/lib/collections/mapmultiset.ts#L42">collections/mapmultiset.ts:42</a></li>
+									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/aceae43/lib/collections/mapmultiset.ts#L61">collections/mapmultiset.ts:61</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -469,7 +487,7 @@
 								<p>Implementation of <a href="../interfaces/_collections_multiset_.multiset.html">Multiset</a>.<a href="../interfaces/_collections_multiset_.multiset.html#elementset">elementSet</a></p>
 								<p>Overrides <a href="_collections_abstractmultiset_.abstractmultiset.html">AbstractMultiset</a>.<a href="_collections_abstractmultiset_.abstractmultiset.html#elementset">elementSet</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/60a36c7/lib/collections/mapmultiset.ts#L56">collections/mapmultiset.ts:56</a></li>
+									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/aceae43/lib/collections/mapmultiset.ts#L75">collections/mapmultiset.ts:75</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -497,7 +515,7 @@
 								<p>Implementation of <a href="../interfaces/_collections_multiset_.multiset.html">Multiset</a>.<a href="../interfaces/_collections_multiset_.multiset.html#entries">entries</a></p>
 								<p>Overrides <a href="_collections_abstractmultiset_.abstractmultiset.html">AbstractMultiset</a>.<a href="_collections_abstractmultiset_.abstractmultiset.html#entries">entries</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/60a36c7/lib/collections/mapmultiset.ts#L67">collections/mapmultiset.ts:67</a></li>
+									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/aceae43/lib/collections/mapmultiset.ts#L86">collections/mapmultiset.ts:86</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -520,7 +538,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_collections_abstractmultiset_.abstractmultiset.html">AbstractMultiset</a>.<a href="_collections_abstractmultiset_.abstractmultiset.html#foreach">forEach</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/60a36c7/lib/collections/abstractmultiset.ts#L63">collections/abstractmultiset.ts:63</a></li>
+									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/aceae43/lib/collections/abstractmultiset.ts#L76">collections/abstractmultiset.ts:76</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -577,22 +595,25 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_collections_abstractmultiset_.abstractmultiset.html">AbstractMultiset</a>.<a href="_collections_abstractmultiset_.abstractmultiset.html#has">has</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/60a36c7/lib/collections/abstractmultiset.ts#L35">collections/abstractmultiset.ts:35</a></li>
+									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/aceae43/lib/collections/abstractmultiset.ts#L44">collections/abstractmultiset.ts:44</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
-								<dl class="tsd-comment-tags">
-									<dt>inheritdoc</dt>
-									<dd></dd>
-								</dl>
+								<div class="lead">
+									<p>Checks if the <a href="../interfaces/_collections_multiset_.multiset.html">Multiset</a> contains the given item.</p>
+								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>value: <span class="tsd-signature-type">T</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The item to look for</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+							<p>True if the item is contained, false otherwise</p>
 						</li>
 					</ul>
 				</section>
@@ -607,7 +628,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_collections_abstractmultiset_.abstractmultiset.html">AbstractMultiset</a>.<a href="_collections_abstractmultiset_.abstractmultiset.html#push">push</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/60a36c7/lib/collections/abstractmultiset.ts#L71">collections/abstractmultiset.ts:71</a></li>
+									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/aceae43/lib/collections/abstractmultiset.ts#L85">collections/abstractmultiset.ts:85</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -638,7 +659,7 @@
 								<p>Implementation of <a href="../interfaces/_collections_multiset_.multiset.html">Multiset</a>.<a href="../interfaces/_collections_multiset_.multiset.html#setcount">setCount</a></p>
 								<p>Inherited from <a href="_collections_abstractmultiset_.abstractmultiset.html">AbstractMultiset</a>.<a href="_collections_abstractmultiset_.abstractmultiset.html#setcount">setCount</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/60a36c7/lib/collections/abstractmultiset.ts#L40">collections/abstractmultiset.ts:40</a></li>
+									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/aceae43/lib/collections/abstractmultiset.ts#L49">collections/abstractmultiset.ts:49</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
