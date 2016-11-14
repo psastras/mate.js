@@ -79,7 +79,6 @@ yarn test
 Building the distribution
 
 ```shell
-jspm install
 npm run build
 ```
 

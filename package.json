@@ -1,8 +1,8 @@
 {
-  "name": "mate.js",
+  "name": "matejs",
   "version": "0.0.0",
   "scripts": {
-    "build": "jspm bundle lib/main dist/main.js",
+    "build": "jspm build lib/main dist/main.js --global-name matejs --skip-source-maps",
     "doc": "typedoc --out .build/doc --readme README.md ./lib",
     "postdoc": "cpx icon.png .build/doc",
     "start": "http-server",
@@ -12,7 +12,7 @@
     "precitest": "rimraf .build && tsc -p .",
     "citest": "nyc mocha --reporter mocha-junit-reporter",
     "postcitest": "tslint -c tsconfig.json 'lib/**/*.ts' && nyc report --reporter=json && codecov -f coverage/*.json",
-    "postinstall": "typings install"
+    "postinstall": "typings install && jspm install"
   },
   "nyc": {
     "exclude": [
@@ -23,13 +23,76 @@
   },
   "jspm": {
     "format": "es6",
+    "main": "lib/main.ts",
     "dependencies": {
       "lodash": "npm:lodash@^4.16.6",
       "object-hash": "npm:object-hash@^1.1.5"
     },
     "devDependencies": {
+      "child_process": "github:jspm/nodelibs-child_process@^0.2.0-alpha",
+      "module": "github:jspm/nodelibs-module@^0.2.0-alpha",
+      "net": "github:jspm/nodelibs-net@^0.2.0-alpha",
+      "plugin-typescript": "github:frankwallis/plugin-typescript@^5.2.9",
+      "readline": "github:jspm/nodelibs-readline@^0.2.0-alpha",
       "tsc": "npm:tsc@^1.20150623.0",
       "typescript": "npm:typescript@^1.6.2"
+    },
+    "buildConfig": {
+      "transpileES6": false,
+      "minify": false
+    },
+    "peerDependencies": {
+      "assert": "github:jspm/nodelibs-assert@^0.2.0-alpha",
+      "buffer": "github:jspm/nodelibs-buffer@^0.2.0-alpha",
+      "constants": "github:jspm/nodelibs-constants@^0.2.0-alpha",
+      "crypto": "github:jspm/nodelibs-crypto@^0.2.0-alpha",
+      "events": "github:jspm/nodelibs-events@^0.2.0-alpha",
+      "fs": "github:jspm/nodelibs-fs@^0.2.0-alpha",
+      "os": "github:jspm/nodelibs-os@^0.2.0-alpha",
+      "path": "github:jspm/nodelibs-path@^0.2.0-alpha",
+      "process": "github:jspm/nodelibs-process@^0.2.0-alpha",
+      "stream": "github:jspm/nodelibs-stream@^0.2.0-alpha",
+      "string_decoder": "github:jspm/nodelibs-string_decoder@^0.2.0-alpha",
+      "util": "github:jspm/nodelibs-util@^0.2.0-alpha",
+      "vm": "github:jspm/nodelibs-vm@^0.2.0-alpha"
+    },
+    "overrides": {
+      "npm:inherits@2.0.1": {
+        "ignore": [
+          "test.js"
+        ]
+      },
+      "npm:lodash@4.16.6": {
+        "map": {
+          "buffer": "@empty",
+          "process": "@empty"
+        }
+      },
+      "npm:typescript@1.8.10": {
+        "browser": {},
+        "map": {
+          "buffer": "@empty",
+          "child_process": "@empty",
+          "fs": "@empty",
+          "path": "@empty",
+          "process": "@empty",
+          "readline": "@empty"
+        }
+      },
+      "npm:typescript@2.1.1": {
+        "browser": {},
+        "map": {
+          "buffer": "@empty",
+          "child_process": "@empty",
+          "fs": "@empty",
+          "path": "@empty",
+          "process": "@empty",
+          "readline": "@empty"
+        },
+        "dependencies": {
+          "source-map-support": "*"
+        }
+      }
     }
   },
   "devDependencies": {
@@ -43,6 +106,7 @@
     "gulp-typescript": "^3.1.2",
     "gulp-util": "^3.0.7",
     "gulp-watch": "^4.3.10",
+    "jspm": "0.17.0-beta.29",
     "mocha": "^3.1.2",
     "mocha-junit-reporter": "^1.12.1",
     "mocha-typescript": "^1.0.11",
