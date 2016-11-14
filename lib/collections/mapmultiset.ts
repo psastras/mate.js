@@ -3,6 +3,23 @@ import AbstractMultiset from './abstractmultiset';
 /**
  * Basic implementation of {@link Multiset} backed by an instance of
  * `Map<T, number>`.
+ * 
+ * Example usage
+ * ```
+ * const set = new MapMultiset<string>()
+ *  .add('foo')
+ *  .add('foo');
+ * 
+ * set.count('foo'); // 2
+ * 
+ * set.addMulti('bar', 3);
+ * set.count('bar'); // 3
+ * 
+ * set.length; // 2
+ * set.size; // 5
+ * ```
+ * 
+ * @param T The element type
  */
 class MapMultiset<T> extends AbstractMultiset<T> {
 

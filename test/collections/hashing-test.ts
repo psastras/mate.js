@@ -4,7 +4,7 @@ import Hashing, { _nearestLowerPowerOfTwo, _hash } from '../../lib/collections/h
 
 @suite class HashingTest {
 
-  @test "get nearest lower power of two"() {
+  @test 'get nearest lower power of two'() {
     expect(_nearestLowerPowerOfTwo(8)).to.eq(8);
     expect(_nearestLowerPowerOfTwo(4)).to.eq(4);
     expect(_nearestLowerPowerOfTwo(3)).to.eq(2);
@@ -12,14 +12,14 @@ import Hashing, { _nearestLowerPowerOfTwo, _hash } from '../../lib/collections/h
     expect(_nearestLowerPowerOfTwo(0)).to.eq(0);
   }
 
-  @test "hashing strings"() {
-    expect(_hash("foo")).to.eq(_hash("foo"));
-    expect(_hash("foo")).to.not.eq(_hash("Foo"));
-    expect(_hash("")).to.eq(_hash(""));
-    expect(_hash(null)).to.eq(_hash(""));
+  @test 'hashing strings'() {
+    expect(_hash('foo')).to.eq(_hash('foo'));
+    expect(_hash('foo')).to.not.eq(_hash('Foo'));
+    expect(_hash('')).to.eq(_hash(''));
+    expect(_hash(null)).to.eq(_hash(''));
   }
 
-  @test "hashing objects"() {
+  @test 'hashing objects'() {
     expect(Hashing.hash({ key: 'val' })).to.eq(Hashing.hash({ key: 'val' }));
     expect(Hashing.hash({ key: 'val' })).to.not.eq(Hashing.hash({ key: 'val1' }));
     expect(Hashing.hash({ key: 'val' })).to.not.eq(Hashing.hash({ key1: 'val' }));

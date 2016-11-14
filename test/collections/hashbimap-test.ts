@@ -24,7 +24,7 @@ import HashBiMap from '../../lib/collections/hashbimap';
     expect(map.get('bar')).to.eq(5);
     expect(map.size).to.eq(2);
   }
-  
+
   @test 'equal keys should cause an exception on entry'() {
     const map = new HashBiMap<string, number>()
       .set('foo', 2);
@@ -277,9 +277,9 @@ import HashBiMap from '../../lib/collections/hashbimap';
       .set('foo', 3)
       .set('bar', 2)
       .set('too', 4);
-    
+
     const values = [];
-    map.forEach((val, idx, map) => { values.push(val) });
+    map.forEach((val, idx, _) => { values.push(val); });
     expect(values).to.deep.eq([3, 2, 4]);
   }
 
@@ -288,9 +288,9 @@ import HashBiMap from '../../lib/collections/hashbimap';
       .set('foo', 3)
       .set('bar', 2)
       .set('too', 4);
-    
+
     const keys = [];
-    map.inverse().forEach((val, idx, map) => { keys.push(val) });
+    map.inverse().forEach((val, idx, _) => { keys.push(val); });
     expect(keys).to.deep.eq(['foo', 'bar', 'too']);
   }
 

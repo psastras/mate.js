@@ -18,7 +18,7 @@ import MapMultiset from '../../lib/collections/mapmultiset';
     const set = new MapMultiset<string>();
     expect(() => set.addMulti('foo', 0)).to.throw(Error);
   }
-  
+
   @test 'adding duplicate entries should increase the count'() {
     const set = new MapMultiset<string>()
       .addMulti('foo', 2)
@@ -123,7 +123,7 @@ import MapMultiset from '../../lib/collections/mapmultiset';
       .addMulti('foo', 3)
       .addMulti('bar', 2)
       .addMulti('too', 4);
-    
+
     const values = [];
     set.forEach((val, idx, map) => { values.push(val) });
     expect(values).to.deep.eq([['foo', 3], ['bar', 2], ['too', 4]]);

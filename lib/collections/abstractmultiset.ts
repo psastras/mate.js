@@ -7,9 +7,13 @@ import Multiset from './multiset';
  */
 abstract class AbstractMultiset<T> implements Multiset<T> {
 
-  /** @inheritdoc */
+  /**
+   * The total number of _unique_ items in the {@link Multiset}.
+   */
   public readonly length: number;
-  /** @inheritdoc */
+  /**
+   * The total number of items in the {@link Multiset}.
+   */
   public readonly size: number;
 
   /** @inheritdoc */
@@ -31,7 +35,12 @@ abstract class AbstractMultiset<T> implements Multiset<T> {
     return this.deleteMulti(value[0], value[1]);
   }
 
-  /** @inheritdoc */
+  /**
+   * Checks if the {@link Multiset} contains the given item.
+   * 
+   * @param value The item to look for
+   * @returns True if the item is contained, false otherwise
+   */
   public has(value: T): boolean {
     return this.count(value) > 0;
   }
@@ -58,7 +67,9 @@ abstract class AbstractMultiset<T> implements Multiset<T> {
   /** @inheritdoc */
   public abstract elementSet(): Set<T>;
 
-  /** @inheritdoc */
+  /**
+   * Removes all items from the {@link Multiset}.
+   */
   public abstract clear(): void;
 
   /** @inheritdoc */

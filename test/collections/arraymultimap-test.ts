@@ -12,7 +12,7 @@ import ArrayMultimap from '../../lib/collections/arraymultimap';
     expect(map.get('bar')).to.deep.eq([5]);
     expect(map.size).to.eq(2);
   }
-  
+
   @test 'equal keys should store multiple values'() {
     const map = new ArrayMultimap<string, number>()
       .set('foo', 2)
@@ -133,9 +133,9 @@ import ArrayMultimap from '../../lib/collections/arraymultimap';
       .set('foo', 3)
       .set('bar', 2)
       .set('too', 4);
-    
+
     const values = [];
-    map.forEach((val, idx, map) => { values.push(val) });
+    map.forEach((val, idx, _) => { values.push(val); });
     expect(values).to.deep.eq([[3], [2], [4]]);
   }
 }
