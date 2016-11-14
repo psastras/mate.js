@@ -25,7 +25,7 @@ abstract class AbstractMultiset<T> implements Multiset<T> {
    * @param value The item to insert and the number of times to insert it
    * @returns The multiset
    */
-  public abstract add(value: [T, number]): this;
+  public abstract add(value: T, occurrences?: number): this;
 
   /**
    * Removes a number of occurrences of an element from this multiset.
@@ -33,7 +33,7 @@ abstract class AbstractMultiset<T> implements Multiset<T> {
    * @param value The item to insert and the number of times to remove it
    * @returns The multiset
    */
-  public abstract delete(value: [T, number]): boolean;
+  public abstract delete(value: T, occurrences?: number): boolean;
 
   /**
    * Checks if the {@link Multiset} contains the given item.
@@ -51,13 +51,13 @@ abstract class AbstractMultiset<T> implements Multiset<T> {
       throw new Error(`attempted to insert ${occurrences} items which is < 1`);
     }
     if (!this.has(item)) {
-      this.add([item, occurrences]);
+      this.add(item, occurrences);
     } else {
       const count = this.count(item);
       if (occurrences > count) {
-        this.add([item, occurrences - count]);
+        this.add(item, occurrences - count);
       } else {
-        this.delete([item, count - occurrences]);
+        this.delete(item, count - occurrences);
       }
     }
   }
@@ -71,7 +71,7 @@ abstract class AbstractMultiset<T> implements Multiset<T> {
   public abstract clear(): void;
 
   /** @inheritdoc */
-  public forEach(callbackfn: (value: [T, number], index: T, set: Multiset<T>) => void,
+  public forEach(callbackfn: (value: T, index: T, set: Multiset<T>) => void,
                  thisArg?: Multiset<T>): void {
     const set = (thisArg || this);
     for (let entry of set.entries()) {
@@ -80,10 +80,10 @@ abstract class AbstractMultiset<T> implements Multiset<T> {
   }
 
   /** @inheritdoc */
-  public abstract entries(): IterableIterator<[T, number]>;
+  public abstract entries(): IterableIterator<T>;
 
   /** @inheritdoc */
-  public [Symbol.iterator](): IterableIterator<[T, number]> {
+  public [Symbol.iterator](): IterableIterator<T> {
     return this.entries();
   }
 }

@@ -6,7 +6,7 @@ import Collection from './collection';
  * _bag_.
  * @param T The element type
  */
-interface Multiset<T> extends Collection<[T, number]> {
+interface Multiset<T> extends Collection<T> {
 
   /**
    * Returns the number of occurrences of an element in this multiset.
@@ -37,7 +37,7 @@ interface Multiset<T> extends Collection<[T, number]> {
   /**
    * Iterator over the collection's elements and number of occurrences
    */
-  entries(): IterableIterator<[T, number]>;
+  entries(): IterableIterator<T>;
 }
 
 export default Multiset;

@@ -55,6 +55,8 @@ set.count('foo'); // 2
 
 - [ArrayMultimap](https://psastras.github.io/mate.js/classes/_collections_arraymultimap_.arraymultimap.html) -
 a multimap backed by arrays for its values
+- [MultisetMultimap](https://psastras.github.io/mate.js/classes/_collections_multisetmultimap_.multisetmultimap.html) -
+a multimap backed by multisets (bags) for its values
 - [HashBiMap](https://psastras.github.io/mate.js/classes/_collections_hashbimap_.hashbimap.html) -
 a bidirectional map backed by two hash tables
 - [MapMultiset](https://psastras.github.io/mate.js/classes/_collections_mapmultiset_.mapmultiset.html) -

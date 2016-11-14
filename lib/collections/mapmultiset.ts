@@ -48,23 +48,23 @@ class MapMultiset<T> extends AbstractMultiset<T> {
   }
 
   /** @inheritdoc */
-  public add(item: [T, number]): this {
-    if (item[1] < 1) {
-      throw new Error(`attempted to insert ${item[1]} items which is < 1`);
+  public add(item: T, occurences: number = 1): this {
+    if (occurences < 1) {
+      throw new Error(`attempted to insert ${occurences} items which is < 1`);
     }
-    this.map.set(item[0], this.count(item[0]) + item[1]);
-    this._size += item[1];
+    this.map.set(item, this.count(item) + occurences);
+    this._size += occurences;
     return this;
   }
 
   /** @inheritdoc */
-  public delete(item: [T, number]): boolean {
-    const oldCount = this.count(item[0]);
-    const newCount = oldCount - item[1];
+  public delete(item: T, occurences: number = 1): boolean {
+    const oldCount = this.count(item);
+    const newCount = oldCount - occurences;
     if (newCount > 0) {
-      this.map.set(item[0], newCount);
+      this.map.set(item, newCount);
     } else {
-      this.map.delete(item[0]);
+      this.map.delete(item);
     }
     const numDeleted = oldCount - Math.max(newCount, 0);
     this._size -= numDeleted;
@@ -83,8 +83,28 @@ class MapMultiset<T> extends AbstractMultiset<T> {
   }
 
   /** @inheritdoc */
-  public entries(): IterableIterator<[T, number]> {
-    return this.map.entries();
+  public entries(): IterableIterator<T> {
+    let keys = this.map.keys();
+    let key = keys.next();
+    let map = this.map;
+    let i = 0;
+    return {
+      next(): IteratorResult<T> {
+        if (key.done) {
+          return { done: true, value: undefined };
+        }
+        const value = key.value;
+        if (++i >= map.get(value)) {
+          key = keys.next();
+          i = 0;
+        }
+        return { done: false, value };
+      },
+
+      [Symbol.iterator](): IterableIterator<T> {
+        return this;
+      },
+    };
   }
 }
 
