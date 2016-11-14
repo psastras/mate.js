@@ -40,9 +40,15 @@ import MapMultiset from '../../lib/collections/mapmultiset';
   @test 'should be able to modify the count of a non existent item directly'() {
     const set = new MapMultiset<string>();
     expect(set.count('foo')).to.eq(0);
+
     set.setCount('foo', 7);
     expect(set.count('foo')).to.eq(7);
     expect(set.size).to.eq(7);
+    expect(set.length).to.eq(1);
+
+    set.setCount('foo', 3);
+    expect(set.count('foo')).to.eq(3);
+    expect(set.size).to.eq(3);
     expect(set.length).to.eq(1);
   }
 
@@ -114,7 +120,7 @@ import MapMultiset from '../../lib/collections/mapmultiset';
     expect(itr.next()).to.deep.eq({ value: undefined, done: true });
 
     let i = 0;
-    for (let entry of set.entries()) i++;
+    for (let entry of set) i++;
     expect(i).to.eq(3);
   }
 

@@ -18,6 +18,37 @@ _Core primitives and utilities for javascript and typescript, based off of Googl
 
 Not yet, sorry.
 
+## Sample Usage
+
+See the [documentation](https://psastras.github.io/mate.js/) for more comprehensive usage
+examples.
+
+### Bidirectional Maps
+
+```typescript
+const map = new HashBiMap<string, number>()
+ .set('foo', 3)
+ .set('bar', 2);
+
+map.get('foo'); // 3
+map.hasValue(2); // true
+
+// get a reference to the inverted map (number to string)
+const inverse = map.inverse();
+inverse.get(3); // "foo"
+inverse.delete(2); // true
+```
+
+### Multisets
+
+```typescript
+const set = new MapMultiset<string>()
+ .add('foo')
+ .add('foo');
+
+set.count('foo'); // 2
+```
+
 ## Exported Classes
 
 ### Collections

@@ -56,10 +56,8 @@ abstract class AbstractMultiset<T> implements Multiset<T> {
       const count = this.count(item);
       if (occurrences > count) {
         this.addMulti(item, occurrences - count);
-      } else if (occurrences < count) {
-        this.deleteMulti(item, count - occurrences);
       } else {
-        this.deleteMulti(item, count);
+        this.deleteMulti(item, count - occurrences);
       }
     }
   }
