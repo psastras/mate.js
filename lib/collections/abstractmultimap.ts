@@ -3,7 +3,7 @@ import Multimap from './multimap';
 
 /**
  * A {@link Multimap} which implements several methods using {@link Multimap.asMap}.
- * Subclasses only need to implment {@link AbstractMultimap.asMap} and 
+ * Subclasses only need to impelment {@link AbstractMultimap.asMap} and 
  * {@link AbstractMultimap._createCollection}.
  * 
  * @param K The key type

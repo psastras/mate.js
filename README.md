@@ -26,6 +26,8 @@ Not yet, sorry.
 a multimap backed by arrays for its values
 - [HashBiMap](https://psastras.github.io/mate.js/classes/_collections_hashbimap_.hashbimap.html) -
 a bidirectional map backed by two hash tables
+- [MapMultiset](https://psastras.github.io/mate.js/classes/_collections_mapmultiset_.mapmultiset.html) -
+a multiset (bag) backed by a map of items to counts
 
 ## Development
 
