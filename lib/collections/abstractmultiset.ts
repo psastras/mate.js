@@ -8,37 +8,39 @@ import Multiset from './multiset';
 abstract class AbstractMultiset<T> implements Multiset<T> {
 
   /** @inheritdoc */
-  readonly length: number;
+  public readonly length: number;
   /** @inheritdoc */
-  readonly size: number;
-  
-  /** @inheritdoc */
-  abstract count(item: T): number;
+  public readonly size: number;
 
   /** @inheritdoc */
-  abstract addMulti(item: T, occurrences: number): this;
+  public abstract count(item: T): number;
 
   /** @inheritdoc */
-  add(value: T): this {
+  public abstract addMulti(item: T, occurrences: number): this;
+
+  /** @inheritdoc */
+  public add(value: T): this {
     return this.addMulti(value, 1);
   }
 
   /** @inheritdoc */
-  abstract deleteMulti(item: T, occurrences: number): boolean;
+  public abstract deleteMulti(item: T, occurrences: number): boolean;
 
   /** @inheritdoc */
-  delete(value: [T, number]): boolean {
+  public delete(value: [T, number]): boolean {
     return this.deleteMulti(value[0], value[1]);
   }
 
   /** @inheritdoc */
-  has(value: T): boolean {
+  public has(value: T): boolean {
     return this.count(value) > 0;
   }
 
   /** @inheritdoc */
-  setCount(item: T, occurrences: number): void {
-    if (occurrences < 1) throw new Error(`attempted to insert ${occurrences} items which is < 1`);
+  public setCount(item: T, occurrences: number): void {
+    if (occurrences < 1) {
+      throw new Error(`attempted to insert ${occurrences} items which is < 1`);
+    }
     if (!this.has(item)) {
       this.addMulti(item, occurrences);
     } else {
@@ -54,30 +56,31 @@ abstract class AbstractMultiset<T> implements Multiset<T> {
   }
 
   /** @inheritdoc */
-  abstract elementSet(): Set<T>;
+  public abstract elementSet(): Set<T>;
 
   /** @inheritdoc */
-  abstract clear(): void;
-  
+  public abstract clear(): void;
+
   /** @inheritdoc */
-  forEach(callbackfn: (value: [T, number], index: T, set: Multiset<T>) => void, thisArg?: Multiset<T>): void {
-    const set = (thisArg || this)
+  public forEach(callbackfn: (value: [T, number], index: T, set: Multiset<T>) => void,
+                 thisArg?: Multiset<T>): void {
+    const set = (thisArg || this);
     for (let entry of set.entries()) {
       callbackfn(entry, entry[0], set);
     }
   }
-  
+
   /** @inheritdoc */
-  push(value: [T, number]): number {
+  public push(value: [T, number]): number {
     this.add(value[0]);
     return this.size;
   }
 
   /** @inheritdoc */
-  abstract entries(): IterableIterator<[T, number]>;
+  public abstract entries(): IterableIterator<[T, number]>;
 
   /** @inheritdoc */
-  [Symbol.iterator](): IterableIterator<[T, number]> {
+  public [Symbol.iterator](): IterableIterator<[T, number]> {
     return this.entries();
   }
 }

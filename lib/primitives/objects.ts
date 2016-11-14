@@ -15,5 +15,5 @@ function isEqual(a: Object, b: Object) {
 }
 
 export default {
-  isEqual
-}
+  isEqual,
+};

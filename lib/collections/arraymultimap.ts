@@ -24,6 +24,7 @@ import AbstractMultimap from './abstractmultimap';
  */
 class ArrayMultimap<K, V> extends AbstractMultimap<K, V> implements Multimap<K, V> {
 
+  public readonly [Symbol.toStringTag]: 'MultiMap';
   private map: Map<K, ArrayCollection<V>>;
 
   /**
@@ -35,21 +36,20 @@ class ArrayMultimap<K, V> extends AbstractMultimap<K, V> implements Multimap<K, 
   }
 
   /** @inheritdoc */
-  _createCollection(): Collection<V> {
+  public _createCollection(): Collection<V> {
     return new ArrayCollection<V>();
   }
 
   /** @inheritdoc */
-  asMap(): Map<K, Collection<V>> {
+  public asMap(): Map<K, Collection<V>> {
     return this.map;
   }
 
   /** @inheritdoc */
-  get(key: K): Collection<V> {
+  public get(key: K): Collection<V> {
     return this.map.get(key);
   }
 
-  readonly [Symbol.toStringTag]: "MultiMap"
 }
 
 export default ArrayMultimap;

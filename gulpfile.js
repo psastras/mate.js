@@ -6,6 +6,7 @@ var batch = require('gulp-batch');
 var ts = require('gulp-typescript');
 var watch = require('gulp-watch');
 var gutil = require('gulp-util');
+var tslint = require("gulp-tslint");
 
 var tsconfig = {
   "module": "commonjs",
@@ -47,4 +48,20 @@ gulp.task('test', function() {
    });
 });
 
-gulp.task('default', ['compile', 'test']);
+gulp.task('lint', function() {
+  return watch('lib/**/*.ts', function() {
+        gulp.src('lib/**/*.ts', { base: '.' })
+          .pipe(tslint({
+            formatter: "verbose"
+          }))
+          .pipe(tslint.report())
+          .on('end', function() {
+            gutil.log(gutil.colors.green('Linting finished'));
+          })
+          .on('error', function (err) {
+            if (err.stack) gutil.log(gutil.colors.red(err.stack));
+          });
+   });
+})
+
+gulp.task('default', ['compile', 'test', 'lint']);

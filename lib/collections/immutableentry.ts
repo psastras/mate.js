@@ -5,8 +5,8 @@
  * @param V The value type
  */
 export default class ImmutableEntry<K, V> {
-  readonly key: K;
-  readonly value: V;
+  public readonly key: K;
+  public readonly value: V;
 
   /**
    * Constructs a new readonly key value pair.
@@ -16,5 +16,5 @@ export default class ImmutableEntry<K, V> {
   constructor(key: K, value: V) {
     this.key = key;
     this.value = value;
-  } 
+  }
 }

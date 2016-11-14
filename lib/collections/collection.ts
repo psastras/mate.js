@@ -12,9 +12,9 @@ interface Collection<T> {
   readonly length: number;
 
   /**
-  * Appends new elements to a collection, and returns the new size of the collection.
-  * @param items New elements of the collection.
-  */
+   * Appends new elements to a collection, and returns the new size of the collection.
+   * @param items New elements of the collection.
+   */
   push(...items: T[]): number;
 
   /**

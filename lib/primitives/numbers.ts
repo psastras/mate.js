@@ -3,7 +3,7 @@
  */
 
 export default {
-  
+
   /**
    * Returns the value obtained by rotating the two's complement binary representation
    * of the specified int value left by the specified number of bits.
@@ -22,5 +22,6 @@ export default {
    */
   rotateRight(i: number, distance: number): number {
     return (i >>> distance) | (i << -distance);
-  }
-}
+  },
+
+};

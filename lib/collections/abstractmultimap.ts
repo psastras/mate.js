@@ -11,22 +11,20 @@ import Multimap from './multimap';
  */
 abstract class AbstractMultimap<K, V> implements Multimap<K, V> {
 
-  /**
-   * Constructs a new, empty multimap.
-   */
-  constructor() { }
+  public readonly [Symbol.toStringTag]: 'MultiMap';
 
   /** @inheritdoc */
-  abstract asMap(): Map<K, Collection<V>>;
+  public abstract asMap(): Map<K, Collection<V>>;
 
   /** @inheritdoc */
-  abstract _createCollection(): Collection<V>;
+  public abstract _createCollection(): Collection<V>;
 
   /** @inheritdoc */
-  set(key: K, value: V): this {
+  public set(key: K, value: V): this {
     const oldValue = this.asMap().get(key);
-    if (oldValue) oldValue.push(value);
-    else {
+    if (oldValue) {
+      oldValue.push(value);
+    } else {
       const newValue = this._createCollection();
       newValue.push(value);
       this.asMap().set(key, newValue);
@@ -35,9 +33,11 @@ abstract class AbstractMultimap<K, V> implements Multimap<K, V> {
   }
 
   /** @inheritdoc */
-  delete(key: K, value: V): boolean {
+  public delete(key: K, value: V): boolean {
     const values = this.asMap().get(key);
-    if (!values) return false;
+    if (!values) {
+      return false;
+    }
     const deleted = values.delete(value);
     if (values.length === 0) {
       this.asMap().delete(key);
@@ -46,36 +46,38 @@ abstract class AbstractMultimap<K, V> implements Multimap<K, V> {
   }
 
   /** @inheritdoc */
-  has(key: K): boolean {
+  public has(key: K): boolean {
     return !!this.get(key);
   }
 
   /** @inheritdoc */
-  abstract get(key: K): Collection<V>;
+  public abstract get(key: K): Collection<V>;
 
   /** @inheritdoc */
-  entries(): IterableIterator<[K, Collection<V>]> {
+  public entries(): IterableIterator<[K, Collection<V>]> {
     return this.asMap().entries();
   }
 
   /** @inheritdoc */
-  keys(): IterableIterator<K> {
+  public keys(): IterableIterator<K> {
     return this.asMap().keys();
   }
 
   /** @inheritdoc */
-  values(): IterableIterator<Collection<V>> {
+  public values(): IterableIterator<Collection<V>> {
     return this.asMap().values();
   }
 
   /** @inheritdoc */
-  forEach(callbackfn: (value: Collection<V>, index: K,
-          map: Map<K, Collection<V>>) => void, thisArg?: any): void {
+  public forEach(callbackfn: (value: Collection<V>,
+                 index: K,
+                 map: Map<K, Collection<V>>) => void,
+                 thisArg?: any): void {
     this.asMap().forEach(callbackfn);
   }
 
   /** @inheritdoc */
-  clear(): void {
+  public clear(): void {
     this.asMap().clear();
   }
 
@@ -85,11 +87,10 @@ abstract class AbstractMultimap<K, V> implements Multimap<K, V> {
   }
 
   /** @inheritdoc */
-  [Symbol.iterator](): IterableIterator<[K, Collection<V>]> {
+  public [Symbol.iterator](): IterableIterator<[K, Collection<V>]> {
     return this.entries();
   }
 
-  readonly [Symbol.toStringTag]: "MultiMap"
 }
 
 export default AbstractMultimap;

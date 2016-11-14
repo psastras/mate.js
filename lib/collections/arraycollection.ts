@@ -10,11 +10,13 @@ class ArrayCollection<T> extends Array<T> implements Collection<T> {
   /**
    * @inheritdoc
    */
-  delete(...items: T[]): boolean {
+  public delete(...items: T[]): boolean {
     let itemsRemoved = 0;
     _.remove(this, item => {
       const shouldRemove = _.indexOf(items, item) !== -1;
-      if (shouldRemove) itemsRemoved++;
+      if (shouldRemove) {
+        itemsRemoved++;
+      }
       return shouldRemove;
     });
     return itemsRemoved > 0;

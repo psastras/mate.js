@@ -9,6 +9,8 @@ import Collection from './collection';
  */
 interface Multimap<K, V> {
 
+  readonly [Symbol.toStringTag]: 'MultiMap';
+
   /**
    * The size (number of entries) in the map.
    */
@@ -84,7 +86,7 @@ interface Multimap<K, V> {
    * @param callbackfn The function to execute
    * @param thisArg Value to use as `this` when executing the call
    */
-  forEach(callbackfn: (value: Collection<V>, index: K, 
+  forEach(callbackfn: (value: Collection<V>, index: K,
           map: Map<K, Collection<V>>) => void, thisArg?: any): void;
 
   /**
@@ -98,7 +100,6 @@ interface Multimap<K, V> {
    */
   [Symbol.iterator](): IterableIterator<[K, Collection<V>]>;
 
-  readonly [Symbol.toStringTag]: "MultiMap"
 }
 
 export default Multimap;

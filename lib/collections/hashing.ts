@@ -43,7 +43,9 @@ export function _nearestLowerPowerOfTwo(x: number): number {
  */
 export function _hash(s: String): number {
   let hash = 0, i, chr, len;
-  if (!s || s.length === 0) return hash;
+  if (!s || s.length === 0) {
+    return hash;
+  }
   for (i = 0, len = s.length; i < len; i++) {
     chr   = s.charCodeAt(i);
     hash  = ((hash << 5) - hash) + chr;
@@ -114,4 +116,4 @@ export default {
   needsResizing,
   smear,
   smearedHash,
-}
+};

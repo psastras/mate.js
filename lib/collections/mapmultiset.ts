@@ -3,12 +3,12 @@ import AbstractMultiset from './abstractmultiset';
 /**
  * Basic implementation of {@link Multiset} backed by an instance of
  * `Map<T, number>`.
- **/
+ */
 class MapMultiset<T> extends AbstractMultiset<T> {
-  
+
   private map: Map<T, number>;
   private _size: number;
-  
+
   constructor() {
     super();
     this.map = new Map<T, number>();
@@ -26,20 +26,22 @@ class MapMultiset<T> extends AbstractMultiset<T> {
   }
 
   /** @inheritdoc */
-  count(item: T): number {
+  public count(item: T): number {
     return this.map.get(item) || 0;
   }
 
   /** @inheritdoc */
-  addMulti(item: T, occurrences: number = 1): this {
-    if (occurrences < 1) throw new Error(`attempted to insert ${occurrences} items which is < 1`);
+  public addMulti(item: T, occurrences: number = 1): this {
+    if (occurrences < 1) {
+      throw new Error(`attempted to insert ${occurrences} items which is < 1`);
+    }
     this.map.set(item, this.count(item) + occurrences);
     this._size += occurrences;
     return this;
   }
 
   /** @inheritdoc */
-  deleteMulti(item: T, occurrences: number = 1): boolean {
+  public deleteMulti(item: T, occurrences: number = 1): boolean {
     const oldCount = this.count(item);
     const newCount = oldCount - occurrences;
     if (newCount > 0) {
@@ -53,18 +55,18 @@ class MapMultiset<T> extends AbstractMultiset<T> {
   }
 
   /** @inheritdoc */
-  elementSet(): Set<T> {
+  public elementSet(): Set<T> {
     return new Set<T>(this.map.keys());
   }
 
   /** @inheritdoc */
-  clear(): void {
+  public clear(): void {
     this.map.clear();
     this._size = 0;
   }
 
   /** @inheritdoc */
-  entries(): IterableIterator<[T, number]> {
+  public entries(): IterableIterator<[T, number]> {
     return this.map.entries();
   }
 }
