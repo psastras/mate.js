@@ -1,4 +1,4 @@
-import Collection from './collection';
+import AbstractCollection from './abstractcollection';
 
 /**
  * A collection that supports order-independent equality, like a Set, but
@@ -6,7 +6,7 @@ import Collection from './collection';
  * _bag_.
  * @param T The element type
  */
-interface Multiset<T> extends Collection<T> {
+abstract class Multiset<T> extends AbstractCollection<T> {
 
   /**
    * Returns the number of occurrences of an element in this multiset.
@@ -15,7 +15,7 @@ interface Multiset<T> extends Collection<T> {
    * @returns The number of occurrences of the element in this multiset, zero if is not
    * in this multiset
    */
-  count(item: T): number;
+  public abstract count(item: T): number;
 
   /**
    * Adds or removes the necessary occurrences of an element such that the
@@ -23,7 +23,7 @@ interface Multiset<T> extends Collection<T> {
    * @param item The item to add or remove
    * @param occurrences The number of items to add or remove
    */
-  setCount(item: T, occurrences: number): void;
+  public abstract setCount(item: T, occurrences: number): void;
 
   /**
    * Returns the set of distinct elements contained in this multiset. The
@@ -32,12 +32,12 @@ interface Multiset<T> extends Collection<T> {
    * the element set is unspecified.
    * @returns A set containing the distinct items in this multiset
    */
-  elementSet(): Set<T>;
+  public abstract elementSet(): Set<T>;
 
   /**
    * Iterator over the collection's elements and number of occurrences
    */
-  entries(): IterableIterator<T>;
+  public abstract entries(): IterableIterator<T>;
 }
 
 export default Multiset;

@@ -5,12 +5,13 @@ import Multiset from './multiset';
  * 
  * @param T The element type
  */
-abstract class AbstractMultiset<T> implements Multiset<T> {
+abstract class AbstractMultiset<T> extends Multiset<T> {
 
   /**
    * The total number of _unique_ items in the {@link Multiset}.
    */
   public readonly length: number;
+
   /**
    * The total number of items in the {@link Multiset}.
    */
