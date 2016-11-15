@@ -18,6 +18,7 @@ dependencies:
   cache_directories:
     - "~/.yarn-cache"
     - "~/.apt-cache"
+    - "jspm_packages"
   override:
     - yarn install
 test:
