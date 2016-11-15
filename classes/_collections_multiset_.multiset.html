@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>AbstractMultiset | matejs</title>
+	<title>Multiset | matejs</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,13 +56,13 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="../modules/_collections_abstractmultiset_.html">&quot;collections/abstractmultiset&quot;</a>
+					<a href="../modules/_collections_multiset_.html">&quot;collections/multiset&quot;</a>
 				</li>
 				<li>
-					<a href="_collections_abstractmultiset_.abstractmultiset.html">AbstractMultiset</a>
+					<a href="_collections_multiset_.multiset.html">Multiset</a>
 				</li>
 			</ul>
-			<h1>Class AbstractMultiset&lt;T&gt;</h1>
+			<h1>Class Multiset&lt;T&gt;</h1>
 		</div>
 	</div>
 </header>
@@ -72,7 +72,9 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>A <a href="_collections_multiset_.multiset.html">Multiset</a> which implements several methods.</p>
+						<p>A collection that supports order-independent equality, like a Set, but
+							may have duplicate elements. A multiset is also sometimes called a
+						<em>bag</em>.</p>
 					</div>
 				</div>
 			</section>
@@ -93,13 +95,13 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<a href="_collections_multiset_.multiset.html" class="tsd-signature-type">Multiset</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span>
+						<a href="_collections_abstractcollection_.abstractcollection.html" class="tsd-signature-type">AbstractCollection</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span>
 						<ul class="tsd-hierarchy">
 							<li>
-								<span class="target">AbstractMultiset</span>
+								<span class="target">Multiset</span>
 								<ul class="tsd-hierarchy">
 									<li>
-										<a href="_collections_mapmultiset_.mapmultiset.html" class="tsd-signature-type">MapMultiset</a>
+										<a href="_collections_abstractmultiset_.abstractmultiset.html" class="tsd-signature-type">AbstractMultiset</a>
 									</li>
 								</ul>
 							</li>
@@ -117,86 +119,69 @@
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
-						<section class="tsd-index-section ">
+						<section class="tsd-index-section tsd-is-inherited">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-overwrite"><a href="_collections_abstractmultiset_.abstractmultiset.html#length" class="tsd-kind-icon">length</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_collections_abstractmultiset_.abstractmultiset.html#size" class="tsd-kind-icon">size</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_collections_multiset_.multiset.html#length" class="tsd-kind-icon">length</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="_collections_abstractmultiset_.abstractmultiset.html#___iterator" class="tsd-kind-icon">__@iterator</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="_collections_abstractmultiset_.abstractmultiset.html#add" class="tsd-kind-icon">add</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_collections_abstractmultiset_.abstractmultiset.html#addall" class="tsd-kind-icon">add<wbr>All</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="_collections_abstractmultiset_.abstractmultiset.html#clear" class="tsd-kind-icon">clear</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="_collections_abstractmultiset_.abstractmultiset.html#count" class="tsd-kind-icon">count</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="_collections_abstractmultiset_.abstractmultiset.html#delete" class="tsd-kind-icon">delete</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_collections_abstractmultiset_.abstractmultiset.html#deleteall" class="tsd-kind-icon">delete<wbr>All</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="_collections_abstractmultiset_.abstractmultiset.html#elementset" class="tsd-kind-icon">element<wbr>Set</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="_collections_abstractmultiset_.abstractmultiset.html#entries" class="tsd-kind-icon">entries</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_collections_abstractmultiset_.abstractmultiset.html#foreach" class="tsd-kind-icon">for<wbr>Each</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="_collections_abstractmultiset_.abstractmultiset.html#has" class="tsd-kind-icon">has</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_collections_abstractmultiset_.abstractmultiset.html#hasall" class="tsd-kind-icon">has<wbr>All</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_collections_abstractmultiset_.abstractmultiset.html#isempty" class="tsd-kind-icon">is<wbr>Empty</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="_collections_abstractmultiset_.abstractmultiset.html#setcount" class="tsd-kind-icon">set<wbr>Count</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_collections_abstractmultiset_.abstractmultiset.html#toarray" class="tsd-kind-icon">to<wbr>Array</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_collections_multiset_.multiset.html#___iterator" class="tsd-kind-icon">__@iterator</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_collections_multiset_.multiset.html#add" class="tsd-kind-icon">add</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_collections_multiset_.multiset.html#addall" class="tsd-kind-icon">add<wbr>All</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_collections_multiset_.multiset.html#clear" class="tsd-kind-icon">clear</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_collections_multiset_.multiset.html#count" class="tsd-kind-icon">count</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_collections_multiset_.multiset.html#delete" class="tsd-kind-icon">delete</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_collections_multiset_.multiset.html#deleteall" class="tsd-kind-icon">delete<wbr>All</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_collections_multiset_.multiset.html#elementset" class="tsd-kind-icon">element<wbr>Set</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="_collections_multiset_.multiset.html#entries" class="tsd-kind-icon">entries</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_collections_multiset_.multiset.html#has" class="tsd-kind-icon">has</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_collections_multiset_.multiset.html#hasall" class="tsd-kind-icon">has<wbr>All</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_collections_multiset_.multiset.html#isempty" class="tsd-kind-icon">is<wbr>Empty</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_collections_multiset_.multiset.html#setcount" class="tsd-kind-icon">set<wbr>Count</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_collections_multiset_.multiset.html#toarray" class="tsd-kind-icon">to<wbr>Array</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group ">
+			<section class="tsd-panel-group tsd-member-group tsd-is-inherited">
 				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-overwrite">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="length" class="tsd-anchor"></a>
 					<h3>length</h3>
 					<div class="tsd-signature tsd-kind-icon">length<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<p>Implementation of <a href="../interfaces/_collections_collection_.collection.html">Collection</a>.<a href="../interfaces/_collections_collection_.collection.html#length">length</a></p>
-						<p>Overrides <a href="_collections_abstractcollection_.abstractcollection.html">AbstractCollection</a>.<a href="_collections_abstractcollection_.abstractcollection.html#length">length</a></p>
+						<p>Inherited from <a href="_collections_abstractcollection_.abstractcollection.html">AbstractCollection</a>.<a href="_collections_abstractcollection_.abstractcollection.html#length">length</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/psastras/mate.js/blob/b441504/lib/collections/abstractmultiset.ts#L13">collections/abstractmultiset.ts:13</a></li>
+							<li>Defined in <a href="https://github.com/psastras/mate.js/blob/b441504/lib/collections/abstractcollection.ts#L12">collections/abstractcollection.ts:12</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>The total number of <em>unique</em> items in the <a href="_collections_multiset_.multiset.html">Multiset</a>.</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="size" class="tsd-anchor"></a>
-					<h3>size</h3>
-					<div class="tsd-signature tsd-kind-icon">size<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/psastras/mate.js/blob/b441504/lib/collections/abstractmultiset.ts#L18">collections/abstractmultiset.ts:18</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>The total number of items in the <a href="_collections_multiset_.multiset.html">Multiset</a>.</p>
+							<p>The number of elements in the collection.</p>
 						</div>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 					<a name="___iterator" class="tsd-anchor"></a>
 					<h3>__@iterator</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 						<li class="tsd-signature tsd-kind-icon">__@iterator<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IterableIterator</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/_collections_collection_.collection.html">Collection</a>.<a href="../interfaces/_collections_collection_.collection.html#___iterator">__@iterator</a></p>
-								<p>Overrides <a href="_collections_abstractcollection_.abstractcollection.html">AbstractCollection</a>.<a href="_collections_abstractcollection_.abstractcollection.html#___iterator">__@iterator</a></p>
+								<p>Inherited from <a href="_collections_abstractcollection_.abstractcollection.html">AbstractCollection</a>.<a href="_collections_abstractcollection_.abstractcollection.html#___iterator">__@iterator</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/b441504/lib/collections/abstractmultiset.ts#L87">collections/abstractmultiset.ts:87</a></li>
+									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/b441504/lib/collections/abstractcollection.ts#L68">collections/abstractcollection.ts:68</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -208,35 +193,30 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 					<a name="add" class="tsd-anchor"></a>
 					<h3>add</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-						<li class="tsd-signature tsd-kind-icon">add<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, occurrences<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span></li>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">add<span class="tsd-signature-symbol">(</span>item<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Overrides <a href="_collections_abstractcollection_.abstractcollection.html">AbstractCollection</a>.<a href="_collections_abstractcollection_.abstractcollection.html#add">add</a></p>
+								<p>Implementation of <a href="../interfaces/_collections_collection_.collection.html">Collection</a>.<a href="../interfaces/_collections_collection_.collection.html#add">add</a></p>
+								<p>Inherited from <a href="_collections_abstractcollection_.abstractcollection.html">AbstractCollection</a>.<a href="_collections_abstractcollection_.abstractcollection.html#add">add</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/b441504/lib/collections/abstractmultiset.ts#L29">collections/abstractmultiset.ts:29</a></li>
+									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/b441504/lib/collections/abstractcollection.ts#L15">collections/abstractcollection.ts:15</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Adds a number of occurrences of an element to this multiset.</p>
+									<p>Ensures that this collection contains the specified element</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>value: <span class="tsd-signature-type">T</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The item to insert and the number of times to insert it</p>
-									</div>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> occurrences: <span class="tsd-signature-type">number</span></h5>
+									<h5>item: <span class="tsd-signature-type">T</span></h5>
 								</li>
 							</ul>
 						</li>
@@ -271,49 +251,82 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 					<a name="clear" class="tsd-anchor"></a>
 					<h3>clear</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 						<li class="tsd-signature tsd-kind-icon">clear<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/_collections_collection_.collection.html">Collection</a>.<a href="../interfaces/_collections_collection_.collection.html#clear">clear</a></p>
-								<p>Overrides <a href="_collections_abstractcollection_.abstractcollection.html">AbstractCollection</a>.<a href="_collections_abstractcollection_.abstractcollection.html#clear">clear</a></p>
+								<p>Inherited from <a href="_collections_abstractcollection_.abstractcollection.html">AbstractCollection</a>.<a href="_collections_abstractcollection_.abstractcollection.html#clear">clear</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/b441504/lib/collections/abstractmultiset.ts#L72">collections/abstractmultiset.ts:72</a></li>
+									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/b441504/lib/collections/abstractcollection.ts#L65">collections/abstractcollection.ts:65</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Removes all items from the <a href="_collections_multiset_.multiset.html">Multiset</a>.</p>
+									<p>Removes all of the elements from this collection.</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="count" class="tsd-anchor"></a>
 					<h3>count</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">count<span class="tsd-signature-symbol">(</span>item<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Overrides <a href="_collections_multiset_.multiset.html">Multiset</a>.<a href="_collections_multiset_.multiset.html#count">count</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/b441504/lib/collections/abstractmultiset.ts#L21">collections/abstractmultiset.ts:21</a></li>
+									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/b441504/lib/collections/multiset.ts#L18">collections/multiset.ts:18</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
-								<dl class="tsd-comment-tags">
-									<dt>inheritdoc</dt>
-									<dd></dd>
-								</dl>
+								<div class="lead">
+									<p>Returns the number of occurrences of an element in this multiset.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>item: <span class="tsd-signature-type">T</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The element to count occurrences of</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+							<p>The number of occurrences of the element in this multiset, zero if is not
+							in this multiset</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="delete" class="tsd-anchor"></a>
+					<h3>delete</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">delete<span class="tsd-signature-symbol">(</span>item<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/_collections_collection_.collection.html">Collection</a>.<a href="../interfaces/_collections_collection_.collection.html#delete">delete</a></p>
+								<p>Inherited from <a href="_collections_abstractcollection_.abstractcollection.html">AbstractCollection</a>.<a href="_collections_abstractcollection_.abstractcollection.html#delete">delete</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/b441504/lib/collections/abstractcollection.ts#L26">collections/abstractcollection.ts:26</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Removes a single instance of the specified element from this collection, if it is present.</p>
+								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -321,43 +334,8 @@
 									<h5>item: <span class="tsd-signature-type">T</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-					<a name="delete" class="tsd-anchor"></a>
-					<h3>delete</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-						<li class="tsd-signature tsd-kind-icon">delete<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, occurrences<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<p>Overrides <a href="_collections_abstractcollection_.abstractcollection.html">AbstractCollection</a>.<a href="_collections_abstractcollection_.abstractcollection.html#delete">delete</a></p>
-								<ul>
-									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/b441504/lib/collections/abstractmultiset.ts#L37">collections/abstractmultiset.ts:37</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Removes a number of occurrences of an element from this multiset.</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>value: <span class="tsd-signature-type">T</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The item to insert and the number of times to remove it</p>
-									</div>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> occurrences: <span class="tsd-signature-type">number</span></h5>
-								</li>
-							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
-							<p>The multiset</p>
+							<p>True if the collection was modified, false otherwise</p>
 						</li>
 					</ul>
 				</section>
@@ -392,27 +370,29 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="elementset" class="tsd-anchor"></a>
 					<h3>element<wbr>Set</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">element<wbr>Set<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Set</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Overrides <a href="_collections_multiset_.multiset.html">Multiset</a>.<a href="_collections_multiset_.multiset.html#elementset">elementSet</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/b441504/lib/collections/abstractmultiset.ts#L67">collections/abstractmultiset.ts:67</a></li>
+									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/b441504/lib/collections/multiset.ts#L35">collections/multiset.ts:35</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
-								<dl class="tsd-comment-tags">
-									<dt>inheritdoc</dt>
-									<dd></dd>
-								</dl>
+								<div class="lead">
+									<p>Returns the set of distinct elements contained in this multiset. The
+										element set is backed by the same data as the multiset, so any change to
+										either is immediately reflected in the other. The order of the elements in
+									the element set is unspecified.</p>
+								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Set</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>A set containing the distinct items in this multiset</p>
 						</li>
 					</ul>
 				</section>
@@ -426,103 +406,44 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/_collections_collection_.collection.html">Collection</a>.<a href="../interfaces/_collections_collection_.collection.html#entries">entries</a></p>
-								<p>Overrides <a href="_collections_multiset_.multiset.html">Multiset</a>.<a href="_collections_multiset_.multiset.html#entries">entries</a></p>
+								<p>Overrides <a href="_collections_abstractcollection_.abstractcollection.html">AbstractCollection</a>.<a href="_collections_abstractcollection_.abstractcollection.html#entries">entries</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/b441504/lib/collections/abstractmultiset.ts#L84">collections/abstractmultiset.ts:84</a></li>
+									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/b441504/lib/collections/multiset.ts#L40">collections/multiset.ts:40</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Iterator over the collection&#39;s elements</p>
+									<p>Iterator over the collection&#39;s elements and number of occurrences</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IterableIterator</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="foreach" class="tsd-anchor"></a>
-					<h3>for<wbr>Each</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">for<wbr>Each<span class="tsd-signature-symbol">(</span>callbackfn<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span>, thisArg<span class="tsd-signature-symbol">?: </span><a href="_collections_multiset_.multiset.html" class="tsd-signature-type">Multiset</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/b441504/lib/collections/abstractmultiset.ts#L75">collections/abstractmultiset.ts:75</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<dl class="tsd-comment-tags">
-									<dt>inheritdoc</dt>
-									<dd></dd>
-								</dl>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>callbackfn: <span class="tsd-signature-type">function</span></h5>
-									<ul class="tsd-parameters">
-										<li class="tsd-parameter-siganture">
-											<ul class="tsd-signatures tsd-kind-type-literal">
-												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, index<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, set<span class="tsd-signature-symbol">: </span><a href="_collections_multiset_.multiset.html" class="tsd-signature-type">Multiset</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-											</ul>
-											<ul class="tsd-descriptions">
-												<li class="tsd-description">
-													<h4 class="tsd-parameters-title">Parameters</h4>
-													<ul class="tsd-parameters">
-														<li>
-															<h5>value: <span class="tsd-signature-type">T</span></h5>
-														</li>
-														<li>
-															<h5>index: <span class="tsd-signature-type">T</span></h5>
-														</li>
-														<li>
-															<h5>set: <a href="_collections_multiset_.multiset.html" class="tsd-signature-type">Multiset</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
-														</li>
-													</ul>
-													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-												</li>
-											</ul>
-										</li>
-									</ul>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> thisArg: <a href="_collections_multiset_.multiset.html" class="tsd-signature-type">Multiset</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 					<a name="has" class="tsd-anchor"></a>
 					<h3>has</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-						<li class="tsd-signature tsd-kind-icon">has<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">has<span class="tsd-signature-symbol">(</span>item<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/_collections_collection_.collection.html">Collection</a>.<a href="../interfaces/_collections_collection_.collection.html#has">has</a></p>
-								<p>Overrides <a href="_collections_abstractcollection_.abstractcollection.html">AbstractCollection</a>.<a href="_collections_abstractcollection_.abstractcollection.html#has">has</a></p>
+								<p>Inherited from <a href="_collections_abstractcollection_.abstractcollection.html">AbstractCollection</a>.<a href="_collections_abstractcollection_.abstractcollection.html#has">has</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/b441504/lib/collections/abstractmultiset.ts#L45">collections/abstractmultiset.ts:45</a></li>
+									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/b441504/lib/collections/abstractcollection.ts#L38">collections/abstractcollection.ts:38</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Checks if the <a href="_collections_multiset_.multiset.html">Multiset</a> contains the given item.</p>
+									<p>Returns true if this collection contains the specified element.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>value: <span class="tsd-signature-type">T</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The item to look for</p>
-									</div>
+									<h5>item: <span class="tsd-signature-type">T</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
@@ -587,33 +508,38 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="setcount" class="tsd-anchor"></a>
 					<h3>set<wbr>Count</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">set<wbr>Count<span class="tsd-signature-symbol">(</span>item<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, occurrences<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Overrides <a href="_collections_multiset_.multiset.html">Multiset</a>.<a href="_collections_multiset_.multiset.html#setcount">setCount</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/b441504/lib/collections/abstractmultiset.ts#L50">collections/abstractmultiset.ts:50</a></li>
+									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/b441504/lib/collections/multiset.ts#L26">collections/multiset.ts:26</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
-								<dl class="tsd-comment-tags">
-									<dt>inheritdoc</dt>
-									<dd></dd>
-								</dl>
+								<div class="lead">
+									<p>Adds or removes the necessary occurrences of an element such that the
+									element attains the desired count.</p>
+								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>item: <span class="tsd-signature-type">T</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The item to add or remove</p>
+									</div>
 								</li>
 								<li>
 									<h5>occurrences: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The number of items to add or remove</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -658,7 +584,7 @@
 					<li class=" tsd-kind-external-module">
 						<a href="../modules/_collections_abstractmultimap_.html">"collections/abstractmultimap"</a>
 					</li>
-					<li class="current tsd-kind-external-module">
+					<li class=" tsd-kind-external-module">
 						<a href="../modules/_collections_abstractmultiset_.html">"collections/abstractmultiset"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
@@ -685,7 +611,7 @@
 					<li class=" tsd-kind-external-module">
 						<a href="../modules/_collections_multimap_.html">"collections/multimap"</a>
 					</li>
-					<li class=" tsd-kind-external-module">
+					<li class="current tsd-kind-external-module">
 						<a href="../modules/_collections_multiset_.html">"collections/multiset"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
@@ -707,58 +633,52 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class tsd-parent-kind-external-module tsd-has-type-parameter">
-						<a href="_collections_abstractmultiset_.abstractmultiset.html" class="tsd-kind-icon">Abstract<wbr>Multiset</a>
+						<a href="_collections_multiset_.multiset.html" class="tsd-kind-icon">Multiset</a>
 						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-overwrite">
-								<a href="_collections_abstractmultiset_.abstractmultiset.html#length" class="tsd-kind-icon">length</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="_collections_abstractmultiset_.abstractmultiset.html#size" class="tsd-kind-icon">size</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-								<a href="_collections_abstractmultiset_.abstractmultiset.html#___iterator" class="tsd-kind-icon">__@iterator</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-								<a href="_collections_abstractmultiset_.abstractmultiset.html#add" class="tsd-kind-icon">add</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+								<a href="_collections_multiset_.multiset.html#length" class="tsd-kind-icon">length</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="_collections_abstractmultiset_.abstractmultiset.html#addall" class="tsd-kind-icon">add<wbr>All</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-								<a href="_collections_abstractmultiset_.abstractmultiset.html#clear" class="tsd-kind-icon">clear</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-								<a href="_collections_abstractmultiset_.abstractmultiset.html#count" class="tsd-kind-icon">count</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-								<a href="_collections_abstractmultiset_.abstractmultiset.html#delete" class="tsd-kind-icon">delete</a>
+								<a href="_collections_multiset_.multiset.html#___iterator" class="tsd-kind-icon">__@iterator</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="_collections_abstractmultiset_.abstractmultiset.html#deleteall" class="tsd-kind-icon">delete<wbr>All</a>
+								<a href="_collections_multiset_.multiset.html#add" class="tsd-kind-icon">add</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-								<a href="_collections_abstractmultiset_.abstractmultiset.html#elementset" class="tsd-kind-icon">element<wbr>Set</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="_collections_multiset_.multiset.html#addall" class="tsd-kind-icon">add<wbr>All</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-								<a href="_collections_abstractmultiset_.abstractmultiset.html#entries" class="tsd-kind-icon">entries</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="_collections_multiset_.multiset.html#clear" class="tsd-kind-icon">clear</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_collections_abstractmultiset_.abstractmultiset.html#foreach" class="tsd-kind-icon">for<wbr>Each</a>
+								<a href="_collections_multiset_.multiset.html#count" class="tsd-kind-icon">count</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="_collections_multiset_.multiset.html#delete" class="tsd-kind-icon">delete</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="_collections_multiset_.multiset.html#deleteall" class="tsd-kind-icon">delete<wbr>All</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_collections_multiset_.multiset.html#elementset" class="tsd-kind-icon">element<wbr>Set</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-								<a href="_collections_abstractmultiset_.abstractmultiset.html#has" class="tsd-kind-icon">has</a>
+								<a href="_collections_multiset_.multiset.html#entries" class="tsd-kind-icon">entries</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="_collections_abstractmultiset_.abstractmultiset.html#hasall" class="tsd-kind-icon">has<wbr>All</a>
+								<a href="_collections_multiset_.multiset.html#has" class="tsd-kind-icon">has</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="_collections_abstractmultiset_.abstractmultiset.html#isempty" class="tsd-kind-icon">is<wbr>Empty</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-								<a href="_collections_abstractmultiset_.abstractmultiset.html#setcount" class="tsd-kind-icon">set<wbr>Count</a>
+								<a href="_collections_multiset_.multiset.html#hasall" class="tsd-kind-icon">has<wbr>All</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="_collections_abstractmultiset_.abstractmultiset.html#toarray" class="tsd-kind-icon">to<wbr>Array</a>
+								<a href="_collections_multiset_.multiset.html#isempty" class="tsd-kind-icon">is<wbr>Empty</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_collections_multiset_.multiset.html#setcount" class="tsd-kind-icon">set<wbr>Count</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="_collections_multiset_.multiset.html#toarray" class="tsd-kind-icon">to<wbr>Array</a>
 							</li>
 						</ul>
 					</li>
