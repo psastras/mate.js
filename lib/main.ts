@@ -7,12 +7,16 @@ import ArrayMultimap from './collections/arraymultimap';
 import HashBiMap from './collections/hashbimap';
 import MapMultiset from './collections/mapmultiset';
 import MultisetMultimap from './collections/multisetmultimap';
+import ImmutableMap from './collections/immutablemap';
 
 export default {
-  ArrayMultimap,
-  MultisetMultimap,
-  MapMultiset,
-  Objects,
-  HashBiMap,
-  Numbers,
+  Collections: {
+    ArrayMultimap,
+    MultisetMultimap,
+    MapMultiset,
+    Objects,
+    HashBiMap,
+    Numbers,
+    ImmutableMap,
+  },
 };

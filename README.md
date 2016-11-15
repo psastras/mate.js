@@ -61,6 +61,8 @@ a multimap backed by multisets (bags) for its values
 a bidirectional map backed by two hash tables
 - [MapMultiset](https://psastras.github.io/mate.js/classes/_collections_mapmultiset_.mapmultiset.html) -
 a multiset (bag) backed by a map of items to counts
+- [ImmutableMap](https://psastras.github.io/mate.js/classes/_collections_immutablemap_.immutablemap.html) -
+a map which is immutable (the entries cannot be changed)
 
 ## Development
 
