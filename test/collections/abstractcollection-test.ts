@@ -89,7 +89,7 @@ class ArrayCollection<T> extends AbstractCollection<T> {
       .add(1)
       .add(2);
     array.deleteAll(toRemove);
-    expect(array.toArray()).to.deep.eq([]);
+    expect(array.isEmpty()).to.be.true;
   }
 
    @test 'should be able check if it contains a collection'() {

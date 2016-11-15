@@ -94,6 +94,10 @@ import ArrayMultimap from '../../lib/collections/arraymultimap';
     let i = 0;
     for (let entry of map.entries()) i++;
     expect(i).to.eq(3);
+
+    i = 0;
+    for (let entry of map) i++;
+    expect(i).to.eq(3);
   }
 
   @test 'should be able to iterate through the keys'() {
