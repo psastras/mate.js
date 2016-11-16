@@ -12,7 +12,7 @@
     "precitest": "rimraf .build && tsc -p .",
     "citest": "nyc mocha --reporter mocha-junit-reporter",
     "postcitest": "tslint -c tsconfig.json 'lib/**/*.ts' && nyc report --reporter=json && codecov -f coverage/*.json",
-    "postinstall": "typings install && jspm install"
+    "postinstall": "typings install"
   },
   "nyc": {
     "exclude": [
