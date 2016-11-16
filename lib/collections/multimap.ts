@@ -28,8 +28,6 @@ interface Multimap<K, V> {
    */
   asMap(): Map<K, Array<V> | Collection<V>>;
 
-  _createCollection(): Array<V> | Collection<V>;
-
   /**
    * Inserts an entry into the map.
    * @param key The key of the entry

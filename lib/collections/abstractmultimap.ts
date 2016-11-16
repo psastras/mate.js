@@ -18,9 +18,6 @@ abstract class AbstractMultimap<K, V> implements Multimap<K, V> {
   public abstract asMap(): Map<K, Array<V> | Collection<V>>;
 
   /** @inheritdoc */
-  public abstract _createCollection(): Array<V> | Collection<V>;
-
-  /** @inheritdoc */
   public set(key: K, value: V): this {
     const oldValue = this.asMap().get(key);
     if (oldValue) {
@@ -101,7 +98,7 @@ abstract class AbstractMultimap<K, V> implements Multimap<K, V> {
   }
 
   /** @inheritdoc */
-  get size(): number {
+  public get size(): number {
     return this.asMap().size;
   }
 
@@ -109,6 +106,9 @@ abstract class AbstractMultimap<K, V> implements Multimap<K, V> {
   public [Symbol.iterator](): IterableIterator<[K, Array<V> | Collection<V>]> {
     return this.entries();
   }
+
+  /** @inheritdoc */
+  protected abstract _createCollection(): Array<V> | Collection<V>;
 
 }
 

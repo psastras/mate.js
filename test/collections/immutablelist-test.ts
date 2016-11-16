@@ -34,6 +34,13 @@ import ImmutableList from '../../lib/collections/immutablelist';
     expect(list.has('foo')).to.be.true;
   }
 
+  @test 'should be able to get an item in the list'() {
+    const list = new ImmutableList<string>(
+      'foo', 'bar'
+    );
+    expect(list.get(1)).to.be.eq('bar');
+  }
+
   @test 'should be to iterate through the list'() {
     const list = new ImmutableList<string>(
       'foo', 'bar'
