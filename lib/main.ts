@@ -9,16 +9,20 @@ import MapMultiset from './collections/mapmultiset';
 import MultisetMultimap from './collections/multisetmultimap';
 import ImmutableMap from './collections/immutablemap';
 import ImmutableSet from './collections/immutableset';
+import ImmutableList from './collections/immutablelist';
 
 export default {
   Collections: {
     ArrayMultimap,
     MultisetMultimap,
     MapMultiset,
-    Objects,
     HashBiMap,
-    Numbers,
     ImmutableMap,
     ImmutableSet,
+    ImmutableList,
+  },
+  Primitives: {
+    Objects,
+    Numbers,
   },
 };

@@ -65,6 +65,8 @@ a multiset (bag) backed by a map of items to counts
 a map which is immutable (the entries cannot be changed)
 - [ImmutableSet](https://psastras.github.io/mate.js/classes/_collections_immutableset_.immutableset.html) -
 a set which is immutable (the entries cannot be changed)
+- [ImmutableList](https://psastras.github.io/mate.js/classes/_collections_immutablelist_.immutablelist.html) -
+a list which is immutable (the entries cannot be changed)
 
 ## Development
 

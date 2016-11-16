@@ -110,7 +110,7 @@ import HashBiMap from '../../lib/collections/hashbimap';
     const numEntries = 256;
     const map = new HashBiMap<number, number>(2);
     for (let i = 0; i < numEntries; i++) {
-      map.set(i, numEntries-i);
+      map.set(i, numEntries - i);
     }
 
     expect(map.size).to.eq(numEntries);
