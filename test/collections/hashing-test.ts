@@ -28,4 +28,9 @@ import Hashing, { _nearestLowerPowerOfTwo, _hash } from '../../lib/collections/h
     expect(Hashing.hash(null)).to.not.eq(Hashing.hash({}));
   }
 
+  @test 'closed table size with large entries'() {
+    expect(Hashing.closedTableSize(200, 1)).to.eq(256);
+    expect(Hashing.closedTableSize(256, 1)).to.eq(256);
+  }
+
 }

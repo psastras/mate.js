@@ -68,10 +68,14 @@ import HashBiMap from '../../lib/collections/hashbimap';
 
   @test 'deleting a key should remove the entry'() {
     const map = new HashBiMap<string, number>()
-      .set('foo', 3);
+      .set('foo', 3)
+      .set('boo', 2);
     map.delete('foo');
-    expect(map.size).to.eq(0);
+    expect(map.size).to.eq(1);
     expect(map.has('foo')).to.be.false;
+    map.delete('boo');
+    expect(map.size).to.eq(0);
+    expect(map.has('boo')).to.be.false;
   }
 
   @test 'should be able to check if a key exists'() {
