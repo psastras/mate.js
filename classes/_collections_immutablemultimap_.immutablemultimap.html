@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>MultisetMultimap | matejs</title>
+	<title>ImmutableMultimap | matejs</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,13 +56,13 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="../modules/_collections_multisetmultimap_.html">&quot;collections/multisetmultimap&quot;</a>
+					<a href="../modules/_collections_immutablemultimap_.html">&quot;collections/immutablemultimap&quot;</a>
 				</li>
 				<li>
-					<a href="_collections_multisetmultimap_.multisetmultimap.html">MultisetMultimap</a>
+					<a href="_collections_immutablemultimap_.immutablemultimap.html">ImmutableMultimap</a>
 				</li>
 			</ul>
-			<h1>Class MultisetMultimap&lt;K, V&gt;</h1>
+			<h1>Class ImmutableMultimap&lt;K, V&gt;</h1>
 		</div>
 	</div>
 </header>
@@ -72,19 +72,10 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>A <a href="../interfaces/_collections_multimap_.multimap.html">Multimap</a> backed by <a href="_collections_multiset_.multiset.html">Multiset</a> storing multiple values per key.  Iteration
-							order is not maintained for each value in a key.  Note that adding multiple key values with
-						the same key and value is allowed.</p>
+						<p>A collection that maps keys to values, similar to <a href="../interfaces/_collections_bimap_.bimap.html#map">Map</a>, but in which
+						each key may be associated with <em>multiple</em> values.</p>
 					</div>
-					<p>Example usage</p>
-					<pre><code><span class="hljs-keyword">const</span> <span class="hljs-built_in">map</span> = <span class="hljs-keyword">new</span> MultisetMultimap&lt;string, number&gt;()
- .<span class="hljs-built_in">set</span>(<span class="hljs-string">'foo'</span>, <span class="hljs-number">3</span>)
- .<span class="hljs-built_in">set</span>(<span class="hljs-string">'foo'</span>, <span class="hljs-number">4</span>)
- .<span class="hljs-built_in">set</span>(<span class="hljs-string">'bar'</span>, <span class="hljs-number">2</span>);
-
-<span class="hljs-built_in">map</span>.<span class="hljs-built_in">get</span>(<span class="hljs-string">'foo'</span>); <span class="hljs-comment">// [3, 4]</span>
-<span class="hljs-built_in">map</span>.has(<span class="hljs-string">'foo'</span>); <span class="hljs-comment">// true</span>
-</code></pre>
+					<p>This collection is immutable, modifying the collectino will throw an {@link Error}.</p>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-type-parameters">
@@ -115,7 +106,7 @@
 						<a href="_collections_abstractmultimap_.abstractmultimap.html" class="tsd-signature-type">AbstractMultimap</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">V</span><span class="tsd-signature-symbol">&gt;</span>
 						<ul class="tsd-hierarchy">
 							<li>
-								<span class="target">MultisetMultimap</span>
+								<span class="target">ImmutableMultimap</span>
 							</li>
 						</ul>
 					</li>
@@ -124,7 +115,6 @@
 			<section class="tsd-panel">
 				<h3>Implements</h3>
 				<ul class="tsd-hierarchy">
-					<li><a href="../interfaces/_collections_multimap_.multimap.html" class="tsd-signature-type">Multimap</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">V</span><span class="tsd-signature-symbol">&gt;</span></li>
 					<li><a href="../interfaces/_collections_multimap_.multimap.html" class="tsd-signature-type">Multimap</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">V</span><span class="tsd-signature-symbol">&gt;</span></li>
 				</ul>
 			</section>
@@ -135,37 +125,38 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="_collections_multisetmultimap_.multisetmultimap.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="_collections_immutablemultimap_.immutablemultimap.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-overwrite"><a href="_collections_multisetmultimap_.multisetmultimap.html#___tostringtag" class="tsd-kind-icon">__@to<wbr>String<wbr>Tag</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_collections_multisetmultimap_.multisetmultimap.html#map" class="tsd-kind-icon">map</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_collections_immutablemultimap_.immutablemultimap.html#___tostringtag" class="tsd-kind-icon">__@to<wbr>String<wbr>Tag</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_collections_immutablemultimap_.immutablemultimap.html#errormessage" class="tsd-kind-icon">error<wbr>Message</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_collections_immutablemultimap_.immutablemultimap.html#multimap" class="tsd-kind-icon">multimap</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section tsd-is-inherited">
 							<h3>Accessors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited"><a href="_collections_multisetmultimap_.multisetmultimap.html#size" class="tsd-kind-icon">size</a></li>
+								<li class="tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited"><a href="_collections_immutablemultimap_.immutablemultimap.html#size" class="tsd-kind-icon">size</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_collections_multisetmultimap_.multisetmultimap.html#___iterator" class="tsd-kind-icon">__@iterator</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="_collections_multisetmultimap_.multisetmultimap.html#_createcollection" class="tsd-kind-icon">_create<wbr>Collection</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="_collections_multisetmultimap_.multisetmultimap.html#asmap" class="tsd-kind-icon">as<wbr>Map</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_collections_multisetmultimap_.multisetmultimap.html#clear" class="tsd-kind-icon">clear</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_collections_multisetmultimap_.multisetmultimap.html#delete" class="tsd-kind-icon">delete</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_collections_multisetmultimap_.multisetmultimap.html#entries" class="tsd-kind-icon">entries</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_collections_multisetmultimap_.multisetmultimap.html#foreach" class="tsd-kind-icon">for<wbr>Each</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="_collections_multisetmultimap_.multisetmultimap.html#get" class="tsd-kind-icon">get</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_collections_multisetmultimap_.multisetmultimap.html#has" class="tsd-kind-icon">has</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_collections_multisetmultimap_.multisetmultimap.html#keys" class="tsd-kind-icon">keys</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_collections_multisetmultimap_.multisetmultimap.html#set" class="tsd-kind-icon">set</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_collections_multisetmultimap_.multisetmultimap.html#values" class="tsd-kind-icon">values</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_collections_immutablemultimap_.immutablemultimap.html#___iterator" class="tsd-kind-icon">__@iterator</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="_collections_immutablemultimap_.immutablemultimap.html#_createcollection" class="tsd-kind-icon">_create<wbr>Collection</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="_collections_immutablemultimap_.immutablemultimap.html#asmap" class="tsd-kind-icon">as<wbr>Map</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="_collections_immutablemultimap_.immutablemultimap.html#clear" class="tsd-kind-icon">clear</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="_collections_immutablemultimap_.immutablemultimap.html#delete" class="tsd-kind-icon">delete</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_collections_immutablemultimap_.immutablemultimap.html#entries" class="tsd-kind-icon">entries</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_collections_immutablemultimap_.immutablemultimap.html#foreach" class="tsd-kind-icon">for<wbr>Each</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="_collections_immutablemultimap_.immutablemultimap.html#get" class="tsd-kind-icon">get</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_collections_immutablemultimap_.immutablemultimap.html#has" class="tsd-kind-icon">has</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_collections_immutablemultimap_.immutablemultimap.html#keys" class="tsd-kind-icon">keys</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="_collections_immutablemultimap_.immutablemultimap.html#set" class="tsd-kind-icon">set</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_collections_immutablemultimap_.immutablemultimap.html#values" class="tsd-kind-icon">values</a></li>
 							</ul>
 						</section>
 					</div>
@@ -177,46 +168,57 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Multiset<wbr>Multimap<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_collections_multisetmultimap_.multisetmultimap.html" class="tsd-signature-type">MultisetMultimap</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Immutable<wbr>Multimap<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>items<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">V</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_collections_immutablemultimap_.immutablemultimap.html" class="tsd-signature-type">ImmutableMultimap</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/487cc6e/lib/collections/multisetmultimap.ts#L27">collections/multisetmultimap.ts:27</a></li>
+									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/487cc6e/lib/collections/immutablemultimap.ts#L17">collections/immutablemultimap.ts:17</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Constructs a new, empty multimap.</p>
-								</div>
-							</div>
-							<h4 class="tsd-returns-title">Returns <a href="_collections_multisetmultimap_.multisetmultimap.html" class="tsd-signature-type">MultisetMultimap</a></h4>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>items: <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">V</span><span class="tsd-signature-symbol">]</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="_collections_immutablemultimap_.immutablemultimap.html" class="tsd-signature-type">ImmutableMultimap</a></h4>
 						</li>
 					</ul>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-overwrite">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="___tostringtag" class="tsd-anchor"></a>
 					<h3>__@to<wbr>String<wbr>Tag</h3>
 					<div class="tsd-signature tsd-kind-icon">__@to<wbr>String<wbr>Tag<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"MultiMap"</span></div>
 					<aside class="tsd-sources">
 						<p>Implementation of <a href="../interfaces/_collections_multimap_.multimap.html">Multimap</a>.<a href="../interfaces/_collections_multimap_.multimap.html#___tostringtag">__@toStringTag</a></p>
-						<p>Overrides <a href="_collections_abstractmultimap_.abstractmultimap.html">AbstractMultimap</a>.<a href="_collections_abstractmultimap_.abstractmultimap.html#___tostringtag">__@toStringTag</a></p>
+						<p>Inherited from <a href="_collections_abstractmultimap_.abstractmultimap.html">AbstractMultimap</a>.<a href="_collections_abstractmultimap_.abstractmultimap.html#___tostringtag">__@toStringTag</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/psastras/mate.js/blob/487cc6e/lib/collections/multisetmultimap.ts#L26">collections/multisetmultimap.ts:26</a></li>
+							<li>Defined in <a href="https://github.com/psastras/mate.js/blob/487cc6e/lib/collections/abstractmultimap.ts#L15">collections/abstractmultimap.ts:15</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="map" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> map</h3>
-					<div class="tsd-signature tsd-kind-icon">map<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">, </span><a href="_collections_mapmultiset_.mapmultiset.html" class="tsd-signature-type">MapMultiset</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">V</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<a name="errormessage" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> error<wbr>Message</h3>
+					<div class="tsd-signature tsd-kind-icon">error<wbr>Message<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"Cannot modify an immutable map."</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/psastras/mate.js/blob/487cc6e/lib/collections/multisetmultimap.ts#L27">collections/multisetmultimap.ts:27</a></li>
+							<li>Defined in <a href="https://github.com/psastras/mate.js/blob/487cc6e/lib/collections/immutablemultimap.ts#L17">collections/immutablemultimap.ts:17</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="multimap" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> multimap</h3>
+					<div class="tsd-signature tsd-kind-icon">multimap<span class="tsd-signature-symbol">:</span> <a href="_collections_arraymultimap_.arraymultimap.html" class="tsd-signature-type">ArrayMultimap</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">V</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/psastras/mate.js/blob/487cc6e/lib/collections/immutablemultimap.ts#L16">collections/immutablemultimap.ts:16</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -282,14 +284,14 @@
 					<a name="_createcollection" class="tsd-anchor"></a>
 					<h3>_create<wbr>Collection</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-						<li class="tsd-signature tsd-kind-icon">_create<wbr>Collection<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_collections_mapmultiset_.mapmultiset.html" class="tsd-signature-type">MapMultiset</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">V</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">_create<wbr>Collection<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">V</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_collections_collection_.collection.html" class="tsd-signature-type">Collection</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">V</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_collections_abstractmultimap_.abstractmultimap.html">AbstractMultimap</a>.<a href="_collections_abstractmultimap_.abstractmultimap.html#_createcollection">_createCollection</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/487cc6e/lib/collections/multisetmultimap.ts#L38">collections/multisetmultimap.ts:38</a></li>
+									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/487cc6e/lib/collections/immutablemultimap.ts#L33">collections/immutablemultimap.ts:33</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -298,7 +300,10 @@
 									<dd></dd>
 								</dl>
 							</div>
-							<h4 class="tsd-returns-title">Returns <a href="_collections_mapmultiset_.mapmultiset.html" class="tsd-signature-type">MapMultiset</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">V</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">V</span><span class="tsd-signature-symbol">&gt;</span>
+								<span class="tsd-signature-symbol"> | </span>
+								<a href="../interfaces/_collections_collection_.collection.html" class="tsd-signature-type">Collection</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">V</span><span class="tsd-signature-symbol">&gt;</span>
+							</h4>
 						</li>
 					</ul>
 				</section>
@@ -306,7 +311,7 @@
 					<a name="asmap" class="tsd-anchor"></a>
 					<h3>as<wbr>Map</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-						<li class="tsd-signature tsd-kind-icon">as<wbr>Map<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">, </span><a href="_collections_mapmultiset_.mapmultiset.html" class="tsd-signature-type">MapMultiset</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">V</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">as<wbr>Map<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">V</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_collections_collection_.collection.html" class="tsd-signature-type">Collection</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">V</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -314,7 +319,7 @@
 								<p>Implementation of <a href="../interfaces/_collections_multimap_.multimap.html">Multimap</a>.<a href="../interfaces/_collections_multimap_.multimap.html#asmap">asMap</a></p>
 								<p>Overrides <a href="_collections_abstractmultimap_.abstractmultimap.html">AbstractMultimap</a>.<a href="_collections_abstractmultimap_.abstractmultimap.html#asmap">asMap</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/487cc6e/lib/collections/multisetmultimap.ts#L43">collections/multisetmultimap.ts:43</a></li>
+									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/487cc6e/lib/collections/immutablemultimap.ts#L28">collections/immutablemultimap.ts:28</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -328,23 +333,23 @@
 								<p>Changes to the returned map or the collections that serve as its values
 								will update the underlying multimap, and vice versa.</p>
 							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">, </span><a href="_collections_mapmultiset_.mapmultiset.html" class="tsd-signature-type">MapMultiset</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">V</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">V</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_collections_collection_.collection.html" class="tsd-signature-type">Collection</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">V</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
 					<a name="clear" class="tsd-anchor"></a>
 					<h3>clear</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
 						<li class="tsd-signature tsd-kind-icon">clear<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/_collections_multimap_.multimap.html">Multimap</a>.<a href="../interfaces/_collections_multimap_.multimap.html#clear">clear</a></p>
-								<p>Inherited from <a href="_collections_abstractmultimap_.abstractmultimap.html">AbstractMultimap</a>.<a href="_collections_abstractmultimap_.abstractmultimap.html#clear">clear</a></p>
+								<p>Overrides <a href="_collections_abstractmultimap_.abstractmultimap.html">AbstractMultimap</a>.<a href="_collections_abstractmultimap_.abstractmultimap.html#clear">clear</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/487cc6e/lib/collections/abstractmultimap.ts#L96">collections/abstractmultimap.ts:96</a></li>
+									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/487cc6e/lib/collections/immutablemultimap.ts#L53">collections/immutablemultimap.ts:53</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -356,19 +361,19 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
 					<a name="delete" class="tsd-anchor"></a>
 					<h3>delete</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
 						<li class="tsd-signature tsd-kind-icon">delete<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">K</span>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">V</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/_collections_multimap_.multimap.html">Multimap</a>.<a href="../interfaces/_collections_multimap_.multimap.html#delete">delete</a></p>
-								<p>Inherited from <a href="_collections_abstractmultimap_.abstractmultimap.html">AbstractMultimap</a>.<a href="_collections_abstractmultimap_.abstractmultimap.html#delete">delete</a></p>
+								<p>Overrides <a href="_collections_abstractmultimap_.abstractmultimap.html">AbstractMultimap</a>.<a href="_collections_abstractmultimap_.abstractmultimap.html#delete">delete</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/487cc6e/lib/collections/abstractmultimap.ts#L42">collections/abstractmultimap.ts:42</a></li>
+									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/487cc6e/lib/collections/immutablemultimap.ts#L43">collections/immutablemultimap.ts:43</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -479,7 +484,7 @@
 					<a name="get" class="tsd-anchor"></a>
 					<h3>get</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-						<li class="tsd-signature tsd-kind-icon">get<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_collections_mapmultiset_.mapmultiset.html" class="tsd-signature-type">MapMultiset</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">V</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">V</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_collections_collection_.collection.html" class="tsd-signature-type">Collection</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">V</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -487,7 +492,7 @@
 								<p>Implementation of <a href="../interfaces/_collections_multimap_.multimap.html">Multimap</a>.<a href="../interfaces/_collections_multimap_.multimap.html#get">get</a></p>
 								<p>Overrides <a href="_collections_abstractmultimap_.abstractmultimap.html">AbstractMultimap</a>.<a href="_collections_abstractmultimap_.abstractmultimap.html#get">get</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/487cc6e/lib/collections/multisetmultimap.ts#L48">collections/multisetmultimap.ts:48</a></li>
+									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/487cc6e/lib/collections/immutablemultimap.ts#L48">collections/immutablemultimap.ts:48</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -505,7 +510,10 @@
 									<h5>key: <span class="tsd-signature-type">K</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="_collections_mapmultiset_.mapmultiset.html" class="tsd-signature-type">MapMultiset</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">V</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">V</span><span class="tsd-signature-symbol">&gt;</span>
+								<span class="tsd-signature-symbol"> | </span>
+								<a href="../interfaces/_collections_collection_.collection.html" class="tsd-signature-type">Collection</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">V</span><span class="tsd-signature-symbol">&gt;</span>
+							</h4>
 						</li>
 					</ul>
 				</section>
@@ -565,19 +573,19 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
 					<a name="set" class="tsd-anchor"></a>
 					<h3>set</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
 						<li class="tsd-signature tsd-kind-icon">set<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">K</span>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">V</span><span class="tsd-signature-symbol">)</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/_collections_multimap_.multimap.html">Multimap</a>.<a href="../interfaces/_collections_multimap_.multimap.html#set">set</a></p>
-								<p>Inherited from <a href="_collections_abstractmultimap_.abstractmultimap.html">AbstractMultimap</a>.<a href="_collections_abstractmultimap_.abstractmultimap.html#set">set</a></p>
+								<p>Overrides <a href="_collections_abstractmultimap_.abstractmultimap.html">AbstractMultimap</a>.<a href="_collections_abstractmultimap_.abstractmultimap.html#set">set</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/487cc6e/lib/collections/abstractmultimap.ts#L21">collections/abstractmultimap.ts:21</a></li>
+									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/487cc6e/lib/collections/immutablemultimap.ts#L38">collections/immutablemultimap.ts:38</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -666,7 +674,7 @@
 					<li class=" tsd-kind-external-module">
 						<a href="../modules/_collections_immutablemap_.html">"collections/immutablemap"</a>
 					</li>
-					<li class=" tsd-kind-external-module">
+					<li class="current tsd-kind-external-module">
 						<a href="../modules/_collections_immutablemultimap_.html">"collections/immutablemultimap"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
@@ -681,7 +689,7 @@
 					<li class=" tsd-kind-external-module">
 						<a href="../modules/_collections_multiset_.html">"collections/multiset"</a>
 					</li>
-					<li class="current tsd-kind-external-module">
+					<li class=" tsd-kind-external-module">
 						<a href="../modules/_collections_multisetmultimap_.html">"collections/multisetmultimap"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
@@ -700,55 +708,58 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class tsd-parent-kind-external-module tsd-has-type-parameter">
-						<a href="_collections_multisetmultimap_.multisetmultimap.html" class="tsd-kind-icon">Multiset<wbr>Multimap</a>
+						<a href="_collections_immutablemultimap_.immutablemultimap.html" class="tsd-kind-icon">Immutable<wbr>Multimap</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
-								<a href="_collections_multisetmultimap_.multisetmultimap.html#constructor" class="tsd-kind-icon">constructor</a>
+								<a href="_collections_immutablemultimap_.immutablemultimap.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-overwrite">
-								<a href="_collections_multisetmultimap_.multisetmultimap.html#___tostringtag" class="tsd-kind-icon">__@to<wbr>String<wbr>Tag</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+								<a href="_collections_immutablemultimap_.immutablemultimap.html#___tostringtag" class="tsd-kind-icon">__@to<wbr>String<wbr>Tag</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="_collections_multisetmultimap_.multisetmultimap.html#map" class="tsd-kind-icon">map</a>
+								<a href="_collections_immutablemultimap_.immutablemultimap.html#errormessage" class="tsd-kind-icon">error<wbr>Message</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="_collections_immutablemultimap_.immutablemultimap.html#multimap" class="tsd-kind-icon">multimap</a>
 							</li>
 							<li class=" tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited">
-								<a href="_collections_multisetmultimap_.multisetmultimap.html#size" class="tsd-kind-icon">size</a>
+								<a href="_collections_immutablemultimap_.immutablemultimap.html#size" class="tsd-kind-icon">size</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="_collections_multisetmultimap_.multisetmultimap.html#___iterator" class="tsd-kind-icon">__@iterator</a>
+								<a href="_collections_immutablemultimap_.immutablemultimap.html#___iterator" class="tsd-kind-icon">__@iterator</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-								<a href="_collections_multisetmultimap_.multisetmultimap.html#_createcollection" class="tsd-kind-icon">_create<wbr>Collection</a>
+								<a href="_collections_immutablemultimap_.immutablemultimap.html#_createcollection" class="tsd-kind-icon">_create<wbr>Collection</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-								<a href="_collections_multisetmultimap_.multisetmultimap.html#asmap" class="tsd-kind-icon">as<wbr>Map</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="_collections_multisetmultimap_.multisetmultimap.html#clear" class="tsd-kind-icon">clear</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="_collections_multisetmultimap_.multisetmultimap.html#delete" class="tsd-kind-icon">delete</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="_collections_multisetmultimap_.multisetmultimap.html#entries" class="tsd-kind-icon">entries</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="_collections_multisetmultimap_.multisetmultimap.html#foreach" class="tsd-kind-icon">for<wbr>Each</a>
+								<a href="_collections_immutablemultimap_.immutablemultimap.html#asmap" class="tsd-kind-icon">as<wbr>Map</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-								<a href="_collections_multisetmultimap_.multisetmultimap.html#get" class="tsd-kind-icon">get</a>
+								<a href="_collections_immutablemultimap_.immutablemultimap.html#clear" class="tsd-kind-icon">clear</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+								<a href="_collections_immutablemultimap_.immutablemultimap.html#delete" class="tsd-kind-icon">delete</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="_collections_multisetmultimap_.multisetmultimap.html#has" class="tsd-kind-icon">has</a>
+								<a href="_collections_immutablemultimap_.immutablemultimap.html#entries" class="tsd-kind-icon">entries</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="_collections_multisetmultimap_.multisetmultimap.html#keys" class="tsd-kind-icon">keys</a>
+								<a href="_collections_immutablemultimap_.immutablemultimap.html#foreach" class="tsd-kind-icon">for<wbr>Each</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+								<a href="_collections_immutablemultimap_.immutablemultimap.html#get" class="tsd-kind-icon">get</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="_collections_multisetmultimap_.multisetmultimap.html#set" class="tsd-kind-icon">set</a>
+								<a href="_collections_immutablemultimap_.immutablemultimap.html#has" class="tsd-kind-icon">has</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="_collections_multisetmultimap_.multisetmultimap.html#values" class="tsd-kind-icon">values</a>
+								<a href="_collections_immutablemultimap_.immutablemultimap.html#keys" class="tsd-kind-icon">keys</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+								<a href="_collections_immutablemultimap_.immutablemultimap.html#set" class="tsd-kind-icon">set</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="_collections_immutablemultimap_.immutablemultimap.html#values" class="tsd-kind-icon">values</a>
 							</li>
 						</ul>
 					</li>
