@@ -121,9 +121,9 @@ import Multiset from '../../lib/collections/multiset';
       .set('bar', 2)
       .set('too', 4);
     const itr = map.values();
-    expect(itr.next().value.entries().next().value).to.eq(3);
-    expect(itr.next().value.entries().next().value).to.eq(2);
-    expect(itr.next().value.entries().next().value).to.eq(4);
+    expect(itr.next().value.length).to.eq(1);
+    expect(itr.next().value.length).to.eq(1);
+    expect(itr.next().value.length).to.eq(1);
     expect(itr.next()).to.deep.eq({ value: undefined, done: true });
 
     let i = 0;
@@ -138,7 +138,7 @@ import Multiset from '../../lib/collections/multiset';
       .set('too', 4);
 
     const values = [];
-    map.forEach((val, idx, _) => { values.push(val.entries().next().value); });
-    expect(values).to.deep.eq([3, 2, 4]);
+    map.forEach((val, idx, _) => { values.push(val.length); });
+    expect(values).to.deep.eq([1, 1, 1]);
   }
 }

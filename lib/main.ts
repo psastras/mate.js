@@ -8,6 +8,7 @@ import HashBiMap from './collections/hashbimap';
 import MapMultiset from './collections/mapmultiset';
 import MultisetMultimap from './collections/multisetmultimap';
 import ImmutableMap from './collections/immutablemap';
+import ImmutableSet from './collections/immutableset';
 
 export default {
   Collections: {
@@ -18,5 +19,6 @@ export default {
     HashBiMap,
     Numbers,
     ImmutableMap,
+    ImmutableSet,
   },
 };

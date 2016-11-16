@@ -75,18 +75,13 @@ abstract class AbstractMultiset<T> extends Multiset<T> {
   public forEach(callbackfn: (value: T, index: T, set: Multiset<T>) => void,
                  thisArg?: Multiset<T>): void {
     const set = (thisArg || this);
-    for (let entry of set.entries()) {
+    for (let entry of set) {
       callbackfn(entry, entry[0], set);
     }
   }
 
   /** @inheritdoc */
-  public abstract entries(): IterableIterator<T>;
-
-  /** @inheritdoc */
-  public [Symbol.iterator](): IterableIterator<T> {
-    return this.entries();
-  }
+  public abstract [Symbol.iterator](): IterableIterator<T>;
 }
 
 export default AbstractMultiset;

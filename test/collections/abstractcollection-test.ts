@@ -43,7 +43,7 @@ class ArrayCollection<T> extends AbstractCollection<T> {
   }
 
   /** @inheritdoc */
-  public entries(): IterableIterator<T> {
+  public [Symbol.iterator](): IterableIterator<T> {
     let pointer = this.array.entries();
     return {
       next(): IteratorResult<T> {

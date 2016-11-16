@@ -112,22 +112,11 @@ import MapMultiset from '../../lib/collections/mapmultiset';
     const set = new MapMultiset<string>()
       .add('foo', 3)
       .add('bar', 2)
-      .add('too', 4);
-    const itr = set.entries();
-    expect(itr.next()).to.deep.eq({ value: 'foo', done: false });
-    expect(itr.next()).to.deep.eq({ value: 'foo', done: false });
-    expect(itr.next()).to.deep.eq({ value: 'foo', done: false });
-    expect(itr.next()).to.deep.eq({ value: 'bar', done: false });
-    expect(itr.next()).to.deep.eq({ value: 'bar', done: false });
-    expect(itr.next()).to.deep.eq({ value: 'too', done: false });
-    expect(itr.next()).to.deep.eq({ value: 'too', done: false });
-    expect(itr.next()).to.deep.eq({ value: 'too', done: false });
-    expect(itr.next()).to.deep.eq({ value: 'too', done: false });
-    expect(itr.next()).to.deep.eq({ value: undefined, done: true });
+      .add('too', 1);
 
-    let i = 0;
-    for (let entry of set) i++;
-    expect(i).to.eq(9);
+    let keys = [];
+    for (let entry of set) keys.push(entry);
+    expect(keys).to.deep.eq(['foo', 'foo', 'foo', 'bar', 'bar', 'too']);
   }
 
   @test 'should be able to apply a function to the set'() {
@@ -137,7 +126,7 @@ import MapMultiset from '../../lib/collections/mapmultiset';
       .add('too', 4);
 
     const values = [];
-    set.forEach((val, idx, map) => { values.push(val) });
+    set.forEach((val, idx, map) => { values.push(val); });
     expect(values).to.deep.eq(['foo', 'foo', 'foo', 'bar', 'bar', 'too', 'too', 'too', 'too']);
   }
 

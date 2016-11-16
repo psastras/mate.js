@@ -34,10 +34,6 @@ abstract class Multiset<T> extends AbstractCollection<T> {
    */
   public abstract elementSet(): Set<T>;
 
-  /**
-   * Iterator over the collection's elements and number of occurrences
-   */
-  public abstract entries(): IterableIterator<T>;
 }
 
 export default Multiset;

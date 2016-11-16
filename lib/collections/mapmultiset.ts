@@ -83,7 +83,7 @@ class MapMultiset<T> extends AbstractMultiset<T> {
   }
 
   /** @inheritdoc */
-  public entries(): IterableIterator<T> {
+  public [Symbol.iterator](): IterableIterator<T> {
     let keys = this.map.keys();
     let key = keys.next();
     let map = this.map;

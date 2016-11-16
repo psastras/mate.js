@@ -75,10 +75,6 @@ interface Collection<T> {
    */
   [Symbol.iterator](): IterableIterator<T>;
 
-  /**
-   * Iterator over the collection's elements
-   */
-  entries(): IterableIterator<T>;
 }
 
 export default Collection;
