@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Multiset | matejs</title>
+	<title>ImmutableSet | matejs</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,13 +56,13 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="../modules/_collections_multiset_.html">&quot;collections/multiset&quot;</a>
+					<a href="../modules/_collections_immutableset_.html">&quot;collections/immutableset&quot;</a>
 				</li>
 				<li>
-					<a href="_collections_multiset_.multiset.html">Multiset</a>
+					<a href="_collections_immutableset_.immutableset.html">ImmutableSet</a>
 				</li>
 			</ul>
-			<h1>Class Multiset&lt;T&gt;</h1>
+			<h1>Class ImmutableSet&lt;T&gt;</h1>
 		</div>
 	</div>
 </header>
@@ -72,10 +72,20 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>A collection that supports order-independent equality, like a Set, but
-							may have duplicate elements. A multiset is also sometimes called a
-						<em>bag</em>.</p>
+						<p>A {@link Set} which is immutable after construction.  An {@link Error} will be
+						thrown if an attempt is made to modify this set.</p>
 					</div>
+					<p>Example usage</p>
+					<pre><code>const <span class="hljs-built_in">set</span> = new ImmutableSet&lt;<span class="hljs-built_in">string</span>&gt;(
+  'foo', 'bar
+);
+
+<span class="hljs-built_in">set</span>.has('foo'); <span class="hljs-comment">// true</span>
+
+<span class="hljs-comment">// the set cannot be modified</span>
+<span class="hljs-built_in">set</span>.<span class="hljs-keyword">delete</span>('foo'); <span class="hljs-comment">// throw new Error</span>
+<span class="hljs-built_in">set</span>.clear(); <span class="hljs-comment">// throw new Error</span>
+</code></pre>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-type-parameters">
@@ -85,7 +95,7 @@
 						<h4>T</h4>
 						<div class="tsd-comment tsd-typography">
 							<div class="lead">
-								<p>The element type</p>
+								<p>The entry type</p>
 							</div>
 						</div>
 					</li>
@@ -95,15 +105,10 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<a href="_collections_abstractcollection_.abstractcollection.html" class="tsd-signature-type">AbstractCollection</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span>
+						<a href="_collections_immutablecollection_.immutablecollection.html" class="tsd-signature-type">ImmutableCollection</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span>
 						<ul class="tsd-hierarchy">
 							<li>
-								<span class="target">Multiset</span>
-								<ul class="tsd-hierarchy">
-									<li>
-										<a href="_collections_abstractmultiset_.abstractmultiset.html" class="tsd-signature-type">AbstractMultiset</a>
-									</li>
-								</ul>
+								<span class="target">ImmutableSet</span>
 							</li>
 						</ul>
 					</li>
@@ -113,74 +118,183 @@
 				<h3>Implements</h3>
 				<ul class="tsd-hierarchy">
 					<li><a href="../interfaces/_collections_collection_.collection.html" class="tsd-signature-type">Collection</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
+					<li><span class="tsd-signature-type">Set</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
-						<section class="tsd-index-section tsd-is-inherited">
+						<section class="tsd-index-section ">
+							<h3>Constructors</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="_collections_immutableset_.immutableset.html#constructor" class="tsd-kind-icon">constructor</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_collections_multiset_.multiset.html#length" class="tsd-kind-icon">length</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_collections_immutableset_.immutableset.html#___tostringtag" class="tsd-kind-icon">__@to<wbr>String<wbr>Tag</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="_collections_immutableset_.immutableset.html#errormessage" class="tsd-kind-icon">error<wbr>Message</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_collections_immutableset_.immutableset.html#set" class="tsd-kind-icon">set</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Accessors</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-get-signature tsd-parent-kind-class tsd-is-overwrite"><a href="_collections_immutableset_.immutableset.html#length" class="tsd-kind-icon">length</a></li>
+								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="_collections_immutableset_.immutableset.html#size" class="tsd-kind-icon">size</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_collections_multiset_.multiset.html#___iterator" class="tsd-kind-icon">__@iterator</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_collections_multiset_.multiset.html#add" class="tsd-kind-icon">add</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_collections_multiset_.multiset.html#addall" class="tsd-kind-icon">add<wbr>All</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_collections_multiset_.multiset.html#clear" class="tsd-kind-icon">clear</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_collections_multiset_.multiset.html#count" class="tsd-kind-icon">count</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_collections_multiset_.multiset.html#delete" class="tsd-kind-icon">delete</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_collections_multiset_.multiset.html#deleteall" class="tsd-kind-icon">delete<wbr>All</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_collections_multiset_.multiset.html#elementset" class="tsd-kind-icon">element<wbr>Set</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_collections_multiset_.multiset.html#has" class="tsd-kind-icon">has</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_collections_multiset_.multiset.html#hasall" class="tsd-kind-icon">has<wbr>All</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_collections_multiset_.multiset.html#isempty" class="tsd-kind-icon">is<wbr>Empty</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_collections_multiset_.multiset.html#setcount" class="tsd-kind-icon">set<wbr>Count</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_collections_multiset_.multiset.html#toarray" class="tsd-kind-icon">to<wbr>Array</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="_collections_immutableset_.immutableset.html#___iterator" class="tsd-kind-icon">__@iterator</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="_collections_immutableset_.immutableset.html#add" class="tsd-kind-icon">add</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_collections_immutableset_.immutableset.html#addall" class="tsd-kind-icon">add<wbr>All</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="_collections_immutableset_.immutableset.html#clear" class="tsd-kind-icon">clear</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="_collections_immutableset_.immutableset.html#delete" class="tsd-kind-icon">delete</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_collections_immutableset_.immutableset.html#deleteall" class="tsd-kind-icon">delete<wbr>All</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_collections_immutableset_.immutableset.html#entries" class="tsd-kind-icon">entries</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_collections_immutableset_.immutableset.html#foreach" class="tsd-kind-icon">for<wbr>Each</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="_collections_immutableset_.immutableset.html#has" class="tsd-kind-icon">has</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_collections_immutableset_.immutableset.html#hasall" class="tsd-kind-icon">has<wbr>All</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_collections_immutableset_.immutableset.html#isempty" class="tsd-kind-icon">is<wbr>Empty</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_collections_immutableset_.immutableset.html#keys" class="tsd-kind-icon">keys</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_collections_immutableset_.immutableset.html#toarray" class="tsd-kind-icon">to<wbr>Array</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_collections_immutableset_.immutableset.html#values" class="tsd-kind-icon">values</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group tsd-is-inherited">
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Constructors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class">
+					<a name="constructor" class="tsd-anchor"></a>
+					<h3>constructor</h3>
+					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Immutable<wbr>Set<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>items<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_collections_immutableset_.immutableset.html" class="tsd-signature-type">ImmutableSet</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/f77f66c/lib/collections/immutableset.ts#L26">collections/immutableset.ts:26</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>items: <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="_collections_immutableset_.immutableset.html" class="tsd-signature-type">ImmutableSet</a></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-					<a name="length" class="tsd-anchor"></a>
-					<h3>length</h3>
-					<div class="tsd-signature tsd-kind-icon">length<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="___tostringtag" class="tsd-anchor"></a>
+					<h3>__@to<wbr>String<wbr>Tag</h3>
+					<div class="tsd-signature tsd-kind-icon">__@to<wbr>String<wbr>Tag<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"Set"</span></div>
 					<aside class="tsd-sources">
-						<p>Implementation of <a href="../interfaces/_collections_collection_.collection.html">Collection</a>.<a href="../interfaces/_collections_collection_.collection.html#length">length</a></p>
-						<p>Inherited from <a href="_collections_abstractcollection_.abstractcollection.html">AbstractCollection</a>.<a href="_collections_abstractcollection_.abstractcollection.html#length">length</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/psastras/mate.js/blob/f77f66c/lib/collections/abstractcollection.ts#L12">collections/abstractcollection.ts:12</a></li>
+							<li>Defined in <a href="https://github.com/psastras/mate.js/blob/f77f66c/lib/collections/immutableset.ts#L25">collections/immutableset.ts:25</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>The number of elements in the collection.</p>
-						</div>
-					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+					<a name="errormessage" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> error<wbr>Message</h3>
+					<div class="tsd-signature tsd-kind-icon">error<wbr>Message<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;Cannot modify an immutable collection.&quot;</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="_collections_immutablecollection_.immutablecollection.html">ImmutableCollection</a>.<a href="_collections_immutablecollection_.immutablecollection.html#errormessage">errorMessage</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/psastras/mate.js/blob/f77f66c/lib/collections/immutablecollection.ts#L11">collections/immutablecollection.ts:11</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="set" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> set</h3>
+					<div class="tsd-signature tsd-kind-icon">set<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Set</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/psastras/mate.js/blob/f77f66c/lib/collections/immutableset.ts#L26">collections/immutableset.ts:26</a></li>
+						</ul>
+					</aside>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Accessors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class tsd-is-overwrite">
+					<a name="length" class="tsd-anchor"></a>
+					<h3>length</h3>
+					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class tsd-is-overwrite">
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> length<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides <a href="_collections_abstractcollection_.abstractcollection.html">AbstractCollection</a>.<a href="_collections_abstractcollection_.abstractcollection.html#length">length</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/f77f66c/lib/collections/immutableset.ts#L44">collections/immutableset.ts:44</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>The number of elements in the collection.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>inheritdoc</dt>
+									<dd></dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class">
+					<a name="size" class="tsd-anchor"></a>
+					<h3>size</h3>
+					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> size<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/f77f66c/lib/collections/immutableset.ts#L39">collections/immutableset.ts:39</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>The number of elements in the collection.</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+						</li>
+					</ul>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
 					<a name="___iterator" class="tsd-anchor"></a>
 					<h3>__@iterator</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
 						<li class="tsd-signature tsd-kind-icon">__@iterator<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IterableIterator</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/_collections_collection_.collection.html">Collection</a>.<a href="../interfaces/_collections_collection_.collection.html#___iterator">__@iterator</a></p>
-								<p>Inherited from <a href="_collections_abstractcollection_.abstractcollection.html">AbstractCollection</a>.<a href="_collections_abstractcollection_.abstractcollection.html#___iterator">__@iterator</a></p>
+								<p>Overrides <a href="_collections_abstractcollection_.abstractcollection.html">AbstractCollection</a>.<a href="_collections_abstractcollection_.abstractcollection.html#___iterator">__@iterator</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/f77f66c/lib/collections/abstractcollection.ts#L68">collections/abstractcollection.ts:68</a></li>
+									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/f77f66c/lib/collections/immutableset.ts#L63">collections/immutableset.ts:63</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -192,19 +306,20 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
 					<a name="add" class="tsd-anchor"></a>
 					<h3>add</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
 						<li class="tsd-signature tsd-kind-icon">add<span class="tsd-signature-symbol">(</span>item<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/_collections_collection_.collection.html">Collection</a>.<a href="../interfaces/_collections_collection_.collection.html#add">add</a></p>
-								<p>Inherited from <a href="_collections_abstractcollection_.abstractcollection.html">AbstractCollection</a>.<a href="_collections_abstractcollection_.abstractcollection.html#add">add</a></p>
+								<p>Inherited from <a href="_collections_immutablecollection_.immutablecollection.html">ImmutableCollection</a>.<a href="_collections_immutablecollection_.immutablecollection.html#add">add</a></p>
+								<p>Overrides <a href="_collections_abstractcollection_.abstractcollection.html">AbstractCollection</a>.<a href="_collections_abstractcollection_.abstractcollection.html#add">add</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/f77f66c/lib/collections/abstractcollection.ts#L15">collections/abstractcollection.ts:15</a></li>
+									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/f77f66c/lib/collections/immutablecollection.ts#L14">collections/immutablecollection.ts:14</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -250,19 +365,20 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
 					<a name="clear" class="tsd-anchor"></a>
 					<h3>clear</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
 						<li class="tsd-signature tsd-kind-icon">clear<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/_collections_collection_.collection.html">Collection</a>.<a href="../interfaces/_collections_collection_.collection.html#clear">clear</a></p>
-								<p>Inherited from <a href="_collections_abstractcollection_.abstractcollection.html">AbstractCollection</a>.<a href="_collections_abstractcollection_.abstractcollection.html#clear">clear</a></p>
+								<p>Inherited from <a href="_collections_immutablecollection_.immutablecollection.html">ImmutableCollection</a>.<a href="_collections_immutablecollection_.immutablecollection.html#clear">clear</a></p>
+								<p>Overrides <a href="_collections_abstractcollection_.abstractcollection.html">AbstractCollection</a>.<a href="_collections_abstractcollection_.abstractcollection.html#clear">clear</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/f77f66c/lib/collections/abstractcollection.ts#L65">collections/abstractcollection.ts:65</a></li>
+									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/f77f66c/lib/collections/immutablecollection.ts#L24">collections/immutablecollection.ts:24</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -274,52 +390,20 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="count" class="tsd-anchor"></a>
-					<h3>count</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">count<span class="tsd-signature-symbol">(</span>item<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/f77f66c/lib/collections/multiset.ts#L18">collections/multiset.ts:18</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Returns the number of occurrences of an element in this multiset.</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>item: <span class="tsd-signature-type">T</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The element to count occurrences of</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-							<p>The number of occurrences of the element in this multiset, zero if is not
-							in this multiset</p>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
 					<a name="delete" class="tsd-anchor"></a>
 					<h3>delete</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
 						<li class="tsd-signature tsd-kind-icon">delete<span class="tsd-signature-symbol">(</span>item<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/_collections_collection_.collection.html">Collection</a>.<a href="../interfaces/_collections_collection_.collection.html#delete">delete</a></p>
-								<p>Inherited from <a href="_collections_abstractcollection_.abstractcollection.html">AbstractCollection</a>.<a href="_collections_abstractcollection_.abstractcollection.html#delete">delete</a></p>
+								<p>Inherited from <a href="_collections_immutablecollection_.immutablecollection.html">ImmutableCollection</a>.<a href="_collections_immutablecollection_.immutablecollection.html#delete">delete</a></p>
+								<p>Overrides <a href="_collections_abstractcollection_.abstractcollection.html">AbstractCollection</a>.<a href="_collections_abstractcollection_.abstractcollection.html#delete">delete</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/f77f66c/lib/collections/abstractcollection.ts#L26">collections/abstractcollection.ts:26</a></li>
+									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/f77f66c/lib/collections/immutablecollection.ts#L19">collections/immutablecollection.ts:19</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -370,44 +454,102 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="elementset" class="tsd-anchor"></a>
-					<h3>element<wbr>Set</h3>
+					<a name="entries" class="tsd-anchor"></a>
+					<h3>entries</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">element<wbr>Set<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Set</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">entries<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IterableIterator</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/f77f66c/lib/collections/multiset.ts#L35">collections/multiset.ts:35</a></li>
+									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/f77f66c/lib/collections/immutableset.ts#L71">collections/immutableset.ts:71</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns the set of distinct elements contained in this multiset. The
-										element set is backed by the same data as the multiset, so any change to
-										either is immediately reflected in the other. The order of the elements in
-									the element set is unspecified.</p>
+									<p>Returns an iterator over the entries of the set.</p>
 								</div>
 							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Set</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>A set containing the distinct items in this multiset</p>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IterableIterator</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>An iterator over the entries</p>
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="foreach" class="tsd-anchor"></a>
+					<h3>for<wbr>Each</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">for<wbr>Each<span class="tsd-signature-symbol">(</span>callbackfn<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span>, thisArg<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/f77f66c/lib/collections/immutableset.ts#L53">collections/immutableset.ts:53</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Executes the given function once for each entry in the map.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>callbackfn: <span class="tsd-signature-type">function</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The function to execute</p>
+									</div>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, index<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, set<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Set</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5>value: <span class="tsd-signature-type">T</span></h5>
+														</li>
+														<li>
+															<h5>index: <span class="tsd-signature-type">T</span></h5>
+														</li>
+														<li>
+															<h5>set: <span class="tsd-signature-type">Set</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> thisArg: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Value to use as <code>this</code> when executing the call</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
 					<a name="has" class="tsd-anchor"></a>
 					<h3>has</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">has<span class="tsd-signature-symbol">(</span>item<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+						<li class="tsd-signature tsd-kind-icon">has<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/_collections_collection_.collection.html">Collection</a>.<a href="../interfaces/_collections_collection_.collection.html#has">has</a></p>
-								<p>Inherited from <a href="_collections_abstractcollection_.abstractcollection.html">AbstractCollection</a>.<a href="_collections_abstractcollection_.abstractcollection.html#has">has</a></p>
+								<p>Overrides <a href="_collections_abstractcollection_.abstractcollection.html">AbstractCollection</a>.<a href="_collections_abstractcollection_.abstractcollection.html#has">has</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/f77f66c/lib/collections/abstractcollection.ts#L38">collections/abstractcollection.ts:38</a></li>
+									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/f77f66c/lib/collections/immutableset.ts#L58">collections/immutableset.ts:58</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -418,7 +560,7 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>item: <span class="tsd-signature-type">T</span></h5>
+									<h5>value: <span class="tsd-signature-type">T</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
@@ -484,40 +626,25 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="setcount" class="tsd-anchor"></a>
-					<h3>set<wbr>Count</h3>
+					<a name="keys" class="tsd-anchor"></a>
+					<h3>keys</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">set<wbr>Count<span class="tsd-signature-symbol">(</span>item<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, occurrences<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">keys<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IterableIterator</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/f77f66c/lib/collections/multiset.ts#L26">collections/multiset.ts:26</a></li>
+									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/f77f66c/lib/collections/immutableset.ts#L79">collections/immutableset.ts:79</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Adds or removes the necessary occurrences of an element such that the
-									element attains the desired count.</p>
+									<p>Returns an iterator over the keys of the set.</p>
 								</div>
 							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>item: <span class="tsd-signature-type">T</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The item to add or remove</p>
-									</div>
-								</li>
-								<li>
-									<h5>occurrences: <span class="tsd-signature-type">number</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The number of items to add or remove</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IterableIterator</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>An iterator over the keys</p>
 						</li>
 					</ul>
 				</section>
@@ -542,6 +669,29 @@
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="values" class="tsd-anchor"></a>
+					<h3>values</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">values<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IterableIterator</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/psastras/mate.js/blob/f77f66c/lib/collections/immutableset.ts#L87">collections/immutableset.ts:87</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns an iterator over the values of the set.</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IterableIterator</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>An iterator over the values</p>
 						</li>
 					</ul>
 				</section>
@@ -586,7 +736,7 @@
 					<li class=" tsd-kind-external-module">
 						<a href="../modules/_collections_immutablemap_.html">"collections/immutablemap"</a>
 					</li>
-					<li class=" tsd-kind-external-module">
+					<li class="current tsd-kind-external-module">
 						<a href="../modules/_collections_immutableset_.html">"collections/immutableset"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
@@ -595,7 +745,7 @@
 					<li class=" tsd-kind-external-module">
 						<a href="../modules/_collections_multimap_.html">"collections/multimap"</a>
 					</li>
-					<li class="current tsd-kind-external-module">
+					<li class=" tsd-kind-external-module">
 						<a href="../modules/_collections_multiset_.html">"collections/multiset"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
@@ -617,49 +767,67 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class tsd-parent-kind-external-module tsd-has-type-parameter">
-						<a href="_collections_multiset_.multiset.html" class="tsd-kind-icon">Multiset</a>
+						<a href="_collections_immutableset_.immutableset.html" class="tsd-kind-icon">Immutable<wbr>Set</a>
 						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="_collections_multiset_.multiset.html#length" class="tsd-kind-icon">length</a>
+							<li class=" tsd-kind-constructor tsd-parent-kind-class">
+								<a href="_collections_immutableset_.immutableset.html#constructor" class="tsd-kind-icon">constructor</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="_collections_immutableset_.immutableset.html#___tostringtag" class="tsd-kind-icon">__@to<wbr>String<wbr>Tag</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+								<a href="_collections_immutableset_.immutableset.html#errormessage" class="tsd-kind-icon">error<wbr>Message</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="_collections_immutableset_.immutableset.html#set" class="tsd-kind-icon">set</a>
+							</li>
+							<li class=" tsd-kind-get-signature tsd-parent-kind-class tsd-is-overwrite">
+								<a href="_collections_immutableset_.immutableset.html#length" class="tsd-kind-icon">length</a>
+							</li>
+							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
+								<a href="_collections_immutableset_.immutableset.html#size" class="tsd-kind-icon">size</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+								<a href="_collections_immutableset_.immutableset.html#___iterator" class="tsd-kind-icon">__@iterator</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+								<a href="_collections_immutableset_.immutableset.html#add" class="tsd-kind-icon">add</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="_collections_multiset_.multiset.html#___iterator" class="tsd-kind-icon">__@iterator</a>
+								<a href="_collections_immutableset_.immutableset.html#addall" class="tsd-kind-icon">add<wbr>All</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+								<a href="_collections_immutableset_.immutableset.html#clear" class="tsd-kind-icon">clear</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+								<a href="_collections_immutableset_.immutableset.html#delete" class="tsd-kind-icon">delete</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="_collections_multiset_.multiset.html#add" class="tsd-kind-icon">add</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="_collections_multiset_.multiset.html#addall" class="tsd-kind-icon">add<wbr>All</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="_collections_multiset_.multiset.html#clear" class="tsd-kind-icon">clear</a>
+								<a href="_collections_immutableset_.immutableset.html#deleteall" class="tsd-kind-icon">delete<wbr>All</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_collections_multiset_.multiset.html#count" class="tsd-kind-icon">count</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="_collections_multiset_.multiset.html#delete" class="tsd-kind-icon">delete</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="_collections_multiset_.multiset.html#deleteall" class="tsd-kind-icon">delete<wbr>All</a>
+								<a href="_collections_immutableset_.immutableset.html#entries" class="tsd-kind-icon">entries</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_collections_multiset_.multiset.html#elementset" class="tsd-kind-icon">element<wbr>Set</a>
+								<a href="_collections_immutableset_.immutableset.html#foreach" class="tsd-kind-icon">for<wbr>Each</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+								<a href="_collections_immutableset_.immutableset.html#has" class="tsd-kind-icon">has</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="_collections_multiset_.multiset.html#has" class="tsd-kind-icon">has</a>
+								<a href="_collections_immutableset_.immutableset.html#hasall" class="tsd-kind-icon">has<wbr>All</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="_collections_multiset_.multiset.html#hasall" class="tsd-kind-icon">has<wbr>All</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="_collections_multiset_.multiset.html#isempty" class="tsd-kind-icon">is<wbr>Empty</a>
+								<a href="_collections_immutableset_.immutableset.html#isempty" class="tsd-kind-icon">is<wbr>Empty</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_collections_multiset_.multiset.html#setcount" class="tsd-kind-icon">set<wbr>Count</a>
+								<a href="_collections_immutableset_.immutableset.html#keys" class="tsd-kind-icon">keys</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="_collections_multiset_.multiset.html#toarray" class="tsd-kind-icon">to<wbr>Array</a>
+								<a href="_collections_immutableset_.immutableset.html#toarray" class="tsd-kind-icon">to<wbr>Array</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_collections_immutableset_.immutableset.html#values" class="tsd-kind-icon">values</a>
 							</li>
 						</ul>
 					</li>
