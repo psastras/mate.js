@@ -10,6 +10,7 @@ import MultisetMultimap from './collections/multisetmultimap';
 import ImmutableMap from './collections/immutablemap';
 import ImmutableSet from './collections/immutableset';
 import ImmutableList from './collections/immutablelist';
+import ImmutableMultimap from './collections/immutablemultimap';
 
 export default {
   Collections: {
@@ -20,6 +21,7 @@ export default {
     ImmutableMap,
     ImmutableSet,
     ImmutableList,
+    ImmutableMultimap,
   },
   Primitives: {
     Objects,
