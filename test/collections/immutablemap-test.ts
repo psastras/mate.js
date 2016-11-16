@@ -104,4 +104,5 @@ import ImmutableMap from '../../lib/collections/immutablemap';
     }
     expect(values).to.deep.eq([3, 2]);
   }
+
 }

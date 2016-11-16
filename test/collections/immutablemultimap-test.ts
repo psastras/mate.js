@@ -104,4 +104,10 @@ import ImmutableMultimap from '../../lib/collections/immutablemultimap';
     }
     expect(values).to.deep.eq([[3], [2]]);
   }
+
+  @test 'should be not be able to create a new colletion in the map'() {
+    const map = new ImmutableMultimap<string, number>();
+    expect(() => map._createCollection()).to.throw(Error);
+  }
+
 }
