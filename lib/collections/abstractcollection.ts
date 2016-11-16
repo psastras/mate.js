@@ -2,7 +2,7 @@ import Collection from './collection';
 
 /**
  * An abstract collection partially implements the {@link Collection} interface,
- * making it easier for subclasses to fully implment the {@link Collection}.
+ * making it easier for subclasses to fully implement the {@link Collection}.
  * 
  * @param T The item type
  */
@@ -65,12 +65,8 @@ abstract class AbstractCollection<T> implements Collection<T> {
   public abstract clear(): void;
 
   /** @inheritdoc */
-  public [Symbol.iterator](): IterableIterator<T> {
-    return this.entries();
-  }
+  public abstract [Symbol.iterator](): IterableIterator<T>;
 
-  /** @inheritdoc */
-  public abstract entries(): IterableIterator<T>;
 }
 
 export default AbstractCollection;
