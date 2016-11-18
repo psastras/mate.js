@@ -1,22 +1,24 @@
+import ImmutableSet from './immutableset';
+
 /**
  * A {@link Map} which is immutable after construction.  An {@link Error} will be
  * thrown if an attempt is made to modify this map.
- * 
+ *
  * Example usage
  * ```
  * const map = new ImmutableMap<string, number>(
  *   ['foo', 3], ['bar', 2]
  * );
- * 
+ *
  * map.get('foo'); // 3
  * map.has('bar'); // true
- * 
+ *
  * // the map cannot be modified
  * map.set('voo', 3); // throw new Error
  * map.clear(); // throw new Error
- * 
+ *
  * ```
- * 
+ *
  * @param K The key type
  * @param V The value type
  */
@@ -25,6 +27,8 @@ class ImmutableMap<K, V> implements Map<K, V> {
   public readonly [Symbol.toStringTag]: 'Map';
   private readonly errorMessage: 'Error modifying an immutable map.';
   private delegate: Map<K, V>;
+  private _keySet: ImmutableSet<K>;
+  private _valueSet: ImmutableSet<V>;
 
   constructor(...items: [K, V][]) {
     this.delegate = new Map<K, V>();
@@ -125,6 +129,37 @@ class ImmutableMap<K, V> implements Map<K, V> {
   public values(): IterableIterator<V> {
     return this.delegate.values();
   }
+
+  /**
+   * Returns an immutable set of keys in the map.
+   * @returns A set of keys in the map
+   */
+  public keySet(): ImmutableSet<K> {
+    if (!this._keySet) {
+      this._keySet = new ImmutableSet(...this.delegate.keys());
+    }
+    return this._keySet;
+  }
+
+  /**
+   * Returns an immutable set of values in the map.
+   * @returns A set of values in the map
+   */
+  public valueSet(): ImmutableSet<V> {
+    if (!this._valueSet) {
+      this._valueSet = new ImmutableSet(...this.delegate.values());
+    }
+    return this._valueSet;
+  }
+
+  /**
+   * Returns true if the map is empty (size == 0), false otherwise.
+   * @returns True if the map is empty, false otherwise
+   */
+  public isEmpty(): boolean {
+    return this.delegate.size === 0;
+  }
+
 }
 
 export default ImmutableMap;

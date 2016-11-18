@@ -105,4 +105,20 @@ import ImmutableMap from '../../lib/collections/immutablemap';
     expect(values).to.deep.eq([3, 2]);
   }
 
+  @test 'should be able to retrieve the key set'() {
+    const map = new ImmutableMap<string, number>(
+      ['foo', 3], ['bar', 2]
+    );
+    const keySet = map.keySet();
+    expect(keySet.toArray()).to.deep.eq(['foo', 'bar']);
+  }
+
+  @test 'should be able to retrieve the value set'() {
+    const map = new ImmutableMap<string, number>(
+      ['foo', 3], ['bar', 2]
+    );
+    const keySet = map.valueSet();
+    expect(keySet.toArray()).to.deep.eq([3, 2]);
+  }
+
 }
