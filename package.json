@@ -4,7 +4,7 @@
   "scripts": {
     "build": "rimraf dist && rollup -c rollup.config.js",
     "build:test": "rimraf .build && tsc -p test",
-    "doc": "typedoc --out dist/doc --readme README.md ./lib",
+    "doc": "typedoc --out dist/doc --readme README.md --target es6 ./lib",
     "postdoc": "cpx icon.png dist/doc",
     "pretest": "npm-run-all build:test",
     "test": "nyc ava",
