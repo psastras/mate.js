@@ -2,7 +2,7 @@
  * Helper functions to operate on `Object` types.
  */
 
-import * as _ from 'lodash';
+import deepequal from 'deep-equal';
 
 /**
  * Determines whether two possibly-null objects are equal.
@@ -11,7 +11,7 @@ import * as _ from 'lodash';
  * @returns True if the objects are equal, false otherwise.
  */
 function isEqual(a: Object, b: Object) {
-  return _.isEqual(a, b);
+  return deepequal(a, b);
 }
 
 export default {

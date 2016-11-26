@@ -2,122 +2,61 @@
   "name": "matejs",
   "version": "0.0.0",
   "scripts": {
-    "build": "jspm build lib/main dist/main.js --global-name matejs --skip-source-maps",
-    "doc": "typedoc --out .build/doc --readme README.md ./lib",
-    "postdoc": "cpx icon.png .build/doc",
-    "start": "http-server",
-    "watch": "gulp",
-    "pretest": "rimraf .build && tsc -p .",
-    "test": "tslint -c tsconfig.json 'lib/**/*.ts' && nyc mocha --reporter list",
-    "precitest": "rimraf .build && tsc -p .",
-    "citest": "nyc mocha --reporter mocha-junit-reporter",
-    "postcitest": "tslint -c tsconfig.json 'lib/**/*.ts' && nyc report --reporter=json && codecov -f coverage/*.json",
-    "postinstall": "typings install"
+    "build": "rimraf dist && rollup -c rollup.config.js",
+    "build:test": "rimraf .build && tsc -p test",
+    "doc": "typedoc --out dist/doc --readme README.md ./lib",
+    "postdoc": "cpx icon.png dist/doc",
+    "test": "nyc ava",
+    "precitest": "npm-run-all build:test",
+    "citest": "nyc ava --tap | tap-xunit > $CI_TEST_REPORT_FILE",
+    "postcitest": "npm-run-all lint",
+    "lint": "tslint -c lib/tsconfig.json 'lib/**/*.ts'",
+    "postinstall": "typings install",
+    "watch": "npm-run-all --parallel watch:*",
+    "watch:test": "tsc -w -p test",
+    "watch:ava": "ava --watch"
+  },
+  "ava": {
+    "files": [
+      ".build/test/**/*.js"
+    ],
+    "require": [
+      "source-map-support/register"
+    ],
+    "concurrency": 4
   },
   "nyc": {
-    "exclude": [
-      "test",
-      ".build/test",
-      "node_modules"
+    "include": [
+      ".build/test/**/*.js"
     ]
   },
-  "jspm": {
-    "format": "es6",
-    "main": "lib/main.ts",
-    "dependencies": {
-      "lodash": "npm:lodash@^4.16.6",
-      "object-hash": "npm:object-hash@^1.1.5"
-    },
-    "devDependencies": {
-      "child_process": "github:jspm/nodelibs-child_process@^0.2.0-alpha",
-      "module": "github:jspm/nodelibs-module@^0.2.0-alpha",
-      "net": "github:jspm/nodelibs-net@^0.2.0-alpha",
-      "plugin-typescript": "github:frankwallis/plugin-typescript@^5.2.9",
-      "readline": "github:jspm/nodelibs-readline@^0.2.0-alpha",
-      "tsc": "npm:tsc@^1.20150623.0",
-      "typescript": "npm:typescript@^1.6.2"
-    },
-    "buildConfig": {
-      "transpileES6": false,
-      "minify": false
-    },
-    "peerDependencies": {
-      "assert": "github:jspm/nodelibs-assert@^0.2.0-alpha",
-      "buffer": "github:jspm/nodelibs-buffer@^0.2.0-alpha",
-      "constants": "github:jspm/nodelibs-constants@^0.2.0-alpha",
-      "crypto": "github:jspm/nodelibs-crypto@^0.2.0-alpha",
-      "events": "github:jspm/nodelibs-events@^0.2.0-alpha",
-      "fs": "github:jspm/nodelibs-fs@^0.2.0-alpha",
-      "os": "github:jspm/nodelibs-os@^0.2.0-alpha",
-      "path": "github:jspm/nodelibs-path@^0.2.0-alpha",
-      "process": "github:jspm/nodelibs-process@^0.2.0-alpha",
-      "stream": "github:jspm/nodelibs-stream@^0.2.0-alpha",
-      "string_decoder": "github:jspm/nodelibs-string_decoder@^0.2.0-alpha",
-      "util": "github:jspm/nodelibs-util@^0.2.0-alpha",
-      "vm": "github:jspm/nodelibs-vm@^0.2.0-alpha"
-    },
-    "overrides": {
-      "npm:inherits@2.0.1": {
-        "ignore": [
-          "test.js"
-        ]
-      },
-      "npm:lodash@4.16.6": {
-        "map": {
-          "buffer": "@empty",
-          "process": "@empty"
-        }
-      },
-      "npm:typescript@1.8.10": {
-        "browser": {},
-        "map": {
-          "buffer": "@empty",
-          "child_process": "@empty",
-          "fs": "@empty",
-          "path": "@empty",
-          "process": "@empty",
-          "readline": "@empty"
-        }
-      },
-      "npm:typescript@2.1.1": {
-        "browser": {},
-        "map": {
-          "buffer": "@empty",
-          "child_process": "@empty",
-          "fs": "@empty",
-          "path": "@empty",
-          "process": "@empty",
-          "readline": "@empty"
-        },
-        "dependencies": {
-          "source-map-support": "*"
-        }
-      }
-    }
-  },
   "devDependencies": {
+    "ava": "^0.17.0",
     "chai": "^3.5.0",
     "codecov": "^1.0.1",
     "cpx": "^1.5.0",
-    "gulp": "^3.9.1",
-    "gulp-batch": "^1.0.5",
-    "gulp-mocha": "^3.0.1",
-    "gulp-tslint": "^6.1.3",
-    "gulp-typescript": "^3.1.2",
-    "gulp-util": "^3.0.7",
-    "gulp-watch": "^4.3.10",
-    "jspm": "0.17.0-beta.29",
-    "mocha": "^3.1.2",
-    "mocha-junit-reporter": "^1.12.1",
-    "mocha-typescript": "^1.0.11",
-    "nyc": "^8.4.0",
+    "glob": "^7.1.1",
+    "istanbul-instrumenter-loader": "^1.0.0",
+    "lodash": "^4.17.2",
+    "npm-run-all": "^3.1.1",
+    "nyc": "^10.0.0",
     "rimraf": "^2.5.4",
-    "tslint": "^3.15.1",
+    "rollup": "^0.36.4",
+    "rollup-plugin-commonjs": "^5.0.5",
+    "rollup-plugin-node-resolve": "^2.0.0",
+    "rollup-plugin-typescript": "^0.8.1",
+    "source-map-loader": "^0.1.5",
+    "tap-xunit": "^1.4.0",
+    "ts-loader": "^1.2.2",
+    "tslint": "^4.0.2",
     "typedoc": "^0.5.1",
     "typescript": "^2.0.7",
-    "typings": "^2.0.0"
+    "typings": "^2.0.0",
+    "webpack": "^1.13.3",
+    "webpack-node-externals": "^1.5.4"
   },
   "dependencies": {
+    "deep-equal": "^1.0.1",
     "object-hash": "^1.1.5"
   }
 }

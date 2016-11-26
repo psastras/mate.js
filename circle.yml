@@ -16,9 +16,7 @@ dependencies:
     - sudo apt-get update -qq
     - sudo apt-get install -y -qq yarn
   cache_directories:
-    - "~/.yarn-cache"
     - "~/.apt-cache"
-    - "jspm_packages"
   override:
     - yarn install
 test:
@@ -32,3 +30,4 @@ deployment:
     commands:
       - npm run doc
       - sh ci/github-page.sh
+      - npm run build

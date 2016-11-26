@@ -12,8 +12,8 @@ import ImmutableSet from './collections/immutableset';
 import ImmutableList from './collections/immutablelist';
 import ImmutableMultimap from './collections/immutablemultimap';
 
-export default {
-  Collections: {
+// tslint:disable-next-line:variable-name
+export const Collections = {
     ArrayMultimap,
     MultisetMultimap,
     MapMultiset,
@@ -22,9 +22,10 @@ export default {
     ImmutableSet,
     ImmutableList,
     ImmutableMultimap,
-  },
-  Primitives: {
+};
+
+// tslint:disable-next-line:variable-name
+export const Primitives = {
     Objects,
     Numbers,
-  },
 };

@@ -1,4 +1,4 @@
-import { suite, test, slow, timeout, skip, only } from 'mocha-typescript';
+import test from 'ava';
 import { expect } from 'chai';
 import AbstractCollection from '../../lib/collections/abstractcollection';
 
@@ -64,45 +64,42 @@ class ArrayCollection<T> extends AbstractCollection<T> {
   }
 }
 
-@suite class AbstractCollectionTest {
+test('should be able to add a collection', () => {
+  const array = new ArrayCollection<number>()
+    .add(0)
+    .add(1)
+    .add(2);
+  const toAdd = new ArrayCollection<number>()
+    .add(0)
+    .add(1)
+    .add(2);
+  array.addAll(toAdd);
+  expect(array.toArray()).to.deep.eq([0, 1, 2, 0, 1, 2]);
+});
 
-  @test 'should be able to add a collection'() {
-    const array = new ArrayCollection<number>()
-      .add(0)
-      .add(1)
-      .add(2);
-    const toAdd = new ArrayCollection<number>()
-      .add(0)
-      .add(1)
-      .add(2);
-    array.addAll(toAdd);
-    expect(array.toArray()).to.deep.eq([0, 1, 2, 0, 1, 2]);
-  }
+test('should be able to delete a collection', () => {
+  const array = new ArrayCollection<number>()
+    .add(0)
+    .add(1)
+    .add(2);
+  const toRemove = new ArrayCollection<number>()
+    .add(0)
+    .add(1)
+    .add(2);
+  array.deleteAll(toRemove);
+  expect(array.isEmpty()).to.be.true;
+});
 
-  @test 'should be able to delete a collection'() {
-    const array = new ArrayCollection<number>()
-      .add(0)
-      .add(1)
-      .add(2);
-    const toRemove = new ArrayCollection<number>()
-      .add(0)
-      .add(1)
-      .add(2);
-    array.deleteAll(toRemove);
-    expect(array.isEmpty()).to.be.true;
-  }
-
-   @test 'should be able check if it contains a collection'() {
-    const array = new ArrayCollection<number>()
-      .add(0)
-      .add(1)
-      .add(2);
-    const toCheck = new ArrayCollection<number>()
-      .add(0)
-      .add(1)
-      .add(2);
-    expect(array.hasAll(toCheck)).to.be.true;
-    toCheck.add(3);
-    expect(array.hasAll(toCheck)).to.be.false;
-  }
-}
+test('should be able check if it contains a collection', () => {
+  const array = new ArrayCollection<number>()
+    .add(0)
+    .add(1)
+    .add(2);
+  const toCheck = new ArrayCollection<number>()
+    .add(0)
+    .add(1)
+    .add(2);
+  expect(array.hasAll(toCheck)).to.be.true;
+  toCheck.add(3);
+  expect(array.hasAll(toCheck)).to.be.false;
+});

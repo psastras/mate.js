@@ -1,7 +1,6 @@
-import * as _ from 'lodash';
 import BiMap from './bimap';
-import ImmutableEntry from './immutableentry';
 import Hashing from './hashing';
+import ImmutableEntry from './immutableentry';
 import Objects from '../primitives/objects';
 
 /**
@@ -280,8 +279,8 @@ export default class HashBiMap<K, V> implements BiMap<K, V> {
    */
   public clear(): void {
     this._size = 0;
-    _.fill(this.hashTableKToV, null);
-    _.fill(this.hashTableVToK, null);
+    this.hashTableKToV.fill(null);
+    this.hashTableVToK.fill(null);
     this.firstInKeyInsertionOrder = null;
     this.lastInKeyInsertionOrder = null;
     this.modCount++;

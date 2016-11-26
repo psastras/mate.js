@@ -1,6 +1,5 @@
 import Collection from './collection';
 import Multimap from './multimap';
-import * as _ from 'lodash';
 
 /**
  * A {@link Multimap} which implements several methods using {@link Multimap.asMap}.
@@ -15,7 +14,7 @@ abstract class AbstractMultimap<K, V> implements Multimap<K, V> {
   public readonly [Symbol.toStringTag]: 'MultiMap';
 
   /** @inheritdoc */
-  public abstract asMap(): Map<K, Array<V> | Collection<V>>;
+  public abstract asMap(): Map<K, V[] | Collection<V>>;
 
   /** @inheritdoc */
   public set(key: K, value: V): this {
@@ -47,7 +46,7 @@ abstract class AbstractMultimap<K, V> implements Multimap<K, V> {
 
     let deleted = false;
     if (Array.isArray(values)) {
-      const idx = _.indexOf(values, value);
+      const idx = values.indexOf(value);
       deleted = idx !== -1;
       if (deleted) {
         values.splice(idx);
@@ -67,10 +66,10 @@ abstract class AbstractMultimap<K, V> implements Multimap<K, V> {
   }
 
   /** @inheritdoc */
-  public abstract get(key: K): Array<V> | Collection<V>;
+  public abstract get(key: K): V[] | Collection<V>;
 
   /** @inheritdoc */
-  public entries(): IterableIterator<[K, Array<V> | Collection<V>]> {
+  public entries(): IterableIterator<[K, V[] | Collection<V>]> {
     return this.asMap().entries();
   }
 
@@ -80,14 +79,14 @@ abstract class AbstractMultimap<K, V> implements Multimap<K, V> {
   }
 
   /** @inheritdoc */
-  public values(): IterableIterator<Array<V> | Collection<V>> {
+  public values(): IterableIterator<V[] | Collection<V>> {
     return this.asMap().values();
   }
 
   /** @inheritdoc */
-  public forEach(callbackfn: (value: Array<V> | Collection<V>,
+  public forEach(callbackfn: (value: V[] | Collection<V>,
                  index: K,
-                 map: Map<K, Array<V> | Collection<V>>) => void,
+                 map: Map<K, V[] | Collection<V>>) => void,
                  thisArg?: any): void {
     this.asMap().forEach(callbackfn);
   }
@@ -103,12 +102,12 @@ abstract class AbstractMultimap<K, V> implements Multimap<K, V> {
   }
 
   /** @inheritdoc */
-  public [Symbol.iterator](): IterableIterator<[K, Array<V> | Collection<V>]> {
+  public [Symbol.iterator](): IterableIterator<[K, V[] | Collection<V>]> {
     return this.entries();
   }
 
   /** @inheritdoc */
-  protected abstract _createCollection(): Array<V> | Collection<V>;
+  protected abstract _createCollection(): V[] | Collection<V>;
 
 }
 
