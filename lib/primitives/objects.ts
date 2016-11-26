@@ -2,7 +2,7 @@
  * Helper functions to operate on `Object` types.
  */
 
-import deepequal from 'deep-equal';
+import * as deepequal from 'deep-equal';
 
 /**
  * Determines whether two possibly-null objects are equal.
