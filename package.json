@@ -28,7 +28,7 @@
   },
   "nyc": {
     "include": [
-      ".build/test/**/*.js"
+      ".build/lib/**/*.js"
     ]
   },
   "devDependencies": {
