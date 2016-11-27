@@ -31,4 +31,3 @@ deployment:
     commands:
       - npm run doc
       - sh ci/github-page.sh
-      - npm run build
